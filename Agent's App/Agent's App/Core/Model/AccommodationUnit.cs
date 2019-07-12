@@ -24,9 +24,9 @@ namespace Agent_s_App.Core.Model
 
 		public bool Deleted;
 
-		//public List<PeriodPrice> PeriodPrices { get; set; }
+		public List<PeriodPrice> PeriodPrices { get; set; }
 
-		//public List<Reservation> Reservations { get; set; }
+		public List<Reservation> Reservations { get; set; }
 
 		[Required]
 		public AccommodationUnitType AccommodationUnitType { get; set; }

@@ -21,10 +21,14 @@ namespace Agent_s_App.Persistance
 		public virtual DbSet<Accommodation> Accommodations { get; set; }
 		public virtual DbSet<AccommodationUnit> AccommodationUnits { get; set; }
 		public virtual DbSet<AccommodationUnitType> AccommodationUnitTypes { get; set; }
+		public virtual DbSet<AccommodationService> AccommodationServices { get; set; }
+		public virtual DbSet<CommentRate> CommentRates { get; set; }
+		public virtual DbSet<PeriodPrice> PeriodPrices { get; set; }
+		public virtual DbSet<Message> Messages { get; set; }
+		public virtual DbSet<Reservation> Reservations { get; set; }
 
-		//protected override void OnModelCreating(DbModelBuilder modelBuilder)
-		//{
-		//	modelBuilder.Configurations.Add(new CourseConfiguration());
-		//}
+		protected override void OnModelCreating(DbModelBuilder modelBuilder)
+		{
+		}
 	}
 }

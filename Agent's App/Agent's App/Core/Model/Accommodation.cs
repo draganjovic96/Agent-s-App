@@ -21,7 +21,7 @@ namespace Agent_s_App.Core.Model
 		[Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
 		public long Id { get; set; }
 
-		//public List<Service> Services { get; set; }
+		public List<AccommodationService> Services { get; set; }
 
 		[Required]
 		public string Description { get; set; }
@@ -29,7 +29,7 @@ namespace Agent_s_App.Core.Model
 		[Required]
 		public string Name { get; set; }
 
-		//public List<AccommodationUnit> AccommodationUnits { get; set; }
+		public List<AccommodationUnit> AccommodationUnits { get; set; }
 
 		[Required]
 		public List<User> Agents { get; set; }

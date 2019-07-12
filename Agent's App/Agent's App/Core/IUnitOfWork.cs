@@ -14,6 +14,11 @@ namespace Agent_s_App.Core
 		IAccommodationRepository Accommodations { get; }
 		IAccommodationUnitRepository AccommodationUnits { get; }
 		IAccommodationUnitTypeRepository AccommodationUnitTypes { get; }
+		IAccommodationServiceRepository AccommodationServices { get; }
+		ICommentRateRepository CommentRates { get; }
+		IPeriodPriceRepository PeriodPrices { get; }
+		IMessageRepository Messages { get; }
+		IReservationRepository Reservations { get; }
 		int Complete();
 	}
 }

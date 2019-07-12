@@ -72,15 +72,25 @@
     </Compile>
     <Compile Include="Core\IUnitOfWork.cs" />
     <Compile Include="Core\Model\Accommodation.cs" />
+    <Compile Include="Core\Model\AccommodationService.cs" />
     <Compile Include="Core\Model\AccommodationUnit.cs" />
     <Compile Include="Core\Model\AccommodationUnitType.cs" />
     <Compile Include="Core\Model\Address.cs" />
+    <Compile Include="Core\Model\CommentRate.cs" />
+    <Compile Include="Core\Model\Message.cs" />
+    <Compile Include="Core\Model\PeriodPrice.cs" />
+    <Compile Include="Core\Model\Reservation.cs" />
     <Compile Include="Core\Model\User.cs" />
     <Compile Include="Core\Repository\IAccommodationRepository.cs" />
+    <Compile Include="Core\Repository\IAccommodationServiceRepository.cs" />
     <Compile Include="Core\Repository\IAccommodationUnitRepository.cs" />
     <Compile Include="Core\Repository\IAccommodationUnitTypeRepository.cs" />
     <Compile Include="Core\Repository\IAddressRepository.cs" />
+    <Compile Include="Core\Repository\ICommentRateRepository.cs" />
+    <Compile Include="Core\Repository\IMessageRepository.cs" />
+    <Compile Include="Core\Repository\IPeriodPriceRepository.cs" />
     <Compile Include="Core\Repository\IRepository.cs" />
+    <Compile Include="Core\Repository\IReservationRepository.cs" />
     <Compile Include="Core\Repository\IUserRepository.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -88,17 +98,22 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201907122205512_First.cs" />
-    <Compile Include="Migrations\201907122205512_First.Designer.cs">
-      <DependentUpon>201907122205512_First.cs</DependentUpon>
+    <Compile Include="Migrations\201907122250087_First.cs" />
+    <Compile Include="Migrations\201907122250087_First.Designer.cs">
+      <DependentUpon>201907122250087_First.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Persistance\AgentsAppContext.cs" />
     <Compile Include="Persistance\Repository\AccommodationRepository.cs" />
+    <Compile Include="Persistance\Repository\AccommodationServiceRepository.cs" />
     <Compile Include="Persistance\Repository\AccommodationUnitRepository.cs" />
     <Compile Include="Persistance\Repository\AccommodationUnitTypeRepository.cs" />
     <Compile Include="Persistance\Repository\AddressRepository.cs" />
+    <Compile Include="Persistance\Repository\CommentRateRepository.cs" />
+    <Compile Include="Persistance\Repository\MessageRepository.cs" />
+    <Compile Include="Persistance\Repository\PeriodPriceRepository.cs" />
     <Compile Include="Persistance\Repository\Repository.cs" />
+    <Compile Include="Persistance\Repository\ReservationRepository.cs" />
     <Compile Include="Persistance\UnitOfWork.cs" />
     <Compile Include="Persistance\Repository\UserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -114,8 +129,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\201907122205512_First.resx">
-      <DependentUpon>201907122205512_First.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201907122250087_First.resx">
+      <DependentUpon>201907122250087_First.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
