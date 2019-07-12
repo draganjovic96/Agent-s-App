@@ -18,6 +18,9 @@ namespace Agent_s_App.Persistance
 
 		public virtual DbSet<User> Users { get; set; }
 		public virtual DbSet<Address> Addresses { get; set; }
+		public virtual DbSet<Accommodation> Accommodations { get; set; }
+		public virtual DbSet<AccommodationUnit> AccommodationUnits { get; set; }
+		public virtual DbSet<AccommodationUnitType> AccommodationUnitTypes { get; set; }
 
 		//protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		//{

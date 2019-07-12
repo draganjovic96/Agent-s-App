@@ -11,6 +11,9 @@ namespace Agent_s_App.Core
 	{
 		IUserRepository Users { get; }
 		IAddressRepository Addresses { get; }
+		IAccommodationRepository Accommodations { get; }
+		IAccommodationUnitRepository AccommodationUnits { get; }
+		IAccommodationUnitTypeRepository AccommodationUnitTypes { get; }
 		int Complete();
 	}
 }

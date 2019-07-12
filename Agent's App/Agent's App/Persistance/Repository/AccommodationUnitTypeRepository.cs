@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Agent_s_App.Persistance.Repository
 {
-	public class UserRepository : Repository<User>, IUserRepository
+	public class AccommodationUnitTypeRepository : Repository<AccommodationUnitType>, IAccommodationUnitTypeRepository
 	{
-		public UserRepository(AgentsAppContext context) : base(context)
+		public AccommodationUnitTypeRepository(AgentsAppContext context) : base(context)
 		{
 		}
 
@@ -20,4 +20,3 @@ namespace Agent_s_App.Persistance.Repository
 		}
 	}
 }
-

@@ -2,15 +2,16 @@
 using Agent_s_App.Core.Repository;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Agent_s_App.Persistance.Repository
 {
-	public class UserRepository : Repository<User>, IUserRepository
+	public class AccommodationRepository : Repository<Accommodation>, IAccommodationRepository
 	{
-		public UserRepository(AgentsAppContext context) : base(context)
+		public AccommodationRepository(AgentsAppContext context) : base(context)
 		{
 		}
 
@@ -20,4 +21,3 @@ namespace Agent_s_App.Persistance.Repository
 		}
 	}
 }
-

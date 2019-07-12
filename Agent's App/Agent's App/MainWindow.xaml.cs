@@ -27,36 +27,65 @@ namespace Agent_s_App
 
 		public MainWindow()
 		{
-			//Address address = new Address()
-			//{ 
-			//	Id = 55,
-			//	Country = "Serbia",
-			//	City = "Novi Sad",
-			//	PostalCode = 21000,
-			//	Street = "Laze Kositca",
-			//	Number = "3",
-			//	ApartmentNumber = "10"
-			//};
+			Address address = new Address()
+			{
+				Id = 55,
+				Country = "Serbia",
+				City = "Novi Sad",
+				PostalCode = 21000,
+				Street = "Laze Kositca",
+				Number = "3",
+				ApartmentNumber = "10"
+			};
 
-			//User user = new User()
-			//{
-			//	Id = 1230,
-			//	Username = "draganjovic96",
-			//	Name = "Dragan",
-			//	LastName = "Jovic",
-			//	Password = "12345678",
-			//	Role = UserRole.AGENT,
-			//	Address = address
-			//};
+			AccommodationUnitType accommodationUnitType = new AccommodationUnitType()
+			{
+				Id = 5,
+				Name = "Jednokrevetna",
+				Deleted = false
+			};
 
-			//unitOfWork.Addresses.Add(address);
-			//unitOfWork.Users.Add(user);
-			//unitOfWork.Complete();
+			Accommodation accommodation = new Accommodation()
+			{
+				Id = 6542,
+				Name = "Hotel Park",
+				Address = address,
+				Description = "Hotel u Novom Sadu sa 5 zvezdica.",
+				AccommodationType = AccommodationType.HOTEL,
+				Category = "5 zvezdica",
+			};
 
-			Address address1 = unitOfWork.Addresses.Get(5);
-			address1.Street = "Boska Buhe";
-			unitOfWork.Addresses.Add(address1);
+			AccommodationUnit accommodationUnit1 = new AccommodationUnit()
+			{
+				Id = 5123,
+				Floor = 1,
+				Number = "A1",
+				AccommodationUnitType = accommodationUnitType,
+				Accommodation = accommodation,
+				NumberOfBeds = 1,
+				DefaultPrice = 39.99
+			};
+
+			User user = new User()
+			{
+				Id = 1230,
+				Username = "draganjovic96",
+				Name = "Dragan",
+				LastName = "Jovic",
+				Password = "12345678",
+				Role = UserRole.AGENT,
+				Address = address,
+				AgentOfAccommodation = accommodation
+			};
+
+			unitOfWork.Addresses.Add(address);
+			unitOfWork.Users.Add(user);
+			unitOfWork.Accommodations.Add(accommodation);
+			unitOfWork.AccommodationUnitTypes.Add(accommodationUnitType);
+			unitOfWork.AccommodationUnits.Add(accommodationUnit1);
 			unitOfWork.Complete();
+
+
 
 			InitializeComponent();
 		}
