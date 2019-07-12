@@ -7,7 +7,7 @@
     <ProjectGuid>{9297F9B4-5F2B-4D6F-AAB3-2BAAB71AE026}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Agent_s_App</RootNamespace>
-    <AssemblyName>Agent%27s App</AssemblyName>
+    <AssemblyName>Agents App</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -70,12 +70,28 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Core\IUnitOfWork.cs" />
+    <Compile Include="Core\Model\Address.cs" />
+    <Compile Include="Core\Model\User.cs" />
+    <Compile Include="Core\Repository\IAddressRepository.cs" />
+    <Compile Include="Core\Repository\IRepository.cs" />
+    <Compile Include="Core\Repository\IUserRepository.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\201907111639202_First.cs" />
+    <Compile Include="Migrations\201907111639202_First.Designer.cs">
+      <DependentUpon>201907111639202_First.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Persistance\AgentsAppContext.cs" />
+    <Compile Include="Persistance\Repository\AddressRepository.cs" />
+    <Compile Include="Persistance\Repository\Repository.cs" />
+    <Compile Include="Persistance\Repository\UnitOfWork.cs" />
+    <Compile Include="Persistance\Repository\UserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -89,6 +105,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Migrations\201907111639202_First.resx">
+      <DependentUpon>201907111639202_First.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -102,5 +121,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
