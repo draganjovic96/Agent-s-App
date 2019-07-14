@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Agent_s_App"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Agent's App" WindowState="Maximized" WindowStyle="ThreeDBorderWindow" 
+        Icon="Resources/logo.png"
+        ResizeMode="NoResize">
     <Grid>
-        
+        <ContentControl Content="{Binding ActivePage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></ContentControl>
     </Grid>
 </Window>

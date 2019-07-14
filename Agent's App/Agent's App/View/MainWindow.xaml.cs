@@ -1,6 +1,7 @@
 ﻿using Agent_s_App.Core.Model;
 using Agent_s_App.Persistance;
 using Agent_s_App.Persistance.Repository;
+using Agent_s_App.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -240,8 +241,9 @@ namespace Agent_s_App
 			unitOfWork.Complete();
 
 
-
 			InitializeComponent();
+			DataContext = new MainViewModel();
+
 		}
 	}
 }
