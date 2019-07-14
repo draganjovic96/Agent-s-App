@@ -38,12 +38,12 @@
                     <ColumnDefinition Width="150*"/>
                     <ColumnDefinition Width="61*"/>
                 </Grid.ColumnDefinitions>
-                <Label x:Name="Username" Content="Username" Grid.Column="1" Grid.Row="1" Foreground="#FFCCCCCC" FontSize="24" IsEnabled="False"/>
-                <Button Content="Log In" Grid.Column="4" Grid.Row="5" VerticalAlignment="Top" Height="47" Foreground="#FF0C0C0E" Background="#FFCCCCCC" FontSize="24"/>
-                <TextBox Grid.Column="3" Height="40" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Grid.ColumnSpan="2" />
+                <Label Content="Username" Grid.Column="1" Grid.Row="1" Foreground="#FFCCCCCC" FontSize="24" IsEnabled="False"/>
+                <Button Command="{Binding LoginCommand}" CommandParameter="{Binding ElementName=Password}" Content="Log In" Grid.Column="4" Grid.Row="5" VerticalAlignment="Top" Height="47" Foreground="#FF0C0C0E" Background="#FFCCCCCC" FontSize="24"/>
+                <TextBox x:Name="Username" Text="{Binding Username, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" Grid.Column="3" Height="40" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Grid.ColumnSpan="2" />
                 <Label Content="Password" IsEnabled="False" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" Height="40" Width="245" Background="#00000000" Foreground="#FFCCCCCC" FontSize="24"/>
-                <PasswordBox Grid.Column="3" Grid.Row="3" VerticalAlignment="Top" Height="40" FontSize="24" Grid.ColumnSpan="2"/>
-                <Label Content="Wrong username or password" Visibility="{Binding Visible}"  Grid.Column="3" Margin="24,10,23,7" Background="#FFCBA3A3" Foreground="Red" FontSize="18" FontWeight="Bold" IsEnabled="False" BorderBrush="Red" FontStyle="Italic" HorizontalAlignment="Center" Grid.ColumnSpan="2" Width="262"/>
+                <PasswordBox x:Name="Password"  Grid.Column="3" Grid.Row="3" VerticalAlignment="Top" Height="40" FontSize="24" Grid.ColumnSpan="2"/>
+                <Label Content="Wrong username or password" Visibility="{Binding Visible, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"  Grid.Column="3" Margin="24,10,23,7" Background="#FFCBA3A3" Foreground="Red" FontSize="18" FontWeight="Bold" IsEnabled="False" BorderBrush="Red" FontStyle="Italic" HorizontalAlignment="Center" Grid.ColumnSpan="2" Width="262"/>
             </Grid>
 
         </Grid>
