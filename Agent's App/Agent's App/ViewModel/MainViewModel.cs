@@ -1,4 +1,5 @@
-﻿using Agent_s_App.View;
+﻿using Agent_s_App.Core.Model;
+using Agent_s_App.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +11,25 @@ namespace Agent_s_App.ViewModel
 {
 	public class MainViewModel : ViewModelBase
 	{
-		public UserControl ActivePage { get; set; }
+		private UserControl activePage;
+
+		public UserControl ActivePage
+		{
+			get => activePage;
+			set
+			{ activePage = value; OnPropertyChanged("ActivePage"); }
+		}
 
 		public MainViewModel()
 		{
 			ActivePage = new LogInView("Hidden", this);
+		}
+
+		public void SetActivePage(User user)
+		{
+			if (user != null)
+			{ ActivePage = new AgentView(user); }
+			else { ActivePage = new LogInView("Visible", this); }
 		}
 	}
 }

@@ -13,9 +13,14 @@ namespace Agent_s_App.Service
 	{
 		private readonly UnitOfWork unitOfWork = new UnitOfWork(new AgentsAppContext());
 
-		public bool LogIn(string username, string password)
+		public User LogIn(string username, string password)
 		{
-			return true;
+			IEnumerable<User> response = unitOfWork.Users.Find(x => x.Username == username && x.Password == password);
+			if (response.Count() != 0)
+				return response.First();
+			else
+				return null;
+
 		}
 	}
 }
