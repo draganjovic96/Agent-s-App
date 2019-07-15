@@ -28,7 +28,7 @@ namespace Agent_s_App.ViewModel
 		public void SetActivePage(User user)
 		{
 			if (user != null)
-			{ ActivePage = new UserControl1(); }
+			{ ActivePage = new AgentView(user); }
 			else { ActivePage = new LogInView("Visible", this); }
 		}
 	}

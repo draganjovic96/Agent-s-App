@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Agent_s_App.Core.Model;
+using Agent_s_App.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,13 +18,14 @@ using System.Windows.Shapes;
 namespace Agent_s_App.View
 {
 	/// <summary>
-	/// Interaction logic for UserControl1.xaml
+	/// Interaction logic for AgentView.xaml
 	/// </summary>
-	public partial class UserControl1 : UserControl
+	public partial class AgentView : UserControl
 	{
-		public UserControl1()
+		public AgentView(User user)
 		{
 			InitializeComponent();
+			DataContext = new AgentViewModel(user);
 		}
 	}
 }

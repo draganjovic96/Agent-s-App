@@ -15,10 +15,12 @@ namespace Agent_s_App.Service
 
 		public User LogIn(string username, string password)
 		{
-			if (username.Equals("") || password.Equals(""))
-			{ return null; }
+			IEnumerable<User> response = unitOfWork.Users.Find(x => x.Username == username && x.Password == password);
+			if (response.Count() != 0)
+				return response.First();
 			else
-			{ return unitOfWork.Users.Get(1230); }
+				return null;
+
 		}
 	}
 }
