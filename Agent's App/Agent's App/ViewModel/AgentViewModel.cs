@@ -1,4 +1,6 @@
 ﻿using Agent_s_App.Core.Model;
+using Agent_s_App.View;
+using Agent_s_App.ViewModel.Command;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,20 +21,20 @@ namespace Agent_s_App.ViewModel
 		private Service.AccommodationService accommodationService = new Service.AccommodationService();
 
 		//public AccommodationProfileCommand AccommodationProfileCommand { get; set; }
-		//public HomePageCommand HomePageCommand { get; set; }
+		public HomePageCommand HomePageCommand { get; set; }
 
 		public AgentViewModel(User user)
 		{
 			Console.WriteLine(user.Username);
 			LoggedUser = user;
 			//AccommodationProfileCommand = new AccommodationProfileCommand(this);
-			//HomePageCommand = new HomePageCommand(this);
+			HomePageCommand = new HomePageCommand(this);
 
 			//Accommodation accommodation = accommodationService.getAccommodationByUserId(LoggedUser);
 			//if (accommodation != null)
 			//{
 				HomePageButton = "Resources/home_page_active.png";
-			//	ActivePage = new HomePage(LoggedUser);
+				ActivePage = new HomePageView(LoggedUser);
 			//}
 			//else
 			//{
@@ -126,7 +128,7 @@ namespace Agent_s_App.ViewModel
 			AccommodationProfileButton = "Resources/accommodation_active.png";
 		}
 
-		internal void setHomePage(UserControl page)
+		public void setHomePage(UserControl page)
 		{
 			ActivePage = page;
 			homePageButton = "Resources/home_page_active.png";
