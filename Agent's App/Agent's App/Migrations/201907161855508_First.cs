@@ -66,18 +66,35 @@ namespace Agent_s_App.Migrations
                 .Index(t => t.AccommodationUnit_Id);
             
             CreateTable(
-                "dbo.Addresses",
+                "dbo.Reservations",
                 c => new
                     {
                         Id = c.Long(nullable: false),
-                        Country = c.String(nullable: false),
-                        City = c.String(nullable: false),
-                        PostalCode = c.Int(nullable: false),
-                        Street = c.String(nullable: false),
-                        Number = c.String(nullable: false),
-                        ApartmentNumber = c.String(),
-                        Longitude = c.Double(nullable: false),
-                        Latitude = c.Double(nullable: false),
+                        FromDate = c.DateTime(nullable: false),
+                        ToDate = c.DateTime(nullable: false),
+                        Confirmed = c.Boolean(nullable: false),
+                        AgentConfirmed = c.Boolean(nullable: false),
+                        AccommodationUnit_Id = c.Long(nullable: false),
+                        CommentRate_Id = c.Long(),
+                        Guest_Id = c.Long(),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.AccommodationUnits", t => t.AccommodationUnit_Id, cascadeDelete: true)
+                .ForeignKey("dbo.CommentRates", t => t.CommentRate_Id)
+                .ForeignKey("dbo.Users", t => t.Guest_Id)
+                .Index(t => t.AccommodationUnit_Id)
+                .Index(t => t.CommentRate_Id)
+                .Index(t => t.Guest_Id);
+            
+            CreateTable(
+                "dbo.CommentRates",
+                c => new
+                    {
+                        Id = c.Long(nullable: false),
+                        ApprovedComment = c.Boolean(nullable: false),
+                        ContentOfComment = c.String(),
+                        CommentDateTime = c.DateTime(nullable: false),
+                        Ocena = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -105,25 +122,18 @@ namespace Agent_s_App.Migrations
                 .Index(t => t.AgentOfAccommodation_Id);
             
             CreateTable(
-                "dbo.AccommodationServices",
+                "dbo.Addresses",
                 c => new
                     {
                         Id = c.Long(nullable: false),
-                        Name = c.String(nullable: false),
-                        Description = c.String(),
-                        Deleted = c.Boolean(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id);
-            
-            CreateTable(
-                "dbo.CommentRates",
-                c => new
-                    {
-                        Id = c.Long(nullable: false),
-                        ApprovedComment = c.Boolean(nullable: false),
-                        ContentOfComment = c.String(),
-                        CommentDateTime = c.DateTime(nullable: false),
-                        Ocena = c.Int(nullable: false),
+                        Country = c.String(nullable: false),
+                        City = c.String(nullable: false),
+                        PostalCode = c.Int(nullable: false),
+                        Street = c.String(nullable: false),
+                        Number = c.String(nullable: false),
+                        ApartmentNumber = c.String(),
+                        Longitude = c.Double(nullable: false),
+                        Latitude = c.Double(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -152,25 +162,15 @@ namespace Agent_s_App.Migrations
                 .Index(t => t.Sender_Id);
             
             CreateTable(
-                "dbo.Reservations",
+                "dbo.AccommodationServices",
                 c => new
                     {
                         Id = c.Long(nullable: false),
-                        FromDate = c.DateTime(nullable: false),
-                        ToDate = c.DateTime(nullable: false),
-                        Confirmed = c.Boolean(nullable: false),
-                        AgentConfirmed = c.Boolean(nullable: false),
-                        AccommodationUnit_Id = c.Long(nullable: false),
-                        CommentRate_Id = c.Long(),
-                        Guest_Id = c.Long(),
+                        Name = c.String(nullable: false),
+                        Description = c.String(),
+                        Deleted = c.Boolean(nullable: false),
                     })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.AccommodationUnits", t => t.AccommodationUnit_Id, cascadeDelete: true)
-                .ForeignKey("dbo.CommentRates", t => t.CommentRate_Id)
-                .ForeignKey("dbo.Users", t => t.Guest_Id)
-                .Index(t => t.AccommodationUnit_Id)
-                .Index(t => t.CommentRate_Id)
-                .Index(t => t.Guest_Id);
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.AccommodationServiceAccommodations",
@@ -189,43 +189,43 @@ namespace Agent_s_App.Migrations
         
         public override void Down()
         {
-            DropForeignKey("dbo.Messages", "Sender_Id", "dbo.Users");
-            DropForeignKey("dbo.Messages", "Reservation_Id", "dbo.Reservations");
-            DropForeignKey("dbo.Reservations", "Guest_Id", "dbo.Users");
-            DropForeignKey("dbo.Reservations", "CommentRate_Id", "dbo.CommentRates");
-            DropForeignKey("dbo.Reservations", "AccommodationUnit_Id", "dbo.AccommodationUnits");
-            DropForeignKey("dbo.Messages", "Receiver_Id", "dbo.Users");
-            DropForeignKey("dbo.Messages", "Accommodation_Id", "dbo.Accommodations");
             DropForeignKey("dbo.AccommodationServiceAccommodations", "Accommodation_Id", "dbo.Accommodations");
             DropForeignKey("dbo.AccommodationServiceAccommodations", "AccommodationService_Id", "dbo.AccommodationServices");
+            DropForeignKey("dbo.Accommodations", "Address_Id", "dbo.Addresses");
+            DropForeignKey("dbo.Messages", "Sender_Id", "dbo.Users");
+            DropForeignKey("dbo.Messages", "Reservation_Id", "dbo.Reservations");
+            DropForeignKey("dbo.Messages", "Receiver_Id", "dbo.Users");
+            DropForeignKey("dbo.Messages", "Accommodation_Id", "dbo.Accommodations");
+            DropForeignKey("dbo.Reservations", "Guest_Id", "dbo.Users");
             DropForeignKey("dbo.Users", "AgentOfAccommodation_Id", "dbo.Accommodations");
             DropForeignKey("dbo.Users", "Address_Id", "dbo.Addresses");
-            DropForeignKey("dbo.Accommodations", "Address_Id", "dbo.Addresses");
+            DropForeignKey("dbo.Reservations", "CommentRate_Id", "dbo.CommentRates");
+            DropForeignKey("dbo.Reservations", "AccommodationUnit_Id", "dbo.AccommodationUnits");
             DropForeignKey("dbo.PeriodPrices", "AccommodationUnit_Id", "dbo.AccommodationUnits");
             DropForeignKey("dbo.AccommodationUnits", "AccommodationUnitType_Id", "dbo.AccommodationUnitTypes");
             DropForeignKey("dbo.AccommodationUnits", "Accommodation_Id", "dbo.Accommodations");
             DropIndex("dbo.AccommodationServiceAccommodations", new[] { "Accommodation_Id" });
             DropIndex("dbo.AccommodationServiceAccommodations", new[] { "AccommodationService_Id" });
-            DropIndex("dbo.Reservations", new[] { "Guest_Id" });
-            DropIndex("dbo.Reservations", new[] { "CommentRate_Id" });
-            DropIndex("dbo.Reservations", new[] { "AccommodationUnit_Id" });
             DropIndex("dbo.Messages", new[] { "Sender_Id" });
             DropIndex("dbo.Messages", new[] { "Reservation_Id" });
             DropIndex("dbo.Messages", new[] { "Receiver_Id" });
             DropIndex("dbo.Messages", new[] { "Accommodation_Id" });
             DropIndex("dbo.Users", new[] { "AgentOfAccommodation_Id" });
             DropIndex("dbo.Users", new[] { "Address_Id" });
+            DropIndex("dbo.Reservations", new[] { "Guest_Id" });
+            DropIndex("dbo.Reservations", new[] { "CommentRate_Id" });
+            DropIndex("dbo.Reservations", new[] { "AccommodationUnit_Id" });
             DropIndex("dbo.PeriodPrices", new[] { "AccommodationUnit_Id" });
             DropIndex("dbo.AccommodationUnits", new[] { "AccommodationUnitType_Id" });
             DropIndex("dbo.AccommodationUnits", new[] { "Accommodation_Id" });
             DropIndex("dbo.Accommodations", new[] { "Address_Id" });
             DropTable("dbo.AccommodationServiceAccommodations");
-            DropTable("dbo.Reservations");
-            DropTable("dbo.Messages");
-            DropTable("dbo.CommentRates");
             DropTable("dbo.AccommodationServices");
-            DropTable("dbo.Users");
+            DropTable("dbo.Messages");
             DropTable("dbo.Addresses");
+            DropTable("dbo.Users");
+            DropTable("dbo.CommentRates");
+            DropTable("dbo.Reservations");
             DropTable("dbo.PeriodPrices");
             DropTable("dbo.AccommodationUnitTypes");
             DropTable("dbo.AccommodationUnits");

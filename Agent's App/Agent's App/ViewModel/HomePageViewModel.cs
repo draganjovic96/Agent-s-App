@@ -1,4 +1,5 @@
 ﻿using Agent_s_App.Core.Model;
+using Agent_s_App.View.HomePageViews;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,6 @@ namespace Agent_s_App.ViewModel
 {
 	public class HomePageViewModel : ViewModelBase
 	{
-		private Service.AccommodationService accommodationService = new Service.AccommodationService();
 		//private Service.AccommodationUnitService unitService = new Service.AccommodationUnitService();
 
 		private string unitsButtonColor;
@@ -25,14 +25,14 @@ namespace Agent_s_App.ViewModel
 
 		private UserControl activePage;
 
-		public HomePageViewModel(User loggedUser)
+		public HomePageViewModel(User loggedUser, Accommodation accommodation)
 		{
 			LoggedUser = loggedUser;
-			//Accommodation = accommodationService.getAccommodationByUserId(LoggedUser);
+			Accommodation = accommodation;
 			//UnitsPageCommand = new UnitsPageCommand(this);
 			//ReservationsPageCommand = new ReservationsPageCommand(this);
 			UnitsButtonColor = "Green";
-			//ActivePage = new Units(LoggedUser);
+			ActivePage = new UnitsView(accommodation, this);
 		}
 
 		public string UnitsButtonColor
@@ -103,7 +103,7 @@ namespace Agent_s_App.ViewModel
 
 		public void setUnitsPage()
 		{
-			//ActivePage = new Units(LoggedUser);
+			//ActivePage = new UnitsView(LoggedUser);
 			UnitsButtonColor = "Green";
 		}
 
@@ -112,6 +112,11 @@ namespace Agent_s_App.ViewModel
 		{
 			//ActivePage = new Reservations(Accommodation);
 			ReservationsButtonColor = "Green";
+		}
+
+		public void setUnitPage(AccommodationUnit accommodationUnit)
+		{
+			ActivePage = new UnitView(accommodationUnit);
 		}
 
 		public User LoggedUser { get => loggedUser; set => loggedUser = value; }

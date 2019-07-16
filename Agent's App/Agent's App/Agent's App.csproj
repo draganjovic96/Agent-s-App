@@ -64,11 +64,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Migrations\201907161855508_First.cs" />
+    <Compile Include="Migrations\201907161855508_First.Designer.cs">
+      <DependentUpon>201907161855508_First.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Service\AccommodationService.cs" />
+    <Compile Include="Service\AccommodationUnitService.cs" />
     <Compile Include="Service\UserService.cs" />
     <Compile Include="ViewModel\AgentViewModel.cs" />
     <Compile Include="ViewModel\Command\HomePageCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\AccommodationUnitsCommands\AddAccommodationUnitCommand.cs" />
     <Compile Include="ViewModel\HomePageViewModel.cs" />
+    <Compile Include="ViewModel\HomePageViewModels\AccommodationUnitsViewModel.cs" />
     <Compile Include="View\AgentView.xaml.cs">
       <DependentUpon>AgentView.xaml</DependentUpon>
     </Compile>
@@ -193,11 +201,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201907122250087_First.cs" />
-    <Compile Include="Migrations\201907122250087_First.Designer.cs">
-      <DependentUpon>201907122250087_First.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Persistance\AgentsAppContext.cs" />
     <Compile Include="Persistance\Repository\AccommodationRepository.cs" />
     <Compile Include="Persistance\Repository\AccommodationServiceRepository.cs" />
@@ -224,8 +227,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\201907122250087_First.resx">
-      <DependentUpon>201907122250087_First.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201907161855508_First.resx">
+      <DependentUpon>201907161855508_First.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -240,7 +243,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="View\Resources\hotel_room.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="View\Resources\accommodation_active.png" />
     <Resource Include="View\Resources\accommodation_deactive.png" />

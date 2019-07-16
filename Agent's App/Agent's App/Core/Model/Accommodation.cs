@@ -17,11 +17,16 @@ namespace Agent_s_App.Core.Model
 
 	public class Accommodation
 	{
-
+		public Accommodation()
+		{
+			Services = new HashSet<AccommodationService>();
+			AccommodationUnits = new HashSet<AccommodationUnit>();
+			Agents = new HashSet<User>();
+		}
 		[Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
 		public long Id { get; set; }
 
-		public List<AccommodationService> Services { get; set; }
+		public virtual ICollection<AccommodationService> Services { get; set; }
 
 		[Required]
 		public string Description { get; set; }
@@ -29,16 +34,16 @@ namespace Agent_s_App.Core.Model
 		[Required]
 		public string Name { get; set; }
 
-		public List<AccommodationUnit> AccommodationUnits { get; set; }
+		public virtual ICollection<AccommodationUnit> AccommodationUnits { get; set; }
 
 		[Required]
-		public List<User> Agents { get; set; }
+		public virtual ICollection<User> Agents { get; set; }
 
 		[Required]
 		public string Category { get; set; }
 
 		[Required]
-		public Address Address { get; set; }
+		public virtual Address Address { get; set; }
 
 		[Required]
 		public AccommodationType AccommodationType { get; set; }

@@ -13,7 +13,7 @@ namespace Agent_s_App.Persistance
 		public AgentsAppContext()
 			: base("name=AgentsAppContext")
 		{
-			this.Configuration.LazyLoadingEnabled = false;
+			this.Configuration.LazyLoadingEnabled = true;
 		}
 
 		public virtual DbSet<User> Users { get; set; }

@@ -25,6 +25,6 @@ namespace Agent_s_App.Core.Model
 		public bool Deleted { get; set; }
 
 		[Required]
-		public AccommodationUnit AccommodationUnit { get; set; }
+		public virtual AccommodationUnit AccommodationUnit { get; set; }
 	}
 }

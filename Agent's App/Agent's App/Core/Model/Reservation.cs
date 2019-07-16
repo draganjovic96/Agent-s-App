@@ -10,6 +10,10 @@ namespace Agent_s_App.Core.Model
 {
 	public class Reservation
 	{
+		public Reservation()
+		{
+			Messages = new HashSet<Message>();
+		}
 		[Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
 		public long Id { get; set; }
 
@@ -23,13 +27,13 @@ namespace Agent_s_App.Core.Model
 
 		public bool AgentConfirmed { get; set; }
 
-		public CommentRate CommentRate { get; set; }
+		public virtual CommentRate CommentRate { get; set; }
 
 		[Required]
-		public AccommodationUnit AccommodationUnit { get; set; }
+		public virtual AccommodationUnit AccommodationUnit { get; set; }
 
-		public List<Message> Messages { get; set; }
+		public virtual ICollection<Message> Messages { get; set; }
 
-		public User Guest { get; set; }
+		public virtual User Guest { get; set; }
 	}
 }

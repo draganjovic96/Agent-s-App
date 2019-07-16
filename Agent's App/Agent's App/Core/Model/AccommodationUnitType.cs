@@ -10,6 +10,10 @@ namespace Agent_s_App.Core.Model
 {
 	public class AccommodationUnitType
 	{
+		public AccommodationUnitType()
+		{
+			AccommodationUnits = new HashSet<AccommodationUnit>();
+		}
 		[Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
 		public long Id { get; set; }
 
@@ -18,6 +22,6 @@ namespace Agent_s_App.Core.Model
 
 		public bool Deleted { get; set; }
 
-		public List<AccommodationUnit> AccommodationUnits { get; set; }
+		public virtual ICollection<AccommodationUnit> AccommodationUnits { get; set; }
 	}
 }

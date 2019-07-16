@@ -22,10 +22,10 @@ namespace Agent_s_App.View
     /// </summary>
     public partial class HomePageView : UserControl
     {
-        public HomePageView(User loggedUser)
+        public HomePageView(User loggedUser, Accommodation accommodation)
         {
             InitializeComponent();
-			DataContext = new HomePageViewModel(loggedUser);
+			DataContext = new HomePageViewModel(loggedUser, accommodation);
         }
     }
 }

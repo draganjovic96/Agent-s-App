@@ -9,18 +9,12 @@ using System.Threading.Tasks;
 
 namespace Agent_s_App.Service
 {
-	public class UserService
+	public class AccommodationUnitService
 	{
 		private readonly UnitOfWork unitOfWork = new UnitOfWork(new AgentsAppContext());
-
-		public User LogIn(string username, string password)
+		public List<AccommodationUnit> GetAccommodationUnits(long accommodationId)
 		{
-			User response = unitOfWork.Users.Find(x => x.Username == username && x.Password == password).FirstOrDefault();
-			if (response != null)
-				return response;
-			else
-				return null;
-
+			return unitOfWork.AccommodationUnits.Find(x => x.Accommodation.Id == accommodationId).ToList();
 		}
 	}
 }

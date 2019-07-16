@@ -13,6 +13,7 @@ namespace Agent_s_App.ViewModel
 	public class AgentViewModel : ViewModelBase
 	{
 		private User loggedUser;
+		private Accommodation accommodation;
 		private string homePageButton;
 		private string messengerButton;
 		private string accommodationProfileButton;
@@ -30,12 +31,12 @@ namespace Agent_s_App.ViewModel
 			//AccommodationProfileCommand = new AccommodationProfileCommand(this);
 			HomePageCommand = new HomePageCommand(this);
 
-			//Accommodation accommodation = accommodationService.getAccommodationByUserId(LoggedUser);
-			//if (accommodation != null)
-			//{
+			Accommodation = accommodationService.GetAccommodationByUsername(LoggedUser.Username);
+			if (accommodation != null)
+			{
 				HomePageButton = "Resources/home_page_active.png";
-				ActivePage = new HomePageView(LoggedUser);
-			//}
+				ActivePage = new HomePageView(LoggedUser, Accommodation);
+			}
 			//else
 			//{
 			//	AccommodationProfileButton = "Resources/accommodation_active.png";
@@ -53,6 +54,15 @@ namespace Agent_s_App.ViewModel
 			}
 		}
 
+		public Accommodation Accommodation
+		{
+			get => accommodation;
+			set
+			{
+				accommodation = value;
+				OnPropertyChanged("Accommodation");
+			}
+		}
 		public string HomePageButton
 		{
 			get => homePageButton;

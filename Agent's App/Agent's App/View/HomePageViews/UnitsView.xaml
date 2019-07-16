@@ -5,8 +5,40 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Agent_s_App.View.HomePageViews"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800" Background="Honeydew">
     <Grid>
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <ListView Margin="0,50,0,0"
+            ScrollViewer.CanContentScroll="True" 
+            ScrollViewer.VerticalScrollBarVisibility="Auto"
+            ScrollViewer.HorizontalScrollBarVisibility="Auto"
+            ItemsSource="{Binding Units, UpdateSourceTrigger=PropertyChanged}"
+            SelectedItem="{Binding SelectedItem, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Floor}" Header="Floor" Width="50"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Number}" Header="Number" Width="50"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding NumberOfBeds}" Header="Number of beds" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding AccommodationUnitType.Name}" Header=" Type " Width="Auto"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Command="{Binding AddAccommodationUnitCommand}" HorizontalAlignment="Left" Margin="25,0,0,0" VerticalAlignment="Top" Width="50" Height="50" Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}">
+            <StackPanel>
+                <Image Source="/View/Resources/room_add.png"/>
+            </StackPanel>
+        </Button>
+        <Button HorizontalAlignment="Left" Margin="100,0,0,0" VerticalAlignment="Top" Width="50" Height="50" Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}">
+            <StackPanel>
+                <Image Source="/View/Resources/room_update.png"/>
+            </StackPanel>
+        </Button>
+        <Button HorizontalAlignment="Left" Margin="175,0,0,0" VerticalAlignment="Top" Width="50" Height="50" Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}">
+            <StackPanel>
+                <Image Source="/View/Resources/room_delete.png"/>
+            </StackPanel>
+        </Button>
     </Grid>
 </UserControl>
