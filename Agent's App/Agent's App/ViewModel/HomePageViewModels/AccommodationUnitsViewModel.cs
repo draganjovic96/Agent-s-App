@@ -12,7 +12,11 @@ namespace Agent_s_App.ViewModel.HomePageViewModels
 	public class AccommodationUnitsViewModel : ViewModelBase
 	{
 		private List<AccommodationUnit> units;
+		private AccommodationUnit selectedUnit;
 		private readonly AccommodationUnitService accommodationUnitService = new AccommodationUnitService();
+		private bool enableUpdate;
+		private UpdateAccommodationUnitCommand updateAccommodationUnitCommand;
+		private DeleteAccommodationUnitCommand deleteAccommodationUnitCommand;
 
 		public HomePageViewModel HomePageViewModel { get; set; }
 		public AddAccommodationUnitCommand AddAccommodationUnitCommand { get; set; }
@@ -35,5 +39,48 @@ namespace Agent_s_App.ViewModel.HomePageViewModels
 			}
 		}
 
+		public AccommodationUnit SelectedUnit
+		{
+			get => selectedUnit;
+			set
+			{
+				selectedUnit = value;
+				if (selectedUnit != null) EnableUpdate = true;
+				else EnableUpdate = false;
+				UpdateAccommodationUnitCommand = new UpdateAccommodationUnitCommand(SelectedUnit, HomePageViewModel);
+				DeleteAccommodationUnitCommand = new DeleteAccommodationUnitCommand(SelectedUnit, HomePageViewModel);
+				OnPropertyChanged("SelectedUnit");
+			}
+		}
+
+		public bool EnableUpdate
+		{
+			get => enableUpdate;
+			set
+			{
+				enableUpdate = value;
+				OnPropertyChanged("EnableUpdate");
+			}
+		}
+
+		public UpdateAccommodationUnitCommand UpdateAccommodationUnitCommand
+		{
+			get => updateAccommodationUnitCommand;
+			set
+			{
+				updateAccommodationUnitCommand = value;
+				OnPropertyChanged("UpdateAccommodationUnitCommand");
+			}
+		}
+
+		public DeleteAccommodationUnitCommand DeleteAccommodationUnitCommand
+		{
+			get => deleteAccommodationUnitCommand;
+			set
+			{
+				deleteAccommodationUnitCommand = value;
+				OnPropertyChanged("DeleteAccommodationUnitCommand");
+			}
+		}
 	}
 }

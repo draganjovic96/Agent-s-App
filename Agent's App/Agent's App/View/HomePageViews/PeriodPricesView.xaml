@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="Agent_s_App.View.HomePageViews.PeriodPricesView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Agent_s_App.View.HomePageViews"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Background="White">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="100*"/>
+            <RowDefinition Height="100*"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <ListView Grid.Row="1" ItemsSource="{Binding PeriodPrices, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding PeriodPrice, UpdateSourceTrigger=PropertyChanged}"
+                  ScrollViewer.CanContentScroll="True" 
+                  ScrollViewer.VerticalScrollBarVisibility="Auto"
+                  ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                  IsSynchronizedWithCurrentItem="True">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding FromDate}" Header="From date" Width="Auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding ToDate}" Header="To date" Width="Auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Price}" Header=" Price (€) " Width="Auto"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Command="{Binding AddPeriodPriceCommand}" HorizontalAlignment="Left" Margin="25,0,0,0" Width="50" Height="50" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}">
+            <StackPanel>
+                <Image Source="/View/Resources/period_price_add.png"/>
+            </StackPanel>
+        </Button>
+        <Button HorizontalAlignment="Left" Margin="100,0,0,0" Width="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}">
+            <StackPanel>
+                <Image Source="/View/Resources/period_price_update.png"/>
+            </StackPanel>
+        </Button>
+        <Button HorizontalAlignment="Left" Margin="175,0,0,0" Width="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}">
+            <StackPanel>
+                <Image Source="/View/Resources/period_price_delete.png"/>
+            </StackPanel>
+        </Button>
+        <ContentControl Grid.Row="2" Content="{Binding PeriodPricePage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Content="Finish" Margin="0,0,60,0" Grid.Row="3" HorizontalAlignment="Right" Width="100" Background="#FFDDDDDD" BorderBrush="{x:Null}"/>
+
+    </Grid>
+</UserControl>

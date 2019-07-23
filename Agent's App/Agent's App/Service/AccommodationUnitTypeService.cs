@@ -1,0 +1,21 @@
+﻿using Agent_s_App.Core.Model;
+using Agent_s_App.Persistance;
+using Agent_s_App.Persistance.Repository;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Agent_s_App.Service
+{
+    public class AccommodationUnitTypeService
+    {
+		private UnitOfWork unitOfWork = new UnitOfWork(MainWindow.context);
+
+		public List<AccommodationUnitType> GetAccommodationUnitTypes()
+		{
+			return unitOfWork.AccommodationUnitTypes.GetAll().ToList();
+		}
+    }
+}

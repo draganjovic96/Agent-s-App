@@ -1,5 +1,4 @@
 ﻿using Agent_s_App.Core.Model;
-using Agent_s_App.Persistance;
 using Agent_s_App.Persistance.Repository;
 using System;
 using System.Collections.Generic;
@@ -9,18 +8,13 @@ using System.Threading.Tasks;
 
 namespace Agent_s_App.Service
 {
-	public class UserService
-	{
+    public class PeriodPriceService
+    {
 		private readonly UnitOfWork unitOfWork = new UnitOfWork(MainWindow.context);
 
-		public User LogIn(string username, string password)
+		public List<PeriodPrice> GetPeriodPrices(long accommodationUnitId)
 		{
-			User response = unitOfWork.Users.Find(x => x.Username == username && x.Password == password).FirstOrDefault();
-			if (response != null)
-				return response;
-			else
-				return null;
-
+			return unitOfWork.PeriodPrices.Find(x => x.AccommodationUnit.Id == accommodationUnitId).ToList();
 		}
-	}
+    }
 }

@@ -103,10 +103,9 @@ namespace Agent_s_App.ViewModel
 
 		public void setUnitsPage()
 		{
-			//ActivePage = new UnitsView(LoggedUser);
+			ActivePage = new UnitsView(accommodation, this);
 			UnitsButtonColor = "Green";
 		}
-
 
 		public void setReservationsPage()
 		{
@@ -116,10 +115,11 @@ namespace Agent_s_App.ViewModel
 
 		public void setUnitPage(AccommodationUnit accommodationUnit)
 		{
-			ActivePage = new UnitView(accommodationUnit);
+			ActivePage = new UnitView(accommodationUnit, this);
 		}
 
 		public User LoggedUser { get => loggedUser; set => loggedUser = value; }
+
 		public Accommodation Accommodation { get => accommodation; set => accommodation = value; }
 	}
 }

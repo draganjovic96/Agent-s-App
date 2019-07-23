@@ -19,7 +19,6 @@ namespace Agent_s_App.ViewModel
 
 		public LoginViewModel(string visible, MainViewModel mainViewModel)
 		{
-			Console.WriteLine(visible);
 			Visible = visible;
 			LoginCommand = new LoginCommand(this, mainViewModel);
 		}

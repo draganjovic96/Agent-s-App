@@ -24,7 +24,8 @@ namespace Agent_s_App
 	/// </summary>
 	public partial class MainWindow : Window
 	{
-		public UnitOfWork unitOfWork = new UnitOfWork(new AgentsAppContext());
+		public static AgentsAppContext context = new AgentsAppContext();
+		public UnitOfWork unitOfWork = new UnitOfWork(context);
 
 		public MainWindow()
 		{
@@ -86,7 +87,15 @@ namespace Agent_s_App
 				Deleted = false
 			};
 
+			AccommodationUnitType accommodationUnitType1 = new AccommodationUnitType()
+			{
+				Id = 124312,
+				Name = "Dvokrevetna",
+				Deleted = false
+			};
 			unitOfWork.AccommodationUnitTypes.Add(accommodationUnitType);
+			unitOfWork.AccommodationUnitTypes.Add(accommodationUnitType1);
+
 
 			#endregion
 
@@ -182,7 +191,7 @@ namespace Agent_s_App
 			{
 				Id = 123941,
 				AccommodationUnit = accommodationUnit1,
-				Pice = 44.99,
+				Price = 44.99,
 				FromDate = new DateTime(2011, 6, 1),
 				ToDate = new DateTime(2011, 7, 31)
 			};

@@ -20,7 +20,7 @@ namespace Agent_s_App.Core.Model
 		public DateTime ToDate { get; set; }
 
 		[Required]
-		public double Pice { get; set; }
+		public double Price { get; set; }
 
 		public bool Deleted { get; set; }
 

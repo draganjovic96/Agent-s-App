@@ -1,0 +1,60 @@
+﻿<UserControl x:Class="Agent_s_App.View.HomePageViews.PeriodPriceView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Agent_s_App.View.HomePageViews"
+             mc:Ignorable="d" 
+             d:DesignHeight="200" d:DesignWidth="800" Background="White">
+    <UserControl.Resources>
+        <Style x:Key="FormTextBox" TargetType="TextBox">
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="Background" Value="{x:Null}" />
+            <Setter Property="SelectionBrush" Value="#FF0065B4" />
+            <Setter Property="BorderThickness" Value="0,0,0,3" />
+            <Setter Property="TextAlignment" Value="Center" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+        </Style>
+        <Style x:Key="FormLabel" TargetType="Label">
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="Height" Value="30" />
+            <Setter Property="FontSize" Value="16" />
+        </Style>
+        <Style x:Key="FormButton" TargetType="Button">
+            <Setter Property="Background" Value="#ABADB3" />
+            <Setter Property="BorderBrush" Value="{x:Null}" />
+            <Setter Property="FontSize" Value="16" />
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="25*"/>
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="25*"/>
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="15*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="15*"/>
+        </Grid.RowDefinitions>
+        <Label Content="From date" Grid.Column="1"  Grid.Row="1" Style="{StaticResource FormLabel}"/>
+        <Label Content="To date" Grid.Column="1"  Grid.Row="3" Style="{StaticResource FormLabel}"/>
+        <Label Content="Price" Grid.Column="1"  Grid.Row="5" Style="{StaticResource FormLabel}"/>
+        <TextBox Grid.Column="3" Grid.Row="5" Style="{StaticResource FormTextBox}"/>
+        <DatePicker Grid.Column="3" Grid.Row="1" BorderThickness="0,0,0,3"/>
+        <DatePicker Grid.Column="3" Grid.Row="3" BorderThickness="0,0,0,3"/>
+        <Button Content="Add" Grid.Column="5" Grid.Row="3" Style="{StaticResource FormButton}" Background="LawnGreen"/>
+        <Button Content="Cancel" Grid.Column="7" Grid.Row="3" Style="{StaticResource FormButton}" Background="Red"/>
+    </Grid>
+</UserControl>

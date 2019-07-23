@@ -14,6 +14,10 @@ namespace Agent_s_App.ViewModel
 	{
 		private User loggedUser;
 		private Accommodation accommodation;
+
+		private string accommodationLabel;
+		private string addressLabel;
+
 		private string homePageButton;
 		private string messengerButton;
 		private string accommodationProfileButton;
@@ -26,7 +30,6 @@ namespace Agent_s_App.ViewModel
 
 		public AgentViewModel(User user)
 		{
-			Console.WriteLine(user.Username);
 			LoggedUser = user;
 			//AccommodationProfileCommand = new AccommodationProfileCommand(this);
 			HomePageCommand = new HomePageCommand(this);
@@ -36,6 +39,8 @@ namespace Agent_s_App.ViewModel
 			{
 				HomePageButton = "Resources/home_page_active.png";
 				ActivePage = new HomePageView(LoggedUser, Accommodation);
+				AccommodationLabel = Accommodation.Name;
+				AddressLabel = Accommodation.Address.Street + " " + Accommodation.Address.Number + ", " + Accommodation.Address.City;
 			}
 			//else
 			//{
@@ -63,6 +68,7 @@ namespace Agent_s_App.ViewModel
 				OnPropertyChanged("Accommodation");
 			}
 		}
+
 		public string HomePageButton
 		{
 			get => homePageButton;
@@ -129,6 +135,26 @@ namespace Agent_s_App.ViewModel
 			{
 				activePage = value;
 				OnPropertyChanged("ActivePage");
+			}
+		}
+
+		public string AccommodationLabel
+		{
+			get => accommodationLabel;
+			set
+			{
+				accommodationLabel = value;
+				OnPropertyChanged("AccommodationLabel");
+			}
+		}
+
+		public string AddressLabel
+		{
+			get => addressLabel;
+			set
+			{
+				addressLabel = value;
+				OnPropertyChanged("AddressLabel");
 			}
 		}
 

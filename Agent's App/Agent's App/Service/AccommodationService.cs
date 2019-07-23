@@ -11,7 +11,7 @@ namespace Agent_s_App.Service
 {
 	public class AccommodationService
 	{
-		private readonly UnitOfWork unitOfWork = new UnitOfWork(new AgentsAppContext());
+		private readonly UnitOfWork unitOfWork = new UnitOfWork(MainWindow.context);
 
 		public Accommodation GetAccommodationByUsername(string username)
 		{

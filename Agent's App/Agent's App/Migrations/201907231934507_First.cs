@@ -57,7 +57,7 @@ namespace Agent_s_App.Migrations
                         Id = c.Long(nullable: false),
                         FromDate = c.DateTime(nullable: false),
                         ToDate = c.DateTime(nullable: false),
-                        Pice = c.Double(nullable: false),
+                        Price = c.Double(nullable: false),
                         Deleted = c.Boolean(nullable: false),
                         AccommodationUnit_Id = c.Long(nullable: false),
                     })
