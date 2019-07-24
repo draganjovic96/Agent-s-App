@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Agent_s_App.Core.Model;
+using Agent_s_App.ViewModel;
+using Agent_s_App.ViewModel.HomePageViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +23,10 @@ namespace Agent_s_App.View.HomePageViews
 	/// </summary>
 	public partial class UnitTypeView : UserControl
 	{
-		public UnitTypeView()
+		public UnitTypeView(AccommodationUnitType accommodationUnitType, AccommodationUnitTypesViewModel accommodationUnitTypesViewModel, HomePageViewModel homePageViewModel)
 		{
 			InitializeComponent();
+			DataContext = new AccommodationUnitTypeViewModel(accommodationUnitType, accommodationUnitTypesViewModel, homePageViewModel);
 		}
 	}
 }

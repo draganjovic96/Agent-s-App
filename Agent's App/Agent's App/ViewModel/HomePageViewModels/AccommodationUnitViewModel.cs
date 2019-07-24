@@ -33,7 +33,7 @@ namespace Agent_s_App.ViewModel.HomePageViewModels
 		public AccommodationUnitViewModel(AccommodationUnit unit, HomePageViewModel homePageViewModel)
 		{
 			HomePageViewModel = homePageViewModel;
-			UnitTypes = unitTypeService.GetAccommodationUnitTypes();
+			UnitTypes = unitTypeService.GetAccommodationUnitTypes(HomePageViewModel.Accommodation.Id);
 			if (unit != null)
 			{
 				AddOrUpdateButton = "Save";

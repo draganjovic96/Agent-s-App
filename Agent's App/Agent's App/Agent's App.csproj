@@ -88,8 +88,18 @@
     <Compile Include="ViewModel\Command\HomePageCommands\AccommodationUnitsCommands\PeriodPriceCommand.cs" />
     <Compile Include="ViewModel\Command\HomePageCommands\AccommodationUnitsCommands\UpdateAccommodationUnitCommand.cs" />
     <Compile Include="ViewModel\Command\HomePageCommands\AccommodationUnitsCommands\UpdatePeriodPriceCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\AccommodationUnitTypesCommands\AddUnitTypeCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\AccommodationUnitTypesCommands\CancelAccommodationUnitTypeCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\AccommodationUnitTypesCommands\ConfirmAddOrUpdateUnitTypeCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\AccommodationUnitTypesCommands\DeleteAccommodationUnitTypeCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\AccommodationUnitTypesCommands\UpdateAccommodationUnitTypeCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\ReservationsPageCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\UnitsPageCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\UnitTypesPageCommand.cs" />
     <Compile Include="ViewModel\HomePageViewModel.cs" />
     <Compile Include="ViewModel\HomePageViewModels\AccommodationUnitsViewModel.cs" />
+    <Compile Include="ViewModel\HomePageViewModels\AccommodationUnitTypesViewModel.cs" />
+    <Compile Include="ViewModel\HomePageViewModels\AccommodationUnitTypeViewModel.cs" />
     <Compile Include="ViewModel\HomePageViewModels\AccommodationUnitViewModel.cs" />
     <Compile Include="ViewModel\HomePageViewModels\PeriodPricesViewModel.cs" />
     <Compile Include="ViewModel\HomePageViewModels\PeriodPriceViewModel.cs" />
@@ -307,6 +317,12 @@
     <Resource Include="View\Resources\period_price_add.png" />
     <Resource Include="View\Resources\period_price_delete.png" />
     <Resource Include="View\Resources\period_price_update.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="View\Resources\unit_type_add.png" />
+    <Resource Include="View\Resources\unit_type_delete.png" />
+    <Resource Include="View\Resources\unit_type_update.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -24,7 +24,8 @@
                 Foreground="White"
                 Cursor="Arrow" 
                 Focusable="False" HorizontalAlignment="Stretch"/>
-        <Button Content="Unit Types" 
+        <Button Command="{Binding UnitTypesPageCommand}" 
+                Content="Unit Types" 
                 BorderThickness="0" 
                 Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" 
                 Background="{Binding UnitTypesButtonColor, UpdateSourceTrigger=PropertyChanged}"  
@@ -33,9 +34,10 @@
                 Margin="0,50,0,0" 
                 Foreground="White" 
                 Focusable="False" 
-                Command="{Binding UnitTypesPageCommand}"
                 Height="50"/>
-        <Button Content="Reservations" 
+        <Button 
+            Command="{Binding ReservationsPageCommand}"
+            Content="Reservations" 
                 BorderThickness="0" 
                 Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" 
                 Background="{Binding ReservationsButtonColor, UpdateSourceTrigger=PropertyChanged}"  
@@ -44,7 +46,6 @@
                 Margin="0,100,0,0" 
                 Foreground="White" 
                 Focusable="False" 
-                Command="{Binding ReservationsPageCommand}"
                 Height="50"/>
         <Button Content="Comments" 
                 BorderThickness="0" 
@@ -65,6 +66,6 @@
                 Margin="0,200,0,0" 
                 Foreground="White"
                 Focusable="False" Height="50"/>
-        <ContentControl Name="Main" Grid.Column="1" Content="{Binding ActivePage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,0"/>
+        <ContentControl Name="Main" Grid.Column="1" Content="{Binding ActivePage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
     </Grid>
 </UserControl>

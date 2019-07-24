@@ -1,5 +1,6 @@
 ﻿using Agent_s_App.Core.Model;
 using Agent_s_App.View.HomePageViews;
+using Agent_s_App.ViewModel.Command.HomePageCommands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,28 +12,35 @@ namespace Agent_s_App.ViewModel
 {
 	public class HomePageViewModel : ViewModelBase
 	{
-		//private Service.AccommodationUnitService unitService = new Service.AccommodationUnitService();
-
 		private string unitsButtonColor;
+		private string unitTypesButtonColor;
 		private string commentsButtonColor;
 		private string reservationsButtonColor;
 		private string servicesButtonColor;
 		private User loggedUser;
 		private Accommodation accommodation;
 
-		//public UnitsPageCommand UnitsPageCommand { get; set; }
-		//public ReservationsPageCommand ReservationsPageCommand { get; set; }
-
+		public UnitsPageCommand UnitsPageCommand { get; set; }
+		public UnitTypesPageCommand UnitTypesPageCommand { get; set; }
+		public ReservationsPageCommand ReservationsPageCommand { get; set; }
 		private UserControl activePage;
 
 		public HomePageViewModel(User loggedUser, Accommodation accommodation)
 		{
+			if (accommodation != null)
+			{
+				Accommodation = accommodation;
+				setUnitsPage();
+			}
+			else
+			{
+				Accommodation = new Accommodation();
+				setUnitTypesPage();
+			}
 			LoggedUser = loggedUser;
-			Accommodation = accommodation;
-			//UnitsPageCommand = new UnitsPageCommand(this);
-			//ReservationsPageCommand = new ReservationsPageCommand(this);
-			UnitsButtonColor = "Green";
-			ActivePage = new UnitsView(accommodation, this);
+			UnitsPageCommand = new UnitsPageCommand(this);
+			UnitTypesPageCommand = new UnitTypesPageCommand(this);
+			ReservationsPageCommand = new ReservationsPageCommand(this);
 		}
 
 		public string UnitsButtonColor
@@ -41,12 +49,25 @@ namespace Agent_s_App.ViewModel
 			set
 			{
 				this.unitsButtonColor = value;
-				this.commentsButtonColor = "Transparent";
+				this.unitTypesButtonColor = "Transparent";
 				this.reservationsButtonColor = "Transparent";
-				this.servicesButtonColor = "Transparent";
 				OnPropertyChanged("UnitsButtonColor");
+				OnPropertyChanged("UnitTypesButtonColor");
 				OnPropertyChanged("ReservationsButtonColor");
+			}
+		}
 
+		public string UnitTypesButtonColor
+		{
+			get => unitTypesButtonColor;
+			set
+			{
+				this.unitTypesButtonColor = value;
+				this.unitsButtonColor = "Transparent";
+				this.reservationsButtonColor = "Transparent";
+				OnPropertyChanged("UnitsButtonColor");
+				OnPropertyChanged("UnitTypesButtonColor");
+				OnPropertyChanged("ReservationsButtonColor");
 			}
 		}
 
@@ -69,12 +90,13 @@ namespace Agent_s_App.ViewModel
 			set
 			{
 				this.unitsButtonColor = "Transparent";
+				this.unitTypesButtonColor = "Transparent";
 				this.commentsButtonColor = "Transparent";
 				this.reservationsButtonColor = value;
 				this.servicesButtonColor = "Transparent";
 				OnPropertyChanged("ReservationsButtonColor");
 				OnPropertyChanged("UnitsButtonColor");
-
+				OnPropertyChanged("UnitTypesButtonColor");
 			}
 		}
 
@@ -107,9 +129,15 @@ namespace Agent_s_App.ViewModel
 			UnitsButtonColor = "Green";
 		}
 
+		public void setUnitTypesPage()
+		{
+			ActivePage = new UnitTypesView(accommodation, this);
+			UnitTypesButtonColor = "Green";
+		}
+
 		public void setReservationsPage()
 		{
-			//ActivePage = new Reservations(Accommodation);
+			ActivePage = new ReservationsView(Accommodation);
 			ReservationsButtonColor = "Green";
 		}
 
@@ -118,8 +146,16 @@ namespace Agent_s_App.ViewModel
 			ActivePage = new UnitView(accommodationUnit, this);
 		}
 
-		public User LoggedUser { get => loggedUser; set => loggedUser = value; }
+		public User LoggedUser
+		{
+			get => loggedUser;
+			set => loggedUser = value;
+		}
 
-		public Accommodation Accommodation { get => accommodation; set => accommodation = value; }
+		public Accommodation Accommodation
+		{
+			get => accommodation;
+			set => accommodation = value;
+		}
 	}
 }
