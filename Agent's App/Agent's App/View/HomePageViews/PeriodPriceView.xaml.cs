@@ -1,4 +1,6 @@
 ﻿using Agent_s_App.Core.Model;
+using Agent_s_App.ViewModel;
+using Agent_s_App.ViewModel.HomePageViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,9 +23,10 @@ namespace Agent_s_App.View.HomePageViews
     /// </summary>
     public partial class PeriodPriceView : UserControl
     {
-        public PeriodPriceView(PeriodPrice periodPrice)
+        public PeriodPriceView(PeriodPrice periodPrice, PeriodPricesViewModel periodPricesViewModel, HomePageViewModel homePageViewModel)
         {
             InitializeComponent();
+			DataContext = new PeriodPriceViewModel(periodPrice, periodPricesViewModel, homePageViewModel);
         }
     }
 }

@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Agent_s_App.View.HomePageViews"
              mc:Ignorable="d" 
-             d:DesignHeight="200" d:DesignWidth="800" Background="White">
+             d:DesignHeight="200" d:DesignWidth="800" Background="#FFD8D7D7">
     <UserControl.Resources>
         <Style x:Key="FormTextBox" TargetType="TextBox">
             <Setter Property="FontSize" Value="20" />
@@ -34,9 +34,9 @@
             <ColumnDefinition Width="25*"/>
             <ColumnDefinition Width="100*"/>
             <ColumnDefinition Width="50*"/>
-            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="25*"/>
-            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="15*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -51,10 +51,11 @@
         <Label Content="From date" Grid.Column="1"  Grid.Row="1" Style="{StaticResource FormLabel}"/>
         <Label Content="To date" Grid.Column="1"  Grid.Row="3" Style="{StaticResource FormLabel}"/>
         <Label Content="Price" Grid.Column="1"  Grid.Row="5" Style="{StaticResource FormLabel}"/>
-        <TextBox Grid.Column="3" Grid.Row="5" Style="{StaticResource FormTextBox}"/>
-        <DatePicker Grid.Column="3" Grid.Row="1" BorderThickness="0,0,0,3"/>
-        <DatePicker Grid.Column="3" Grid.Row="3" BorderThickness="0,0,0,3"/>
-        <Button Content="Add" Grid.Column="5" Grid.Row="3" Style="{StaticResource FormButton}" Background="LawnGreen"/>
-        <Button Content="Cancel" Grid.Column="7" Grid.Row="3" Style="{StaticResource FormButton}" Background="Red"/>
+        <TextBox Text="{Binding Price, Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Grid.Column="3" Grid.Row="5" Style="{StaticResource FormTextBox}"/>
+        <DatePicker SelectedDate="{Binding FromDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="3" Grid.Row="1" BorderThickness="0,0,0,3"/>
+        <DatePicker SelectedDate="{Binding ToDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="3" Grid.Row="3" BorderThickness="0,0,0,3"/>
+        <Button Command="{Binding AddOrUpdatePeriodPriceCommand}"  Content="{Binding AddOrSaveButton}" Grid.Column="5" Grid.Row="3" Style="{StaticResource FormButton}" Background="#FF13D113"/>
+        <Button Command="{Binding CancelPeriodPriceCommand}" Content="Cancel" Grid.Column="7" Grid.Row="3" Style="{StaticResource FormButton}" Background="Red"/>
+        <Label Content="€" Grid.Column="4" HorizontalAlignment="Left" Grid.Row="5" FontSize="16"/>
     </Grid>
 </UserControl>

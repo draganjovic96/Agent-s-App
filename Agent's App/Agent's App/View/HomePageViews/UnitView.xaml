@@ -78,6 +78,6 @@
         <Button Content="Period prices" Grid.Column="7" Grid.Row="7" Style="{StaticResource FormButton}" Command="{Binding PeriodPriceCommand, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         <Button Content="Reservations" Grid.Column="7" Grid.Row="9" Style="{StaticResource FormButton}"/>
         <Button Content="{Binding AddOrUpdateButton}" Grid.Column="5" Grid.Row="15" Style="{StaticResource FormButton}" Background="#FF13D113" Foreground="Black" IsEnabled="{Binding EnableButton, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Command="{Binding ConfirmAddOrUpdateUnit}"/>
-        <Button Content="Cancel" Grid.Column="7" Grid.Row="15" Style="{StaticResource FormButton}" Background="Red" Foreground="Black"/>
+        <Button Content="Cancel" Command="{Binding CancelAccommodationUnitCommand}" Grid.Column="7" Grid.Row="15" Style="{StaticResource FormButton}" Background="Red" Foreground="Black"/>
     </Grid>
 </UserControl>

@@ -23,7 +23,8 @@
         <Grid.Background>
             <SolidColorBrush Color="White"/>
         </Grid.Background>
-        <Button  
+        <Button
+            ToolTip="Home Page"
                 Command="{Binding UnitsPageCommand}"
                 BorderThickness="0" 
                 Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
@@ -36,7 +37,7 @@
                 <Image Source="{Binding HomePageButton}" />
             </StackPanel>
         </Button>
-        <Button 
+        <Button ToolTip="Messages"
                 BorderThickness="0" 
                 Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
                 HorizontalAlignment="Left" 
@@ -51,7 +52,7 @@
                 <Image Source="{Binding MessengerButton}" />
             </StackPanel>
         </Button>
-        <Button 
+        <Button ToolTip="Accommodation Profile"
                 BorderThickness="0" 
                 Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" 
                 HorizontalAlignment="Left" 
@@ -66,7 +67,7 @@
                 <Image Source="{Binding AccommodationProfileButton}" />
             </StackPanel>
         </Button>
-        <Button  
+        <Button ToolTip="Agent Profile" 
                 BorderThickness="0" 
                 Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" 
                 HorizontalAlignment="Stretch" 
@@ -98,7 +99,7 @@
             </Grid>
         </StackPanel>
         <StackPanel Grid.Column="2" Height="9" Margin="10,81,10,0" VerticalAlignment="Top" Background="#FFB2A7A7" Grid.ColumnSpan="5"/>
-        <Button Background="Transparent" Grid.Column="6" Margin="1,10,12,0" VerticalAlignment="Top" Height="50" Width="50">
+        <Button ToolTip="Log Out" Background="Transparent" Grid.Column="6" Margin="1,10,12,0" VerticalAlignment="Top" Height="50" Width="50">
             <StackPanel>
                 <Image Source="Resources/log_out.png" />
             </StackPanel>

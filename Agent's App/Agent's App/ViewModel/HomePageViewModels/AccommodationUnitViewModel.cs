@@ -28,6 +28,7 @@ namespace Agent_s_App.ViewModel.HomePageViewModels
 		public ConfirmAddOrUpdateUnitCommand ConfirmAddOrUpdateUnit { get; set; }
 		public HomePageViewModel HomePageViewModel { get; set; }
 		public AccommodationUnit Unit { get; set; }
+		public CancelAccommodationUnitCommand CancelAccommodationUnitCommand { get; set; }
 
 		public AccommodationUnitViewModel(AccommodationUnit unit, HomePageViewModel homePageViewModel)
 		{
@@ -50,7 +51,8 @@ namespace Agent_s_App.ViewModel.HomePageViewModels
 				AddOrUpdateButton = "Add";
 				Unit = new AccommodationUnit();
 			}
-			ConfirmAddOrUpdateUnit = new ConfirmAddOrUpdateUnitCommand(Unit, this, HomePageViewModel);		
+			ConfirmAddOrUpdateUnit = new ConfirmAddOrUpdateUnitCommand(Unit, this, HomePageViewModel);
+			CancelAccommodationUnitCommand = new CancelAccommodationUnitCommand(HomePageViewModel);
 		}
 
 		public string AddOrUpdateButton { get; set; }

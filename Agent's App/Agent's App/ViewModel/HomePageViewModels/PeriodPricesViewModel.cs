@@ -18,17 +18,25 @@ namespace Agent_s_App.ViewModel.HomePageViewModels
 		private bool enableUpdate;
 		private UserControl periodPricePage;
 		private PeriodPriceService periodPriceService = new PeriodPriceService();
+		private UpdatePeriodPriceCommand updatePeriodPriceCommand;
+		private DeletePeriodPriceCommand deletePeriodPriceCommand;
 
 		public HomePageViewModel HomePageViewModel { get; set; }
 		public AccommodationUnit AccommodationUnit { get; set; }
 		public AddPeriodPriceCommand AddPeriodPriceCommand { get; set; }
+		public ClosePeriodPricesCommand ClosePeriodPricesCommand { get; set; }
+		public string UnitString { get; set; }
+
 		public PeriodPricesViewModel(HomePageViewModel homePageViewModel, AccommodationUnit accommodationUnit)
 		{
 			HomePageViewModel = homePageViewModel;
 			AccommodationUnit = accommodationUnit;
 			PeriodPrices = periodPriceService.GetPeriodPrices(AccommodationUnit.Id);
 			AddPeriodPriceCommand = new AddPeriodPriceCommand(this);
+			EnableUpdate = false;
 			PeriodPricePage = null;
+			UnitString = "Floor : " + accommodationUnit.Floor + ", Number : " + accommodationUnit.Number;
+			ClosePeriodPricesCommand = new ClosePeriodPricesCommand(HomePageViewModel, AccommodationUnit);
 		}
 
 		public List<PeriodPrice> PeriodPrices
@@ -49,6 +57,9 @@ namespace Agent_s_App.ViewModel.HomePageViewModels
 				periodPrice = value;
 				if (periodPrice != null) EnableUpdate = true;
 				else EnableUpdate = false;
+				UpdatePeriodPriceCommand = new UpdatePeriodPriceCommand(PeriodPrice, this, HomePageViewModel);
+				DeletePeriodPriceCommand = new DeletePeriodPriceCommand(this, HomePageViewModel);
+				PeriodPricePage = null;
 				OnPropertyChanged("PeriodPrice");
 			}
 		}
@@ -73,9 +84,29 @@ namespace Agent_s_App.ViewModel.HomePageViewModels
 			}
 		}
 
+		public UpdatePeriodPriceCommand UpdatePeriodPriceCommand
+		{
+			get => updatePeriodPriceCommand;
+			set
+			{
+				updatePeriodPriceCommand = value;
+				OnPropertyChanged("UpdatePeriodPriceCommand");
+			}
+		}
+
+		public DeletePeriodPriceCommand DeletePeriodPriceCommand
+		{
+			get => deletePeriodPriceCommand;
+			set
+			{
+				deletePeriodPriceCommand = value;
+				OnPropertyChanged("DeletePeriodPriceCommand");
+			}
+		}
+
 		public void setPeriodPricePage(PeriodPrice periodPrice)
 		{
-			PeriodPricePage = new PeriodPriceView(periodPrice);
+			PeriodPricePage = new PeriodPriceView(periodPrice, this, HomePageViewModel);
 		}
 	}
 }

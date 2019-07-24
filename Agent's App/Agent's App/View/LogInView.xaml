@@ -43,7 +43,7 @@
                 <TextBox Background="{x:Null}" BorderBrush="#FFCCCCCC" BorderThickness="0,0,0,3" x:Name="Username" Text="{Binding Username, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" Grid.Column="3" Height="40" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Grid.ColumnSpan="2" Foreground="#FFCCCCCC" />
                 <Label Content="Password" IsEnabled="False" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" Height="40" Width="245" Background="#00000000" Foreground="#FFCCCCCC" FontSize="24"/>
                 <PasswordBox Foreground="#FFCCCCCC" BorderThickness="0,0,0,3"  x:Name="Password"  Grid.Column="3" Grid.Row="3" VerticalAlignment="Top" Height="40" FontSize="24" Grid.ColumnSpan="2" Background="{x:Null}" BorderBrush="#FFCCCCCC"/>
-                <Label Content="Wrong username or password" Visibility="{Binding Visible, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"  Grid.Column="3" Margin="24,10,23,7" Background="#FFCBA3A3" Foreground="Red" FontSize="18" FontWeight="Bold" IsEnabled="False" BorderBrush="Red" FontStyle="Italic" HorizontalAlignment="Center" Grid.ColumnSpan="2" Width="262"/>
+                <Label BorderThickness="2" Content="Wrong username or password" Visibility="{Binding Visible, UpdateSourceTrigger=PropertyChanged}"  Grid.Column="3" Background="#FFCBA3A3" Foreground="Red" FontSize="18" FontWeight="Bold" IsEnabled="False" BorderBrush="Red" FontStyle="Italic" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
             </Grid>
 
         </Grid>

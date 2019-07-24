@@ -7,19 +7,24 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Background="White">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="225"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
-            <RowDefinition Height="100*"/>
-            <RowDefinition Height="100*"/>
+            <RowDefinition Height="150*"/>
+            <RowDefinition Height="150*"/>
+            <RowDefinition Height="8*"/>
             <RowDefinition Height="30"/>
-            <RowDefinition Height="10*"/>
+            <RowDefinition Height="8*"/>
         </Grid.RowDefinitions>
         <ListView Grid.Row="1" ItemsSource="{Binding PeriodPrices, UpdateSourceTrigger=PropertyChanged}"
                   SelectedItem="{Binding PeriodPrice, UpdateSourceTrigger=PropertyChanged}"
                   ScrollViewer.CanContentScroll="True" 
                   ScrollViewer.VerticalScrollBarVisibility="Auto"
                   ScrollViewer.HorizontalScrollBarVisibility="Auto"
-                  IsSynchronizedWithCurrentItem="True">
+                  IsSynchronizedWithCurrentItem="True" Grid.ColumnSpan="2" BorderBrush="{x:Null}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding FromDate}" Header="From date" Width="Auto"/>
@@ -28,23 +33,24 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Command="{Binding AddPeriodPriceCommand}" HorizontalAlignment="Left" Margin="25,0,0,0" Width="50" Height="50" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}">
+        <Button ToolTip="Add Period Price" Command="{Binding AddPeriodPriceCommand}" HorizontalAlignment="Left" Margin="25,0,0,0" Width="50" Height="50" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}">
             <StackPanel>
                 <Image Source="/View/Resources/period_price_add.png"/>
             </StackPanel>
         </Button>
-        <Button HorizontalAlignment="Left" Margin="100,0,0,0" Width="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}">
+        <Button Command="{Binding UpdatePeriodPriceCommand}"  ToolTip="Update Period Price" IsEnabled="{Binding EnableUpdate, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="100,0,0,0" Width="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}">
             <StackPanel>
                 <Image Source="/View/Resources/period_price_update.png"/>
             </StackPanel>
         </Button>
-        <Button HorizontalAlignment="Left" Margin="175,0,0,0" Width="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}">
+        <Button Command="{Binding DeletePeriodPriceCommand}" ToolTip="Delete Period Price" IsEnabled="{Binding EnableUpdate, UpdateSourceTrigger=PropertyChanged}" Margin="175,0,0,0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}">
             <StackPanel>
                 <Image Source="/View/Resources/period_price_delete.png"/>
             </StackPanel>
         </Button>
-        <ContentControl Grid.Row="2" Content="{Binding PeriodPricePage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-        <Button Content="Finish" Margin="0,0,60,0" Grid.Row="3" HorizontalAlignment="Right" Width="100" Background="#FFDDDDDD" BorderBrush="{x:Null}"/>
+        <ContentControl Grid.Row="2" Content="{Binding PeriodPricePage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2"/>
+        <Button Command="{Binding ClosePeriodPricesCommand}" Content="Close" Margin="0,0,60,0" Grid.Row="4" HorizontalAlignment="Right" Width="150" FontSize="16" BorderBrush="{x:Null}" Grid.Column="1" />
+        <Label Content="{Binding UnitString}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="30" Grid.Column="1" FontSize="16" Foreground="#FF817777" />
 
     </Grid>
 </UserControl>

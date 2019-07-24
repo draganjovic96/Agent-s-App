@@ -26,17 +26,17 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Command="{Binding AddAccommodationUnitCommand}" HorizontalAlignment="Left" Margin="25,0,0,0" VerticalAlignment="Top" Width="50" Height="50" Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}">
+        <Button ToolTip="Add Unit" Command="{Binding AddAccommodationUnitCommand}" HorizontalAlignment="Left" Margin="25,0,0,0" VerticalAlignment="Top" Width="50" Height="50" Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}">
             <StackPanel>
                 <Image Source="/View/Resources/room_add.png"/>
             </StackPanel>
         </Button>
-        <Button Command="{Binding UpdateAccommodationUnitCommand, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding EnableUpdate, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="100,0,0,0" VerticalAlignment="Top" Width="50" Height="50" Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}">
+        <Button ToolTip="Update Unit" Command="{Binding UpdateAccommodationUnitCommand, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding EnableUpdate, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="100,0,0,0" VerticalAlignment="Top" Width="50" Height="50" Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}">
             <StackPanel>
                 <Image Source="/View/Resources/room_update.png"/>
             </StackPanel>
         </Button>
-        <Button Command="{Binding DeleteAccommodationUnitCommand, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding EnableUpdate, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="175,0,0,0" VerticalAlignment="Top" Width="50" Height="50" Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}">
+        <Button ToolTip="Delete Unit" Command="{Binding DeleteAccommodationUnitCommand, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding EnableUpdate, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="175,0,0,0" VerticalAlignment="Top" Width="50" Height="50" Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}">
             <StackPanel>
                 <Image Source="/View/Resources/room_delete.png"/>
             </StackPanel>

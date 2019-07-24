@@ -29,6 +29,7 @@ namespace Agent_s_App
 
 		public MainWindow()
 		{
+			
 			#region address
 			Address address1 = new Address()
 			{
@@ -248,7 +249,7 @@ namespace Agent_s_App
 
 			
 			unitOfWork.Complete();
-
+			
 
 			InitializeComponent();
 			DataContext = new MainViewModel();

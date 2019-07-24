@@ -6,16 +6,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Agent_s_App.ViewModel
 {
 	public class LoginViewModel : ViewModelBase
 	{
 		private UserService userService = new UserService();
+		private string username;
+		private string visible;
 
-		public string Visible { get; set; }
 		public LoginCommand LoginCommand { get; set; }
-		public string Username { get; set; }
 
 		public LoginViewModel(string visible, MainViewModel mainViewModel)
 		{
@@ -27,5 +28,25 @@ namespace Agent_s_App.ViewModel
 		{
 			return userService.LogIn(Username, password);
 		}
+
+		public string Username
+		{
+			get => username; 
+			set {
+				username = value;
+				if(username != "") Visible = "Hidden";
+			}
+		}
+
+		public string Visible
+		{
+			get => visible;
+			set
+			{
+				visible = value;
+				OnPropertyChanged("Visible");
+			}
+		}
+
 	}
 }

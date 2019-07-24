@@ -1,5 +1,4 @@
-﻿using Agent_s_App.ViewModel.HomePageViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,13 +7,13 @@ using System.Windows.Input;
 
 namespace Agent_s_App.ViewModel.Command.HomePageCommands.AccommodationUnitsCommands
 {
-	public class AddPeriodPriceCommand : ICommand
+	public class CancelAccommodationUnitCommand : ICommand
 	{
-		public PeriodPricesViewModel PeriodPricesViewModel { get; set; }
+		public HomePageViewModel HomePageViewModel { get; set; }
 
-		public AddPeriodPriceCommand(PeriodPricesViewModel periodPricesViewModel)
+		public CancelAccommodationUnitCommand(HomePageViewModel homePageViewModel)
 		{
-			PeriodPricesViewModel = periodPricesViewModel;
+			HomePageViewModel = homePageViewModel;
 		}
 		public event EventHandler CanExecuteChanged;
 
@@ -25,7 +24,7 @@ namespace Agent_s_App.ViewModel.Command.HomePageCommands.AccommodationUnitsComma
 
 		public void Execute(object parameter)
 		{
-			PeriodPricesViewModel.setPeriodPricePage(null);		
+			HomePageViewModel.setUnitsPage();
 		}
 	}
 }
