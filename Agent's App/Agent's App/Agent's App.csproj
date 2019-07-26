@@ -64,14 +64,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Migrations\201907231934507_First.cs" />
-    <Compile Include="Migrations\201907231934507_First.Designer.cs">
-      <DependentUpon>201907231934507_First.cs</DependentUpon>
+    <Compile Include="Migrations\201907261513172_First.cs" />
+    <Compile Include="Migrations\201907261513172_First.Designer.cs">
+      <DependentUpon>201907261513172_First.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Service\AccommodationService.cs" />
+    <Compile Include="Service\AccommodationServiceService.cs" />
     <Compile Include="Service\AccommodationUnitService.cs" />
     <Compile Include="Service\AccommodationUnitTypeService.cs" />
+    <Compile Include="Service\CommentRateService.cs" />
     <Compile Include="Service\PeriodPriceService.cs" />
     <Compile Include="Service\ReservationService.cs" />
     <Compile Include="Service\UserService.cs" />
@@ -94,16 +96,24 @@
     <Compile Include="ViewModel\Command\HomePageCommands\AccommodationUnitTypesCommands\ConfirmAddOrUpdateUnitTypeCommand.cs" />
     <Compile Include="ViewModel\Command\HomePageCommands\AccommodationUnitTypesCommands\DeleteAccommodationUnitTypeCommand.cs" />
     <Compile Include="ViewModel\Command\HomePageCommands\AccommodationUnitTypesCommands\UpdateAccommodationUnitTypeCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\CommentsPageCommand.cs" />
     <Compile Include="ViewModel\Command\HomePageCommands\ReservationCommands\AddReservationCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\ReservationCommands\CancelAddOrUpdateReservationCommand.cs" />
     <Compile Include="ViewModel\Command\HomePageCommands\ReservationCommands\ConfirmAddOrUpdateReservationCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\ReservationCommands\DeleteReservationCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\ReservationCommands\UpdateReservationCommand.cs" />
     <Compile Include="ViewModel\Command\HomePageCommands\ReservationsPageCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\ServicesPageCommand.cs" />
     <Compile Include="ViewModel\Command\HomePageCommands\UnitsPageCommand.cs" />
     <Compile Include="ViewModel\Command\HomePageCommands\UnitTypesPageCommand.cs" />
     <Compile Include="ViewModel\HomePageViewModel.cs" />
+    <Compile Include="ViewModel\HomePageViewModels\AccommodationServicesViewModel.cs" />
     <Compile Include="ViewModel\HomePageViewModels\AccommodationUnitsViewModel.cs" />
     <Compile Include="ViewModel\HomePageViewModels\AccommodationUnitTypesViewModel.cs" />
     <Compile Include="ViewModel\HomePageViewModels\AccommodationUnitTypeViewModel.cs" />
     <Compile Include="ViewModel\HomePageViewModels\AccommodationUnitViewModel.cs" />
+    <Compile Include="ViewModel\HomePageViewModels\CommentRateViewModel.cs" />
+    <Compile Include="ViewModel\HomePageViewModels\CommentsViewModel.cs" />
     <Compile Include="ViewModel\HomePageViewModels\PeriodPricesViewModel.cs" />
     <Compile Include="ViewModel\HomePageViewModels\PeriodPriceViewModel.cs" />
     <Compile Include="ViewModel\HomePageViewModels\ReservationsViewModel.cs" />
@@ -286,8 +296,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\201907231934507_First.resx">
-      <DependentUpon>201907231934507_First.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201907261513172_First.resx">
+      <DependentUpon>201907261513172_First.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -349,6 +359,13 @@
     <Resource Include="View\Resources\stars_rating_3.png" />
     <Resource Include="View\Resources\stars_rating_4.png" />
     <Resource Include="View\Resources\stars_rating_5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Resources\service_add.png" />
+    <Resource Include="View\Resources\service_update.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Resources\service_delete.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

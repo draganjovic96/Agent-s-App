@@ -47,7 +47,8 @@
                 Foreground="White" 
                 Focusable="False" 
                 Height="50"/>
-        <Button Content="Comments" 
+        <Button Content="Comments"
+                Command="{Binding CommentsPageCommand}"
                 BorderThickness="0" 
                 Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" 
                 Background="{Binding CommentsButtonColor}" 
@@ -57,7 +58,8 @@
                 Margin="0,150,0,0" 
                 Foreground="White"
                 Focusable="False"/>
-        <Button Content="Services" 
+        <Button Content="Services"
+                Command="{Binding ServicesPageCommand}"
                 BorderThickness="0" 
                 Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" 
                 Background="{Binding ServicesButtonColor}" 

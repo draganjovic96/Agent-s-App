@@ -24,7 +24,7 @@
                   ScrollViewer.CanContentScroll="True" 
                   ScrollViewer.VerticalScrollBarVisibility="Auto"
                   ScrollViewer.HorizontalScrollBarVisibility="Auto"
-                  IsSynchronizedWithCurrentItem="True" Grid.ColumnSpan="2" BorderBrush="{x:Null}">
+                  IsSynchronizedWithCurrentItem="True" Grid.ColumnSpan="2" BorderThickness="0">
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding FromDate}" Header="From date" Width="Auto"/>

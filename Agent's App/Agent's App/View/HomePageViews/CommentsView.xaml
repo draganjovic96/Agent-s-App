@@ -5,8 +5,47 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Agent_s_App.View.HomePageViews"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800" Background="White">
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="31*"/>
+            <RowDefinition Height="419*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox ItemsSource="{Binding CommentRates}" Grid.ColumnSpan="6" Grid.Row="1" BorderThickness="0,3,0,0">
+        <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label FontSize="16" VerticalAlignment="Center" Content="{Binding Reservation.Guest.Username}" />
+                        <Label Grid.Column="1" FontSize="16" VerticalAlignment="Center" Content="{Binding Reservation.FromDate}" />
+                        <Label FontSize="16" VerticalAlignment="Center" Grid.Column="2" Content="{Binding Reservation.ToDate}" />
+                        <Label FontSize="16" VerticalAlignment="Center" Grid.Column="3" Content="{Binding Reservation.AccommodationUnit.Number}"/>
+                        <Label FontSize="16" VerticalAlignment="Center" Grid.Column="4" Content="{Binding ContentOfComment}" />
+                        <Image Grid.Column="5" Source="{Binding RateImage}" Height="50"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Label Content="Guest" HorizontalAlignment="Left" FontSize="16"  Grid.Column="0" />
+        <Label Content="From date" HorizontalAlignment="Left" FontSize="16"  Grid.Column="1" />
+        <Label Content="To Date" HorizontalAlignment="Left" FontSize="16"  Grid.Column="2" />
+        <Label Content="Unit number" HorizontalAlignment="Left" FontSize="16"  Grid.Column="3" />
+        <Label Content="Comment" HorizontalAlignment="Left" FontSize="16"  Grid.Column="4" />
+        <Label Content="Rating" HorizontalAlignment="Left" FontSize="16"  Grid.Column="5" />
     </Grid>
 </UserControl>

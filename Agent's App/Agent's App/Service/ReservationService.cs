@@ -25,5 +25,11 @@ namespace Agent_s_App.Service
 			unitOfWork.Reservations.Add(reservation);
 			unitOfWork.Complete();
 		}
+
+		public void DeleteReservation(Reservation reservation)
+		{
+			unitOfWork.Reservations.Remove(reservation);
+			unitOfWork.Complete();
+		}
 	}
 }

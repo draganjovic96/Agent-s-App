@@ -30,6 +30,7 @@ namespace Agent_s_App.ViewModel.HomePageViewModels
 		public List<AccommodationUnit> Units { get; set; }
 		public Reservation Reservation { get; set; }
 		public ConfirmAddOrUpdateReservationCommand ConfirmAddOrUpdateReservationCommand { get; set; }
+		public CancelAddOrUpdateReservationCommand CancelAddOrUpdateReservationCommand { get; set; }
 		public string AddOrSaveButton { get; set; }
 
 		public ReservationViewModel(Reservation reservation, ReservationsViewModel reservationsViewModel)
@@ -40,6 +41,7 @@ namespace Agent_s_App.ViewModel.HomePageViewModels
 			Units = accommodationUnitService.GetAccommodationUnits(HomePageViewModel.Accommodation.Id);
 			ReservationsViewModel = reservationsViewModel;
 			CommentRatePage = new NoCommentRateView();
+
 			if (reservationsViewModel.Unit != null)
 			{
 				EnableUnit = false;
@@ -58,8 +60,10 @@ namespace Agent_s_App.ViewModel.HomePageViewModels
 				if (Guest.Id != HomePageViewModel.LoggedUser.Id)
 				{
 					EnableEdit = false;
-					CommentRatePage = new CommentRateView(reservationsViewModel.Reservation);
+					EnableUnit = false;
+					CommentRatePage = new CommentRateView(reservationsViewModel);
 				}
+				Unit = reservation.AccommodationUnit;
 			}
 			else
 			{
@@ -70,6 +74,7 @@ namespace Agent_s_App.ViewModel.HomePageViewModels
 				Reservation = new Reservation();
 			}
 			ConfirmAddOrUpdateReservationCommand = new ConfirmAddOrUpdateReservationCommand(this);
+			CancelAddOrUpdateReservationCommand = new CancelAddOrUpdateReservationCommand(ReservationsViewModel);
 		}
 
 		public AccommodationUnit Unit

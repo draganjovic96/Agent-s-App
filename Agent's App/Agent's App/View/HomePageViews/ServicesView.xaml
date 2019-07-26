@@ -5,8 +5,41 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Agent_s_App.View.HomePageViews"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800" Background="White">
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Button ToolTip="Add Service" Margin="25,0,0,0" Width="50" HorizontalAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}">
+            <StackPanel>
+                <Image Source="/View/Resources/service_add.png"/>
+            </StackPanel>
+        </Button>
+        <Button ToolTip="Update Service" Margin="100,0,0,0" Width="50" HorizontalAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}">
+            <StackPanel>
+                <Image Source="/View/Resources/service_update.png"/>
+            </StackPanel>
+        </Button>
+        <Button ToolTip="Delete Service" Margin="175,0,0,0" Width="50" HorizontalAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}">
+            <StackPanel>
+                <Image Source="/View/Resources/service_delete.png"/>
+            </StackPanel>
+        </Button>
+        <ListView Grid.Row="1" ItemsSource="{Binding Services, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding Service, UpdateSourceTrigger=PropertyChanged}"
+                  ScrollViewer.CanContentScroll="True" 
+                  ScrollViewer.VerticalScrollBarVisibility="Auto"
+                  ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                  IsSynchronizedWithCurrentItem="True" BorderThickness="0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="Name" Width="200"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Description}" Header="Description" Width="Auto"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ContentControl Grid.Row="2" Content="{Binding ServicePage}"/>
     </Grid>
 </UserControl>

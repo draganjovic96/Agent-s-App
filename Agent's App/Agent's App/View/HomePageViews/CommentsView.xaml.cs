@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Agent_s_App.Core.Model;
+using Agent_s_App.ViewModel.HomePageViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,10 @@ namespace Agent_s_App.View.HomePageViews
 	/// </summary>
 	public partial class CommentsView : UserControl
 	{
-		public CommentsView()
+		public CommentsView(Accommodation accommodation)
 		{
 			InitializeComponent();
+			DataContext = new CommentsViewModel(accommodation);
 		}
 	}
 }

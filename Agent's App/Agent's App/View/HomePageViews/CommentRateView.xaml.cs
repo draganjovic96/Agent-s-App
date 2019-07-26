@@ -1,4 +1,5 @@
 ﻿using Agent_s_App.Core.Model;
+using Agent_s_App.ViewModel.HomePageViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,9 +22,10 @@ namespace Agent_s_App.View.HomePageViews
 	/// </summary>
 	public partial class CommentRateView : UserControl
 	{
-		public CommentRateView(Reservation reservation)
+		public CommentRateView(ReservationsViewModel reservationsViewModel)
 		{
 			InitializeComponent();
+			DataContext = new CommentRateViewModel(reservationsViewModel.Reservation.CommentRate);
 		}
 	}
 }

@@ -75,15 +75,12 @@ namespace Agent_s_App.Migrations
                         Confirmed = c.Boolean(nullable: false),
                         AgentConfirmed = c.Boolean(nullable: false),
                         AccommodationUnit_Id = c.Long(nullable: false),
-                        CommentRate_Id = c.Long(),
                         Guest_Id = c.Long(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.AccommodationUnits", t => t.AccommodationUnit_Id, cascadeDelete: true)
-                .ForeignKey("dbo.CommentRates", t => t.CommentRate_Id)
                 .ForeignKey("dbo.Users", t => t.Guest_Id)
                 .Index(t => t.AccommodationUnit_Id)
-                .Index(t => t.CommentRate_Id)
                 .Index(t => t.Guest_Id);
             
             CreateTable(
@@ -95,8 +92,11 @@ namespace Agent_s_App.Migrations
                         ContentOfComment = c.String(),
                         CommentDateTime = c.DateTime(nullable: false),
                         Ocena = c.Int(nullable: false),
+                        RateImage = c.String(),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Reservations", t => t.Id)
+                .Index(t => t.Id);
             
             CreateTable(
                 "dbo.Users",
@@ -199,7 +199,7 @@ namespace Agent_s_App.Migrations
             DropForeignKey("dbo.Reservations", "Guest_Id", "dbo.Users");
             DropForeignKey("dbo.Users", "AgentOfAccommodation_Id", "dbo.Accommodations");
             DropForeignKey("dbo.Users", "Address_Id", "dbo.Addresses");
-            DropForeignKey("dbo.Reservations", "CommentRate_Id", "dbo.CommentRates");
+            DropForeignKey("dbo.CommentRates", "Id", "dbo.Reservations");
             DropForeignKey("dbo.Reservations", "AccommodationUnit_Id", "dbo.AccommodationUnits");
             DropForeignKey("dbo.PeriodPrices", "AccommodationUnit_Id", "dbo.AccommodationUnits");
             DropForeignKey("dbo.AccommodationUnits", "AccommodationUnitType_Id", "dbo.AccommodationUnitTypes");
@@ -212,8 +212,8 @@ namespace Agent_s_App.Migrations
             DropIndex("dbo.Messages", new[] { "Accommodation_Id" });
             DropIndex("dbo.Users", new[] { "AgentOfAccommodation_Id" });
             DropIndex("dbo.Users", new[] { "Address_Id" });
+            DropIndex("dbo.CommentRates", new[] { "Id" });
             DropIndex("dbo.Reservations", new[] { "Guest_Id" });
-            DropIndex("dbo.Reservations", new[] { "CommentRate_Id" });
             DropIndex("dbo.Reservations", new[] { "AccommodationUnit_Id" });
             DropIndex("dbo.PeriodPrices", new[] { "AccommodationUnit_Id" });
             DropIndex("dbo.AccommodationUnits", new[] { "AccommodationUnitType_Id" });

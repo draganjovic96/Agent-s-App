@@ -11,7 +11,7 @@
             <RowDefinition Height="50"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <ListView Grid.Row="1"
+        <ListView Grid.Row="1" BorderThickness="0"
                   ScrollViewer.CanContentScroll="True" 
                   ScrollViewer.VerticalScrollBarVisibility="Auto"
                   ScrollViewer.HorizontalScrollBarVisibility="Auto"
@@ -33,12 +33,12 @@
                 <Image Source="/View/Resources/reservation_add.png"/>
             </StackPanel>
         </Button>
-        <Button ToolTip="Update/See Reservation"  HorizontalAlignment="Left" Margin="100,0,0,0" Width="50" Background="{x:Null}" BorderBrush="{x:Null}">
+        <Button IsEnabled="{Binding EnableUpdate, UpdateSourceTrigger=PropertyChanged}" Command="{Binding UpdateReservationCommand}"  ToolTip="Update/See Reservation"  HorizontalAlignment="Left" Margin="100,0,0,0" Width="50" Background="{x:Null}" BorderBrush="{x:Null}">
             <StackPanel>
                 <Image Source="/View/Resources/reservation_update.png"/>
             </StackPanel>
         </Button>
-        <Button ToolTip="Delete Reservation" HorizontalAlignment="Left" Margin="175,0,0,0" Width="50" Background="{x:Null}" BorderBrush="{x:Null}">
+        <Button Command="{Binding DeleteReservationCommand}" IsEnabled="{Binding EnableDelete, UpdateSourceTrigger=PropertyChanged}" ToolTip="Delete Reservation" HorizontalAlignment="Left" Margin="175,0,0,0" Width="50" Background="{x:Null}" BorderBrush="{x:Null}">
             <StackPanel>
                 <Image Source="/View/Resources/reservation_delete.png"/>
             </StackPanel>

@@ -11,7 +11,9 @@ namespace Agent_s_App.ViewModel.HomePageViewModels
 {
 	public class ReservationsViewModel : ViewModelBase
 	{
-		private Reservation reservation = null;
+		private Reservation reservation;
+		private bool enableUpdate;
+		private bool enableDelete;
 
 		public AccommodationUnit Unit { get; set; }
 		public ReservationService ReservationService = new ReservationService();
@@ -20,6 +22,8 @@ namespace Agent_s_App.ViewModel.HomePageViewModels
 		public string UnitString { get; set; }
 
 		public AddReservationCommand AddReservationCommand { get; set; }
+		public UpdateReservationCommand UpdateReservationCommand { get; set; }
+		public DeleteReservationCommand DeleteReservationCommand { get; set; }
 
 		public ReservationsViewModel(AccommodationUnit unit, HomePageViewModel homePageViewModel)
 		{
@@ -35,7 +39,11 @@ namespace Agent_s_App.ViewModel.HomePageViewModels
 				Reservations = ReservationService.GetReservations(0, HomePageViewModel.Accommodation.Id);
 
 			}
+			//EnableUpdate = false;
+			//EnableDelete = false;
 			AddReservationCommand = new AddReservationCommand(Unit, Reservation, this);
+			UpdateReservationCommand = new UpdateReservationCommand(this);
+			DeleteReservationCommand = new DeleteReservationCommand(this);
 		}
 
 		public Reservation Reservation
@@ -44,9 +52,31 @@ namespace Agent_s_App.ViewModel.HomePageViewModels
 			set
 			{
 				reservation = value;
+				EnableUpdate = true;
+				if (Reservation.Guest.Id == HomePageViewModel.LoggedUser.Id) EnableDelete = true;
+				else EnableDelete = false;
 				OnPropertyChanged("Reservation");
 			}
 		}
 
+		public bool EnableUpdate
+		{
+			get => enableUpdate;
+			set
+			{
+				enableUpdate = value;
+				OnPropertyChanged("EnableUpdate");
+			}
+		}
+
+		public bool EnableDelete
+		{
+			get => enableDelete;
+			set
+			{
+				enableDelete = value;
+				OnPropertyChanged("EnableDelete");
+			}
+		}
 	}
 }

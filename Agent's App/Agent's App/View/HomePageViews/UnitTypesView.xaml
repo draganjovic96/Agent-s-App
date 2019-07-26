@@ -28,7 +28,7 @@
                 <Image Source="/View/Resources/unit_type_delete.png"/>
             </StackPanel>
         </Button>
-        <ListView Grid.Row="1" BorderThickness="0" 
+        <ListView Grid.Row="1" BorderThickness="0"
                   ItemsSource="{Binding UnitTypes, UpdateSourceTrigger=PropertyChanged}"
                   SelectedItem="{Binding UnitType, UpdateSourceTrigger=PropertyChanged}"
                   ScrollViewer.CanContentScroll="True" 

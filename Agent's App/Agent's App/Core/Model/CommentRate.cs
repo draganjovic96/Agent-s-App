@@ -10,7 +10,7 @@ namespace Agent_s_App.Core.Model
 {
 	public class CommentRate
 	{
-		[Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
+		[Key, DatabaseGenerated(DatabaseGeneratedOption.None), ForeignKey("Reservation")]
 		public long Id { get; set; }
 
 		public bool ApprovedComment { get; set; }
@@ -19,6 +19,10 @@ namespace Agent_s_App.Core.Model
 
 		public DateTime CommentDateTime { get; set; }
 
+		public virtual Reservation Reservation { get; set; }
+
 		public int Ocena { get; set; }
+
+		public string RateImage { get; set; }
 	}
 }

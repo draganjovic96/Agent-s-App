@@ -16,7 +16,7 @@
             ScrollViewer.HorizontalScrollBarVisibility="Auto"
             ItemsSource="{Binding Units, UpdateSourceTrigger=PropertyChanged}"
             SelectedItem="{Binding SelectedUnit, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-            IsSynchronizedWithCurrentItem="True">
+            IsSynchronizedWithCurrentItem="True" BorderThickness="0">
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding Floor}" Header="Floor" Width="50"/>

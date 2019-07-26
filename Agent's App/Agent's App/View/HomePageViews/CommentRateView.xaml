@@ -32,7 +32,8 @@
         </Grid.RowDefinitions>
         <Label Content="Comment"  Grid.Row="1" Style="{StaticResource FormLabel}"/>
         <Label Content="Rating"  Grid.Row="5" Style="{StaticResource FormLabel}"/>
-        <TextBlock Grid.Column="2" TextWrapping="Wrap" Text="TextBlock" Grid.RowSpan="3" Grid.Row="1" Background="#FFDED9D9" />
-        <Image Grid.Column="2" HorizontalAlignment="Left" Grid.Row="5" Source="/View/Resources/stars_rating_5.png"/>
+        <Label Content="{Binding Time}"  Grid.Row="3" Grid.Column="2" Style="{StaticResource FormLabel}" FontSize="12"/>
+        <TextBlock Grid.Column="2" TextWrapping="Wrap" Text="{Binding Comment}" Grid.Row="1" Background="#FFDED9D9" Grid.RowSpan="2" />
+        <Image Grid.Column="2" HorizontalAlignment="Left" Grid.Row="5" Source="{Binding RatingImage}"/>
     </Grid>
 </UserControl>
