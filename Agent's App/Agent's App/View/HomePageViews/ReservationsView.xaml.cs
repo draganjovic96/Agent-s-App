@@ -1,4 +1,6 @@
 ﻿using Agent_s_App.Core.Model;
+using Agent_s_App.ViewModel;
+using Agent_s_App.ViewModel.HomePageViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,9 +23,10 @@ namespace Agent_s_App.View.HomePageViews
 	/// </summary>
 	public partial class ReservationsView : UserControl
 	{
-		public ReservationsView(Accommodation accommodation)
+		public ReservationsView(AccommodationUnit unit, HomePageViewModel homePageViewModel)
 		{
 			InitializeComponent();
+			DataContext = new ReservationsViewModel(unit, homePageViewModel);
 		}
 	}
 }

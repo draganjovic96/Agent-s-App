@@ -1,5 +1,6 @@
 ﻿using Agent_s_App.Core.Model;
 using Agent_s_App.Service;
+using Agent_s_App.ViewModel.Command.HomePageCommands;
 using Agent_s_App.ViewModel.Command.HomePageCommands.AccommodationUnitsCommands;
 using System;
 using System.Collections.Generic;
@@ -29,6 +30,7 @@ namespace Agent_s_App.ViewModel.HomePageViewModels
 		public HomePageViewModel HomePageViewModel { get; set; }
 		public AccommodationUnit Unit { get; set; }
 		public CancelAccommodationUnitCommand CancelAccommodationUnitCommand { get; set; }
+		public ReservationsPageCommand ReservationsPageCommand { get; set; }
 
 		public AccommodationUnitViewModel(AccommodationUnit unit, HomePageViewModel homePageViewModel)
 		{
@@ -45,6 +47,7 @@ namespace Agent_s_App.ViewModel.HomePageViewModels
 				UnitType = unit.AccommodationUnitType;
 				EnableButton = false;
 				PeriodPriceCommand = new PeriodPriceCommand(this, HomePageViewModel);
+				ReservationsPageCommand = new ReservationsPageCommand(Unit, HomePageViewModel);
 			}
 			else
 			{

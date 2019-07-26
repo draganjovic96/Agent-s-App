@@ -29,6 +29,9 @@ namespace Agent_s_App.Persistance
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{
+			/*modelBuilder.Entity<Reservation>()
+				.HasOptional<CommentRate>(r => r.CommentRate)
+				.WithOptionalPrincipal(); ;*/
 		}
 	}
 }

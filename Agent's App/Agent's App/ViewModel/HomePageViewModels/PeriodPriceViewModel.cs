@@ -35,6 +35,8 @@ namespace Agent_s_App.ViewModel.HomePageViewModels
 			}
 			else
 			{
+				FromDate = new DateTime(2001, 1, 1);
+				ToDate = new DateTime(2001, 1, 1);
 				PeriodPrice = new PeriodPrice();
 				AddOrSaveButton = "Add";
 			}

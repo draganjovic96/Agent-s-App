@@ -73,6 +73,7 @@
     <Compile Include="Service\AccommodationUnitService.cs" />
     <Compile Include="Service\AccommodationUnitTypeService.cs" />
     <Compile Include="Service\PeriodPriceService.cs" />
+    <Compile Include="Service\ReservationService.cs" />
     <Compile Include="Service\UserService.cs" />
     <Compile Include="ViewModel\AgentViewModel.cs" />
     <Compile Include="ViewModel\Command\HomePageCommand.cs" />
@@ -93,6 +94,8 @@
     <Compile Include="ViewModel\Command\HomePageCommands\AccommodationUnitTypesCommands\ConfirmAddOrUpdateUnitTypeCommand.cs" />
     <Compile Include="ViewModel\Command\HomePageCommands\AccommodationUnitTypesCommands\DeleteAccommodationUnitTypeCommand.cs" />
     <Compile Include="ViewModel\Command\HomePageCommands\AccommodationUnitTypesCommands\UpdateAccommodationUnitTypeCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\ReservationCommands\AddReservationCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\ReservationCommands\ConfirmAddOrUpdateReservationCommand.cs" />
     <Compile Include="ViewModel\Command\HomePageCommands\ReservationsPageCommand.cs" />
     <Compile Include="ViewModel\Command\HomePageCommands\UnitsPageCommand.cs" />
     <Compile Include="ViewModel\Command\HomePageCommands\UnitTypesPageCommand.cs" />
@@ -103,6 +106,8 @@
     <Compile Include="ViewModel\HomePageViewModels\AccommodationUnitViewModel.cs" />
     <Compile Include="ViewModel\HomePageViewModels\PeriodPricesViewModel.cs" />
     <Compile Include="ViewModel\HomePageViewModels\PeriodPriceViewModel.cs" />
+    <Compile Include="ViewModel\HomePageViewModels\ReservationsViewModel.cs" />
+    <Compile Include="ViewModel\HomePageViewModels\ReservationViewModel.cs" />
     <Compile Include="View\AgentView.xaml.cs">
       <DependentUpon>AgentView.xaml</DependentUpon>
     </Compile>
@@ -110,7 +115,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\HomePageViews\CommentRateView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\HomePageViews\CommentsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\HomePageViews\NoCommentRateView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -195,8 +208,14 @@
     <Compile Include="View\HomePageView.xaml.cs">
       <DependentUpon>HomePageView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\HomePageViews\CommentRateView.xaml.cs">
+      <DependentUpon>CommentRateView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\HomePageViews\CommentsView.xaml.cs">
       <DependentUpon>CommentsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\HomePageViews\NoCommentRateView.xaml.cs">
+      <DependentUpon>NoCommentRateView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\HomePageViews\PeriodPricesView.xaml.cs">
       <DependentUpon>PeriodPricesView.xaml</DependentUpon>
@@ -318,11 +337,18 @@
     <Resource Include="View\Resources\period_price_delete.png" />
     <Resource Include="View\Resources\period_price_update.png" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Resource Include="View\Resources\unit_type_add.png" />
     <Resource Include="View\Resources\unit_type_delete.png" />
     <Resource Include="View\Resources\unit_type_update.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Resources\stars_rating_0.png" />
+    <Resource Include="View\Resources\stars_rating_1.png" />
+    <Resource Include="View\Resources\stars_rating_2.png" />
+    <Resource Include="View\Resources\stars_rating_3.png" />
+    <Resource Include="View\Resources\stars_rating_4.png" />
+    <Resource Include="View\Resources\stars_rating_5.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

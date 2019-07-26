@@ -40,7 +40,7 @@ namespace Agent_s_App.ViewModel
 			LoggedUser = loggedUser;
 			UnitsPageCommand = new UnitsPageCommand(this);
 			UnitTypesPageCommand = new UnitTypesPageCommand(this);
-			ReservationsPageCommand = new ReservationsPageCommand(this);
+			ReservationsPageCommand = new ReservationsPageCommand(null, this);
 		}
 
 		public string UnitsButtonColor
@@ -135,9 +135,9 @@ namespace Agent_s_App.ViewModel
 			UnitTypesButtonColor = "Green";
 		}
 
-		public void setReservationsPage()
+		public void setReservationsPage(AccommodationUnit unit)
 		{
-			ActivePage = new ReservationsView(Accommodation);
+			ActivePage = new ReservationsView(unit, this);
 			ReservationsButtonColor = "Green";
 		}
 

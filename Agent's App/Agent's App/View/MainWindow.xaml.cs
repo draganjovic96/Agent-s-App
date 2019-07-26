@@ -103,7 +103,7 @@ namespace Agent_s_App
 			#region service
 			AccommodationService service = new AccommodationService()
 			{
-				Id = 412312,
+				Id = 4123112,
 				Name = "Sauna",
 				Description = "Najmodernija sauna.",
 			};
@@ -223,10 +223,21 @@ namespace Agent_s_App
 				ToDate = new DateTime(2017, 10, 13),
 				AgentConfirmed = true,
 				Confirmed = true,
-				CommentRate = commentRate
+				//CommentRate = null
 			};
 
+			Reservation reservation1 = new Reservation()
+			{
+				Id = 423411,
+				AccommodationUnit = accommodationUnit1,
+				Guest = user2,
+				FromDate = new DateTime(2017, 9, 10),
+				ToDate = new DateTime(2017, 10, 13),
+				AgentConfirmed = true,
+				Confirmed = true,
+			};
 			unitOfWork.Reservations.Add(reservation);
+			unitOfWork.Reservations.Add(reservation1);
 
 			#endregion
 

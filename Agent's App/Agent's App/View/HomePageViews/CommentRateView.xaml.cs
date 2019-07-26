@@ -1,5 +1,4 @@
 ﻿using Agent_s_App.Core.Model;
-using Agent_s_App.ViewModel.HomePageViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,14 +17,13 @@ using System.Windows.Shapes;
 namespace Agent_s_App.View.HomePageViews
 {
 	/// <summary>
-	/// Interaction logic for ReservationView.xaml
+	/// Interaction logic for CommentRateView.xaml
 	/// </summary>
-	public partial class ReservationView : UserControl
+	public partial class CommentRateView : UserControl
 	{
-		public ReservationView(Reservation reservation, ReservationsViewModel reservationsViewModel)
+		public CommentRateView(Reservation reservation)
 		{
 			InitializeComponent();
-			DataContext = new ReservationViewModel(reservation, reservationsViewModel);
 		}
 	}
 }
