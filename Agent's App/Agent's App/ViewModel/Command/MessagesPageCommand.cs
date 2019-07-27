@@ -8,11 +8,11 @@ using System.Windows.Input;
 
 namespace Agent_s_App.ViewModel.Command
 {
-	public class HomePageCommand : ICommand
+	public class MessagesPageCommand : ICommand
 	{
 		public AgentViewModel AgentViewModel { get; set; }
 
-		public HomePageCommand(AgentViewModel agentViewModel)
+		public MessagesPageCommand(AgentViewModel agentViewModel)
 		{
 			AgentViewModel = agentViewModel;
 		}
@@ -25,7 +25,7 @@ namespace Agent_s_App.ViewModel.Command
 
 		public void Execute(object parameter)
 		{
-			AgentViewModel.setHomePage(new HomePageView(AgentViewModel.LoggedUser, AgentViewModel.Accommodation));
+			AgentViewModel.setMessagesPage();
 		}
 	}
 }

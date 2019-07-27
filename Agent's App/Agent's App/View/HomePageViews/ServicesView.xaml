@@ -12,31 +12,38 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <Button ToolTip="Add Service" Margin="25,0,0,0" Width="50" HorizontalAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}">
+        <Button Command="{Binding AddServiceCommand}" ToolTip="Add Service" Margin="25,0,0,0" Width="50" HorizontalAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}">
             <StackPanel>
                 <Image Source="/View/Resources/service_add.png"/>
             </StackPanel>
         </Button>
-        <Button ToolTip="Update Service" Margin="100,0,0,0" Width="50" HorizontalAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}">
+        <Button Command="{Binding UpdateServiceCommand}" IsEnabled="{Binding EnableUpdate}" ToolTip="Update Service" Margin="100,0,0,0" Width="50" HorizontalAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}">
             <StackPanel>
                 <Image Source="/View/Resources/service_update.png"/>
             </StackPanel>
         </Button>
-        <Button ToolTip="Delete Service" Margin="175,0,0,0" Width="50" HorizontalAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}">
+        <Button Command="{Binding DeleteServiceCommand}" IsEnabled="{Binding EnableUpdate}" ToolTip="Delete Service" Margin="175,0,0,0" Width="50" HorizontalAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}">
             <StackPanel>
                 <Image Source="/View/Resources/service_delete.png"/>
             </StackPanel>
         </Button>
         <ListView Grid.Row="1" ItemsSource="{Binding Services, UpdateSourceTrigger=PropertyChanged}"
-                  SelectedItem="{Binding Service, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding ServiceWithAffiliation, UpdateSourceTrigger=PropertyChanged}"
                   ScrollViewer.CanContentScroll="True" 
                   ScrollViewer.VerticalScrollBarVisibility="Auto"
                   ScrollViewer.HorizontalScrollBarVisibility="Auto"
                   IsSynchronizedWithCurrentItem="True" BorderThickness="0">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="Name" Width="200"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding Description}" Header="Description" Width="Auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Service.Name}" Header="Name" Width="200"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Service.Description}" Header="Description" Width="Auto"/>
+                    <GridViewColumn Header="Belongs to the accommodation" Width="200">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox HorizontalAlignment="Center" IsChecked="{Binding Affiliation}" Command="{Binding SaveServiceAffiliationCommand}" CommandParameter="{Binding}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>

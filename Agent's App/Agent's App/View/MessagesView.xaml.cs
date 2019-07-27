@@ -1,5 +1,4 @@
-﻿using Agent_s_App.ViewModel.HomePageViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,17 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Agent_s_App.View.HomePageViews
+namespace Agent_s_App.View
 {
 	/// <summary>
-	/// Interaction logic for ServiceView.xaml
+	/// Interaction logic for MessagesView.xaml
 	/// </summary>
-	public partial class ServiceView : UserControl
+	public partial class MessagesView : UserControl
 	{
-		public ServiceView(Core.Model.AccommodationService accommodationService, AccommodationServicesViewModel accommodationServicesViewModel)
+		public MessagesView()
 		{
 			InitializeComponent();
-			DataContext = new AccommodationServiceViewModel(accommodationService, accommodationServicesViewModel);
 		}
 	}
 }

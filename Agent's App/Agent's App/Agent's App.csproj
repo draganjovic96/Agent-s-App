@@ -79,6 +79,12 @@
     <Compile Include="Service\UserService.cs" />
     <Compile Include="ViewModel\AgentViewModel.cs" />
     <Compile Include="ViewModel\Command\HomePageCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\AccommodationServicesCommand\AddServiceCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\AccommodationServicesCommand\CancelServiceCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\AccommodationServicesCommand\ConfirmAddOrUpdateServiceCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\AccommodationServicesCommand\DeleteServiceCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\AccommodationServicesCommand\SaveServiceAffiliationCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\AccommodationServicesCommand\UpdateServiceCommand.cs" />
     <Compile Include="ViewModel\Command\HomePageCommands\AccommodationUnitsCommands\AddAccommodationUnitCommand.cs" />
     <Compile Include="ViewModel\Command\HomePageCommands\AccommodationUnitsCommands\AddPeriodPriceCommand.cs" />
     <Compile Include="ViewModel\Command\HomePageCommands\AccommodationUnitsCommands\CancelAccommodationUnitCommand.cs" />
@@ -106,8 +112,10 @@
     <Compile Include="ViewModel\Command\HomePageCommands\ServicesPageCommand.cs" />
     <Compile Include="ViewModel\Command\HomePageCommands\UnitsPageCommand.cs" />
     <Compile Include="ViewModel\Command\HomePageCommands\UnitTypesPageCommand.cs" />
+    <Compile Include="ViewModel\Command\MessagesPageCommand.cs" />
     <Compile Include="ViewModel\HomePageViewModel.cs" />
     <Compile Include="ViewModel\HomePageViewModels\AccommodationServicesViewModel.cs" />
+    <Compile Include="ViewModel\HomePageViewModels\AccommodationServiceViewModel.cs" />
     <Compile Include="ViewModel\HomePageViewModels\AccommodationUnitsViewModel.cs" />
     <Compile Include="ViewModel\HomePageViewModels\AccommodationUnitTypesViewModel.cs" />
     <Compile Include="ViewModel\HomePageViewModels\AccommodationUnitTypeViewModel.cs" />
@@ -120,6 +128,9 @@
     <Compile Include="ViewModel\HomePageViewModels\ReservationViewModel.cs" />
     <Compile Include="View\AgentView.xaml.cs">
       <DependentUpon>AgentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MessagesView.xaml.cs">
+      <DependentUpon>MessagesView.xaml</DependentUpon>
     </Compile>
     <Page Include="View\HomePageView.xaml">
       <SubType>Designer</SubType>
@@ -265,6 +276,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\AgentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MessagesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
