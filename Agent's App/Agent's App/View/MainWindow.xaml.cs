@@ -24,10 +24,12 @@ namespace Agent_s_App
 	/// </summary>
 	public partial class MainWindow : Window
 	{
-		public UnitOfWork unitOfWork = new UnitOfWork(new AgentsAppContext());
+		public static AgentsAppContext context = new AgentsAppContext();
+		public UnitOfWork unitOfWork = new UnitOfWork(context);
 
 		public MainWindow()
 		{
+			/*
 			#region address
 			Address address1 = new Address()
 			{
@@ -86,14 +88,22 @@ namespace Agent_s_App
 				Deleted = false
 			};
 
+			AccommodationUnitType accommodationUnitType1 = new AccommodationUnitType()
+			{
+				Id = 124312,
+				Name = "Dvokrevetna",
+				Deleted = false
+			};
 			unitOfWork.AccommodationUnitTypes.Add(accommodationUnitType);
+			unitOfWork.AccommodationUnitTypes.Add(accommodationUnitType1);
+
 
 			#endregion
 
 			#region service
 			AccommodationService service = new AccommodationService()
 			{
-				Id = 412312,
+				Id = 4123112,
 				Name = "Sauna",
 				Description = "Najmodernija sauna.",
 			};
@@ -182,7 +192,7 @@ namespace Agent_s_App
 			{
 				Id = 123941,
 				AccommodationUnit = accommodationUnit1,
-				Pice = 44.99,
+				Price = 44.99,
 				FromDate = new DateTime(2011, 6, 1),
 				ToDate = new DateTime(2011, 7, 31)
 			};
@@ -190,18 +200,7 @@ namespace Agent_s_App
 			unitOfWork.PeriodPrices.Add(periodPrice);
 			#endregion
 
-			#region comment rate
-			CommentRate commentRate = new CommentRate()
-			{
-				Id = 132141,
-				CommentDateTime = new DateTime(2019, 11, 13, 21, 21, 21),
-				ApprovedComment = true,
-				ContentOfComment = "Svaka cast!",
-				Ocena = 5
-			};
-
-			unitOfWork.CommentRates.Add(commentRate);
-			#endregion
+			
 
 			#region reservation
 			Reservation reservation = new Reservation()
@@ -213,10 +212,47 @@ namespace Agent_s_App
 				ToDate = new DateTime(2017, 10, 13),
 				AgentConfirmed = true,
 				Confirmed = true,
-				CommentRate = commentRate
 			};
 
+			Reservation reservation1 = new Reservation()
+			{
+				Id = 423411,
+				AccommodationUnit = accommodationUnit1,
+				Guest = user2,
+				FromDate = new DateTime(2017, 9, 10),
+				ToDate = new DateTime(2017, 10, 13),
+				AgentConfirmed = true,
+				Confirmed = true,
+			};
+			unitOfWork.Reservations.Add(reservation1);
 			unitOfWork.Reservations.Add(reservation);
+
+			#endregion
+
+			#region comment rate
+
+			CommentRate commentRate = new CommentRate()
+			{
+				Id = 132141,
+				CommentDateTime = new DateTime(2019, 11, 13, 21, 21, 21),
+				ApprovedComment = true,
+				ContentOfComment = "Svaka cast!",
+				Ocena = 3,
+				Reservation = reservation
+			};
+
+			CommentRate commentRate1 = new CommentRate()
+			{
+				Id = 132141,
+				CommentDateTime = new DateTime(2019, 11, 13, 21, 21, 21),
+				ApprovedComment = true,
+				ContentOfComment = "Savrseno!",
+				Ocena = 5,
+				Reservation = reservation1
+			};
+
+			unitOfWork.CommentRates.Add(commentRate);
+			unitOfWork.CommentRates.Add(commentRate1);
 
 			#endregion
 
@@ -238,8 +274,8 @@ namespace Agent_s_App
 			#endregion
 
 			
-			unitOfWork.Complete();
-
+			unitOfWork.Complete();*/
+			
 
 			InitializeComponent();
 			DataContext = new MainViewModel();

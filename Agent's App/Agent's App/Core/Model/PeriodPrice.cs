@@ -20,11 +20,11 @@ namespace Agent_s_App.Core.Model
 		public DateTime ToDate { get; set; }
 
 		[Required]
-		public double Pice { get; set; }
+		public double Price { get; set; }
 
 		public bool Deleted { get; set; }
 
 		[Required]
-		public AccommodationUnit AccommodationUnit { get; set; }
+		public virtual AccommodationUnit AccommodationUnit { get; set; }
 	}
 }

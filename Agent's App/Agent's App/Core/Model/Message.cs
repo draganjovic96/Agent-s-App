@@ -17,16 +17,16 @@ namespace Agent_s_App.Core.Model
 
 		public bool Seen { get; set; }
 
-		public User Sender { get; set; }
+		public virtual User Sender { get; set; }
 
-		public User Receiver { get; set; }
+		public virtual User Receiver { get; set; }
 
 		public DateTime DatumVreme { get; set; }
 
 		public bool Deleted { get; set; }
 
-		public Reservation Reservation { get; set; }
+		public virtual Reservation Reservation { get; set; }
 
-		public Accommodation Accommodation { get; set; }
+		public virtual Accommodation Accommodation { get; set; }
 	}
 }

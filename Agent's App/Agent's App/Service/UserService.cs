@@ -11,13 +11,13 @@ namespace Agent_s_App.Service
 {
 	public class UserService
 	{
-		private readonly UnitOfWork unitOfWork = new UnitOfWork(new AgentsAppContext());
+		private readonly UnitOfWork unitOfWork = new UnitOfWork(MainWindow.context);
 
 		public User LogIn(string username, string password)
 		{
-			IEnumerable<User> response = unitOfWork.Users.Find(x => x.Username == username && x.Password == password);
-			if (response.Count() != 0)
-				return response.First();
+			User response = unitOfWork.Users.Find(x => x.Username == username && x.Password == password).FirstOrDefault();
+			if (response != null)
+				return response;
 			else
 				return null;
 

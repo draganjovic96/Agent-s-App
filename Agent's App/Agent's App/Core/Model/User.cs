@@ -43,13 +43,13 @@ namespace Agent_s_App.Core.Model
 		public UserRole Role { get; set; }
 
 		[Required]
-		public Address Address { get; set; }
+		public virtual Address Address { get; set; }
 
 		public long BusinessRegistrationNumber { get; set; }
 
 		public bool Blocked;
 
-		public Accommodation AgentOfAccommodation { get; set; }
+		public virtual Accommodation AgentOfAccommodation { get; set; }
 
 		#endregion
 

@@ -10,6 +10,11 @@ namespace Agent_s_App.Core.Model
 {
 	public class AccommodationUnit
 	{
+		public AccommodationUnit()
+		{
+			PeriodPrices = new HashSet<PeriodPrice>();
+			Reservations = new HashSet<Reservation>();
+		}
 		[Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
 		public long Id { get; set; }
 
@@ -24,15 +29,15 @@ namespace Agent_s_App.Core.Model
 
 		public bool Deleted;
 
-		public List<PeriodPrice> PeriodPrices { get; set; }
+		public virtual ICollection<PeriodPrice> PeriodPrices { get; set; }
 
-		public List<Reservation> Reservations { get; set; }
-
-		[Required]
-		public AccommodationUnitType AccommodationUnitType { get; set; }
+		public virtual ICollection<Reservation> Reservations { get; set; }
 
 		[Required]
-		public Accommodation Accommodation { get; set; }
+		public virtual AccommodationUnitType AccommodationUnitType { get; set; }
+
+		[Required]
+		public virtual Accommodation Accommodation { get; set; }
 
 	}
 }

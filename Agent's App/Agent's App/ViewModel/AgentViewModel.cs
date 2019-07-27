@@ -1,4 +1,6 @@
 ﻿using Agent_s_App.Core.Model;
+using Agent_s_App.View;
+using Agent_s_App.ViewModel.Command;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +13,11 @@ namespace Agent_s_App.ViewModel
 	public class AgentViewModel : ViewModelBase
 	{
 		private User loggedUser;
+		private Accommodation accommodation;
+
+		private string accommodationLabel;
+		private string addressLabel;
+
 		private string homePageButton;
 		private string messengerButton;
 		private string accommodationProfileButton;
@@ -18,22 +25,22 @@ namespace Agent_s_App.ViewModel
 		private UserControl activePage;
 		private Service.AccommodationService accommodationService = new Service.AccommodationService();
 
-		//public AccommodationProfileCommand AccommodationProfileCommand { get; set; }
-		//public HomePageCommand HomePageCommand { get; set; }
-
+		public HomePageCommand HomePageCommand { get; set; }
+		public MessagesPageCommand MessagesPageCommand { get; set; }
 		public AgentViewModel(User user)
 		{
-			Console.WriteLine(user.Username);
 			LoggedUser = user;
-			//AccommodationProfileCommand = new AccommodationProfileCommand(this);
-			//HomePageCommand = new HomePageCommand(this);
+			HomePageCommand = new HomePageCommand(this);
+			MessagesPageCommand = new MessagesPageCommand(this);
 
-			//Accommodation accommodation = accommodationService.getAccommodationByUserId(LoggedUser);
-			//if (accommodation != null)
-			//{
+			Accommodation = accommodationService.GetAccommodationByUsername(LoggedUser.Username);
+			if (accommodation != null)
+			{
 				HomePageButton = "Resources/home_page_active.png";
-			//	ActivePage = new HomePage(LoggedUser);
-			//}
+				ActivePage = new HomePageView(LoggedUser, Accommodation);
+				AccommodationLabel = Accommodation.Name;
+				AddressLabel = Accommodation.Address.Street + " " + Accommodation.Address.Number + ", " + Accommodation.Address.City;
+			}
 			//else
 			//{
 			//	AccommodationProfileButton = "Resources/accommodation_active.png";
@@ -48,6 +55,16 @@ namespace Agent_s_App.ViewModel
 			{
 				loggedUser = value;
 				OnPropertyChanged("LoggedUser");
+			}
+		}
+
+		public Accommodation Accommodation
+		{
+			get => accommodation;
+			set
+			{
+				accommodation = value;
+				OnPropertyChanged("Accommodation");
 			}
 		}
 
@@ -120,16 +137,42 @@ namespace Agent_s_App.ViewModel
 			}
 		}
 
-		internal void setAccommodationProfilePage(UserControl page)
+		public string AccommodationLabel
+		{
+			get => accommodationLabel;
+			set
+			{
+				accommodationLabel = value;
+				OnPropertyChanged("AccommodationLabel");
+			}
+		}
+
+		public string AddressLabel
+		{
+			get => addressLabel;
+			set
+			{
+				addressLabel = value;
+				OnPropertyChanged("AddressLabel");
+			}
+		}
+
+		public void setAccommodationProfilePage(UserControl page)
 		{
 			ActivePage = page;
 			AccommodationProfileButton = "Resources/accommodation_active.png";
 		}
 
-		internal void setHomePage(UserControl page)
+		public void setHomePage(UserControl page)
 		{
 			ActivePage = page;
-			homePageButton = "Resources/home_page_active.png";
+			HomePageButton = "Resources/home_page_active.png";
+		}
+
+		public void setMessagesPage()
+		{
+			ActivePage = new MessagesView();
+			MessengerButton = "Resources/messenger_active.png";
 		}
 	}
 }
