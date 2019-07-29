@@ -171,7 +171,7 @@ namespace Agent_s_App.ViewModel
 
 		public void setMessagesPage()
 		{
-			ActivePage = new MessagesView();
+			ActivePage = new MessagesView(this);
 			MessengerButton = "Resources/messenger_active.png";
 		}
 	}

@@ -113,6 +113,7 @@
     <Compile Include="ViewModel\Command\HomePageCommands\UnitsPageCommand.cs" />
     <Compile Include="ViewModel\Command\HomePageCommands\UnitTypesPageCommand.cs" />
     <Compile Include="ViewModel\Command\MessagesPageCommand.cs" />
+    <Compile Include="ViewModel\ConversationViewModel.cs" />
     <Compile Include="ViewModel\HomePageViewModel.cs" />
     <Compile Include="ViewModel\HomePageViewModels\AccommodationServicesViewModel.cs" />
     <Compile Include="ViewModel\HomePageViewModels\AccommodationServiceViewModel.cs" />
@@ -126,8 +127,12 @@
     <Compile Include="ViewModel\HomePageViewModels\PeriodPriceViewModel.cs" />
     <Compile Include="ViewModel\HomePageViewModels\ReservationsViewModel.cs" />
     <Compile Include="ViewModel\HomePageViewModels\ReservationViewModel.cs" />
+    <Compile Include="ViewModel\MessagesViewModel.cs" />
     <Compile Include="View\AgentView.xaml.cs">
       <DependentUpon>AgentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MessagesPageViews\ConversationView.xaml.cs">
+      <DependentUpon>ConversationView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MessagesView.xaml.cs">
       <DependentUpon>MessagesView.xaml</DependentUpon>
@@ -279,6 +284,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\MessagesPageViews\ConversationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\MessagesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -381,6 +390,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="View\Resources\service_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Resources\red_point.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Resources\avatar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Resources\send_message.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

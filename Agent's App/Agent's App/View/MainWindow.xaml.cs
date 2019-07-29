@@ -28,8 +28,8 @@ namespace Agent_s_App
 		public UnitOfWork unitOfWork = new UnitOfWork(context);
 
 		public MainWindow()
-		{
-			/*
+		{/*
+			
 			#region address
 			Address address1 = new Address()
 			{
@@ -273,9 +273,23 @@ namespace Agent_s_App
 			unitOfWork.Messages.Add(message);
 			#endregion
 
+			Message message1 = new Message()
+			{
+				Id = 41332,
+				Accommodation = accommodation,
+				Sender = user1,
+				Receiver = user3,
+				MessageContent = "Pozdrav i tebi! " +
+				"Kako ste??????????????????????????????????????????????????????????" +
+	"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+				DatumVreme = new DateTime(2018, 12, 22, 15, 24, 12),
+				Reservation = reservation,
+				Seen = true
+			};
+
+			unitOfWork.Messages.Add(message1);
 			
-			unitOfWork.Complete();*/
-			
+			unitOfWork.Complete(); */
 
 			InitializeComponent();
 			DataContext = new MainViewModel();
