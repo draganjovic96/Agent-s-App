@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="Agent_s_App.View.HomePageViews.CommentRateView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Agent_s_App.View.HomePageViews"
+             mc:Ignorable="d" 
+             d:DesignHeight="150" d:DesignWidth="400" Background="White">
+    <UserControl.Resources>
+        <Style x:Key="FormLabel" TargetType="Label">
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="Height" Value="30" />
+            <Setter Property="FontSize" Value="16" />
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="125*"/>
+            <ColumnDefinition Width="25*"/>
+            <ColumnDefinition Width="125*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Label Content="Comment"  Grid.Row="1" Style="{StaticResource FormLabel}"/>
+        <Label Content="Rating"  Grid.Row="5" Style="{StaticResource FormLabel}"/>
+        <Label Content="{Binding Time}"  Grid.Row="3" Grid.Column="2" Style="{StaticResource FormLabel}" FontSize="12"/>
+        <TextBlock Grid.Column="2" TextWrapping="Wrap" Text="{Binding Comment}" Grid.Row="1" Background="#FFDED9D9" Grid.RowSpan="2" />
+        <Image Grid.Column="2" HorizontalAlignment="Left" Grid.Row="5" Source="{Binding RatingImage}"/>
+    </Grid>
+</UserControl>

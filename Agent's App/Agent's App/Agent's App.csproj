@@ -7,7 +7,7 @@
     <ProjectGuid>{9297F9B4-5F2B-4D6F-AAB3-2BAAB71AE026}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Agent_s_App</RootNamespace>
-    <AssemblyName>Agent%27s App</AssemblyName>
+    <AssemblyName>Agents App</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -44,6 +44,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -62,7 +64,141 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
+    <Compile Include="Migrations\201907261513172_First.cs" />
+    <Compile Include="Migrations\201907261513172_First.Designer.cs">
+      <DependentUpon>201907261513172_First.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Service\AccommodationService.cs" />
+    <Compile Include="Service\AccommodationServiceService.cs" />
+    <Compile Include="Service\AccommodationUnitService.cs" />
+    <Compile Include="Service\AccommodationUnitTypeService.cs" />
+    <Compile Include="Service\CommentRateService.cs" />
+    <Compile Include="Service\PeriodPriceService.cs" />
+    <Compile Include="Service\ReservationService.cs" />
+    <Compile Include="Service\UserService.cs" />
+    <Compile Include="ViewModel\AgentViewModel.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\AccommodationServicesCommand\AddServiceCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\AccommodationServicesCommand\CancelServiceCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\AccommodationServicesCommand\ConfirmAddOrUpdateServiceCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\AccommodationServicesCommand\DeleteServiceCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\AccommodationServicesCommand\SaveServiceAffiliationCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\AccommodationServicesCommand\UpdateServiceCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\AccommodationUnitsCommands\AddAccommodationUnitCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\AccommodationUnitsCommands\AddPeriodPriceCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\AccommodationUnitsCommands\CancelAccommodationUnitCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\AccommodationUnitsCommands\CancelPeriodPriceCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\AccommodationUnitsCommands\ClosePeriodPricesCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\AccommodationUnitsCommands\ConfirmAddOrUpdatePeriodPriceCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\AccommodationUnitsCommands\ConfirmAddOrUpdateUnitCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\AccommodationUnitsCommands\DeleteAccommodationUnitCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\AccommodationUnitsCommands\DeletePeriodPriceCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\AccommodationUnitsCommands\PeriodPriceCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\AccommodationUnitsCommands\UpdateAccommodationUnitCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\AccommodationUnitsCommands\UpdatePeriodPriceCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\AccommodationUnitTypesCommands\AddUnitTypeCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\AccommodationUnitTypesCommands\CancelAccommodationUnitTypeCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\AccommodationUnitTypesCommands\ConfirmAddOrUpdateUnitTypeCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\AccommodationUnitTypesCommands\DeleteAccommodationUnitTypeCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\AccommodationUnitTypesCommands\UpdateAccommodationUnitTypeCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\CommentsPageCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\ReservationCommands\AddReservationCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\ReservationCommands\CancelAddOrUpdateReservationCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\ReservationCommands\ConfirmAddOrUpdateReservationCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\ReservationCommands\DeleteReservationCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\ReservationCommands\UpdateReservationCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\ReservationsPageCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\ServicesPageCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\UnitsPageCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\UnitTypesPageCommand.cs" />
+    <Compile Include="ViewModel\Command\MessagesPageCommand.cs" />
+    <Compile Include="ViewModel\Command\MessengerPageCommands\SendMessageCommand.cs" />
+    <Compile Include="ViewModel\ConversationViewModel.cs" />
+    <Compile Include="ViewModel\HomePageViewModel.cs" />
+    <Compile Include="ViewModel\HomePageViewModels\AccommodationServicesViewModel.cs" />
+    <Compile Include="ViewModel\HomePageViewModels\AccommodationServiceViewModel.cs" />
+    <Compile Include="ViewModel\HomePageViewModels\AccommodationUnitsViewModel.cs" />
+    <Compile Include="ViewModel\HomePageViewModels\AccommodationUnitTypesViewModel.cs" />
+    <Compile Include="ViewModel\HomePageViewModels\AccommodationUnitTypeViewModel.cs" />
+    <Compile Include="ViewModel\HomePageViewModels\AccommodationUnitViewModel.cs" />
+    <Compile Include="ViewModel\HomePageViewModels\CommentRateViewModel.cs" />
+    <Compile Include="ViewModel\HomePageViewModels\CommentsViewModel.cs" />
+    <Compile Include="ViewModel\HomePageViewModels\PeriodPricesViewModel.cs" />
+    <Compile Include="ViewModel\HomePageViewModels\PeriodPriceViewModel.cs" />
+    <Compile Include="ViewModel\HomePageViewModels\ReservationsViewModel.cs" />
+    <Compile Include="ViewModel\HomePageViewModels\ReservationViewModel.cs" />
+    <Compile Include="ViewModel\MessagesViewModel.cs" />
+    <Compile Include="View\AgentView.xaml.cs">
+      <DependentUpon>AgentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MessagesPageViews\ConversationView.xaml.cs">
+      <DependentUpon>ConversationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MessagesView.xaml.cs">
+      <DependentUpon>MessagesView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="View\HomePageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\HomePageViews\CommentRateView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\HomePageViews\CommentsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\HomePageViews\NoCommentRateView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\HomePageViews\PeriodPricesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\HomePageViews\PeriodPriceView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\HomePageViews\ReservationsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\HomePageViews\ReservationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\HomePageViews\ServicesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\HomePageViews\ServiceView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\HomePageViews\UnitsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\HomePageViews\UnitTypesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\HomePageViews\UnitTypeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\HomePageViews\UnitView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LogInView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -70,12 +206,108 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="Core\IUnitOfWork.cs" />
+    <Compile Include="Core\Model\Accommodation.cs" />
+    <Compile Include="Core\Model\AccommodationService.cs" />
+    <Compile Include="Core\Model\AccommodationUnit.cs" />
+    <Compile Include="Core\Model\AccommodationUnitType.cs" />
+    <Compile Include="Core\Model\Address.cs" />
+    <Compile Include="Core\Model\CommentRate.cs" />
+    <Compile Include="Core\Model\Message.cs" />
+    <Compile Include="Core\Model\PeriodPrice.cs" />
+    <Compile Include="Core\Model\Reservation.cs" />
+    <Compile Include="Core\Model\User.cs" />
+    <Compile Include="Core\Repository\IAccommodationRepository.cs" />
+    <Compile Include="Core\Repository\IAccommodationServiceRepository.cs" />
+    <Compile Include="Core\Repository\IAccommodationUnitRepository.cs" />
+    <Compile Include="Core\Repository\IAccommodationUnitTypeRepository.cs" />
+    <Compile Include="Core\Repository\IAddressRepository.cs" />
+    <Compile Include="Core\Repository\ICommentRateRepository.cs" />
+    <Compile Include="Core\Repository\IMessageRepository.cs" />
+    <Compile Include="Core\Repository\IPeriodPriceRepository.cs" />
+    <Compile Include="Core\Repository\IRepository.cs" />
+    <Compile Include="Core\Repository\IReservationRepository.cs" />
+    <Compile Include="Core\Repository\IUserRepository.cs" />
+    <Compile Include="ViewModel\Command\LoginCommand.cs" />
+    <Compile Include="ViewModel\LoginViewModel.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Compile Include="View\HomePageView.xaml.cs">
+      <DependentUpon>HomePageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\HomePageViews\CommentRateView.xaml.cs">
+      <DependentUpon>CommentRateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\HomePageViews\CommentsView.xaml.cs">
+      <DependentUpon>CommentsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\HomePageViews\NoCommentRateView.xaml.cs">
+      <DependentUpon>NoCommentRateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\HomePageViews\PeriodPricesView.xaml.cs">
+      <DependentUpon>PeriodPricesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\HomePageViews\PeriodPriceView.xaml.cs">
+      <DependentUpon>PeriodPriceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\HomePageViews\ReservationsView.xaml.cs">
+      <DependentUpon>ReservationsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\HomePageViews\ReservationView.xaml.cs">
+      <DependentUpon>ReservationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\HomePageViews\ServicesView.xaml.cs">
+      <DependentUpon>ServicesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\HomePageViews\ServiceView.xaml.cs">
+      <DependentUpon>ServiceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\HomePageViews\UnitsView.xaml.cs">
+      <DependentUpon>UnitsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\HomePageViews\UnitTypesView.xaml.cs">
+      <DependentUpon>UnitTypesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\HomePageViews\UnitTypeView.xaml.cs">
+      <DependentUpon>UnitTypeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\HomePageViews\UnitView.xaml.cs">
+      <DependentUpon>UnitView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LogInView.xaml.cs">
+      <DependentUpon>LogInView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\AgentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MessagesPageViews\ConversationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MessagesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Persistance\AgentsAppContext.cs" />
+    <Compile Include="Persistance\Repository\AccommodationRepository.cs" />
+    <Compile Include="Persistance\Repository\AccommodationServiceRepository.cs" />
+    <Compile Include="Persistance\Repository\AccommodationUnitRepository.cs" />
+    <Compile Include="Persistance\Repository\AccommodationUnitTypeRepository.cs" />
+    <Compile Include="Persistance\Repository\AddressRepository.cs" />
+    <Compile Include="Persistance\Repository\CommentRateRepository.cs" />
+    <Compile Include="Persistance\Repository\MessageRepository.cs" />
+    <Compile Include="Persistance\Repository\PeriodPriceRepository.cs" />
+    <Compile Include="Persistance\Repository\Repository.cs" />
+    <Compile Include="Persistance\Repository\ReservationRepository.cs" />
+    <Compile Include="Persistance\UnitOfWork.cs" />
+    <Compile Include="Persistance\Repository\UserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -89,6 +321,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Migrations\201907261513172_First.resx">
+      <DependentUpon>201907261513172_First.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -101,6 +336,70 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Resources\hotel_room.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Resources\accommodation_active.png" />
+    <Resource Include="View\Resources\accommodation_deactive.png" />
+    <Resource Include="View\Resources\agent.jpeg" />
+    <Resource Include="View\Resources\agent_profile_active.png" />
+    <Resource Include="View\Resources\agent_profile_deactive.png" />
+    <Resource Include="View\Resources\background.jpg" />
+    <Resource Include="View\Resources\delete.png" />
+    <Resource Include="View\Resources\home_page_active.png" />
+    <Resource Include="View\Resources\home_page_deactive.png" />
+    <Resource Include="View\Resources\hotel_add.png" />
+    <Resource Include="View\Resources\hotel_delete.png" />
+    <Resource Include="View\Resources\hotel_update.png" />
+    <Resource Include="View\Resources\login_background.jpg" />
+    <Resource Include="View\Resources\logo.png" />
+    <Resource Include="View\Resources\log_out.png" />
+    <Resource Include="View\Resources\messenger_active.png" />
+    <Resource Include="View\Resources\messenger_deactive.png" />
+    <Resource Include="View\Resources\reservation_add.png" />
+    <Resource Include="View\Resources\reservation_delete.png" />
+    <Resource Include="View\Resources\reservation_update.png" />
+    <Resource Include="View\Resources\room_add.png" />
+    <Resource Include="View\Resources\room_delete.png" />
+    <Resource Include="View\Resources\room_update.png" />
+    <Resource Include="View\Resources\update.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Resources\hotel_image.jpg" />
+    <Resource Include="View\Resources\period_price_add.png" />
+    <Resource Include="View\Resources\period_price_delete.png" />
+    <Resource Include="View\Resources\period_price_update.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Resources\unit_type_add.png" />
+    <Resource Include="View\Resources\unit_type_delete.png" />
+    <Resource Include="View\Resources\unit_type_update.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Resources\stars_rating_0.png" />
+    <Resource Include="View\Resources\stars_rating_1.png" />
+    <Resource Include="View\Resources\stars_rating_2.png" />
+    <Resource Include="View\Resources\stars_rating_3.png" />
+    <Resource Include="View\Resources\stars_rating_4.png" />
+    <Resource Include="View\Resources\stars_rating_5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Resources\service_add.png" />
+    <Resource Include="View\Resources\service_update.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Resources\service_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Resources\red_point.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Resources\avatar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Resources\send_message.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

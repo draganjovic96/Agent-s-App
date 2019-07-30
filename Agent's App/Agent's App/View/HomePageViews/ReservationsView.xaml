@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="Agent_s_App.View.HomePageViews.ReservationsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Agent_s_App.View.HomePageViews"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Background="White">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <ListView Grid.Row="1" BorderThickness="0"
+                  ScrollViewer.CanContentScroll="True" 
+                  ScrollViewer.VerticalScrollBarVisibility="Auto"
+                  ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                  ItemsSource="{Binding Reservations, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding Reservation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                  IsSynchronizedWithCurrentItem="True">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Guest.Username}" Header="Guest" Width="150"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding AccommodationUnit.Floor}" Header="Unit floor" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding AccommodationUnit.Number}" Header="Unit number" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding FromDate}" Header="From date" Width="Auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding ToDate}" Header=" To date " Width="Auto"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button ToolTip="Add Reservation" Command="{Binding AddReservationCommand}" HorizontalAlignment="Left" Margin="25,0,0,0" Width="50" Background="{x:Null}" BorderBrush="{x:Null}">
+            <StackPanel>
+                <Image Source="/View/Resources/reservation_add.png"/>
+            </StackPanel>
+        </Button>
+        <Button IsEnabled="{Binding EnableUpdate, UpdateSourceTrigger=PropertyChanged}" Command="{Binding UpdateReservationCommand}"  ToolTip="Update/See Reservation"  HorizontalAlignment="Left" Margin="100,0,0,0" Width="50" Background="{x:Null}" BorderBrush="{x:Null}">
+            <StackPanel>
+                <Image Source="/View/Resources/reservation_update.png"/>
+            </StackPanel>
+        </Button>
+        <Button Command="{Binding DeleteReservationCommand}" IsEnabled="{Binding EnableDelete, UpdateSourceTrigger=PropertyChanged}" ToolTip="Delete Reservation" HorizontalAlignment="Left" Margin="175,0,0,0" Width="50" Background="{x:Null}" BorderBrush="{x:Null}">
+            <StackPanel>
+                <Image Source="/View/Resources/reservation_delete.png"/>
+            </StackPanel>
+        </Button>
+        <Label Content="{Binding UnitString}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="30" Grid.Column="1" FontSize="16" Foreground="#FF817777" />
+    </Grid>
+</UserControl>
