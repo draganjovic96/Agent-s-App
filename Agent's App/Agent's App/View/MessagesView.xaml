@@ -17,13 +17,15 @@
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="60"/>
-                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="129*"/>
+                    <ColumnDefinition Width="25"/>
                 </Grid.ColumnDefinitions>
                 <Image Source="/View/Resources/avatar.png" Margin="5,5,5,5" Grid.RowSpan="4"/>
-                <TextBlock Text="{Binding Path=Guest.Username, FallbackValue=Guest}" Foreground="White" Grid.Column="1" FontSize="16" FontWeight="DemiBold" HorizontalAlignment="Left" Margin="5,0,0,0"/>
-                <TextBlock Text="{Binding Path=AccommodationUnit.Number, FallbackValue=UnitNumber}" Foreground="LightGray" Grid.Column="1" Grid.Row="1" FontSize="8" HorizontalAlignment="Left" Margin="5,0,0,0"/>
-                <TextBlock Text="{Binding Path=FromDate, FallbackValue=FromDate}" Foreground="LightGray" Grid.Column="1" Grid.Row="2" FontSize="8" HorizontalAlignment="Left" Margin="5,0,0,0"/>
-                <TextBlock Text="{Binding Path=ToDate, FallbackValue=ToDate}" Foreground="LightGray" Grid.Column="1" Grid.Row="3" FontSize="8" HorizontalAlignment="Left" Margin="5,0,0,0"/>
+                <TextBlock Text="{Binding Path=Reservation.Guest.Username, FallbackValue=Guest}" Foreground="White" Grid.Column="1" FontSize="16" FontWeight="DemiBold" HorizontalAlignment="Left" Margin="5,0,0,0"/>
+                <TextBlock Text="{Binding Path=Reservation.AccommodationUnit.Number, FallbackValue=UnitNumber}" Foreground="LightGray" Grid.Column="1" Grid.Row="1" FontSize="8" HorizontalAlignment="Left" Margin="5,0,0,0"/>
+                <TextBlock Text="{Binding Path=Reservation.FromDate, FallbackValue=FromDate}" Foreground="LightGray" Grid.Column="1" Grid.Row="2" FontSize="8" HorizontalAlignment="Left" Margin="5,0,0,0"/>
+                <TextBlock Text="{Binding Path=Reservation.ToDate, FallbackValue=ToDate}" Foreground="LightGray" Grid.Column="1" Grid.Row="3" FontSize="8" HorizontalAlignment="Left" Margin="5,0,0,0"/>
+                <Image Visibility="{Binding Path=Seen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" HorizontalAlignment="Left" Source="/View/Resources/red_point.png" Grid.Column="2" Grid.RowSpan="4"  Width="10"/>
 
             </Grid>
         </DataTemplate>
@@ -38,11 +40,12 @@
         </Grid.ColumnDefinitions>
         <ListBox Background="{x:Null}" 
                  SelectedItem="{Binding Reservation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                 ItemsSource="{Binding Reservations}" 
+                 ItemsSource="{Binding Reservations, UpdateSourceTrigger=PropertyChanged}" 
                  ItemTemplate="{DynamicResource Conversation}" 
                  ScrollViewer.CanContentScroll="True" 
                   ScrollViewer.VerticalScrollBarVisibility="Auto"
-                  ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
+                  ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                 HorizontalContentAlignment="Stretch"/>
         <UserControl Grid.Column="1" 
                      Content="{Binding ConversationPage, UpdateSourceTrigger=PropertyChanged}"/>
     </Grid>

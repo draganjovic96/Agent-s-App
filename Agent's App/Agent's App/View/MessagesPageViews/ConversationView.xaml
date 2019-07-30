@@ -8,15 +8,16 @@
              d:DesignHeight="450" d:DesignWidth="570" Background="White">
     <UserControl.Resources>
         <DataTemplate x:Key="Message">
-            <Grid Width="1050" d:DesignHeight="74">
+            <Grid d:DesignWidth="300" d:DesignHeight="74">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
-                <TextBox Grid.Column="{Binding Path=Alignment}" 
-                         Grid.ColumnSpan="2" 
-                         Width="600" 
+                <TextBox Grid.Column="{Binding Path=Position}"
+                         HorizontalAlignment="{Binding Path=Alignment}"
+                         Width="{Binding Path=Width}"
+                         Grid.ColumnSpan="2"  
                          Foreground="White" 
                          BorderThickness="0" 
                          FontSize="16"  
@@ -41,9 +42,16 @@
             <RowDefinition Height="5*"/>
             <RowDefinition Height="25"/>
         </Grid.RowDefinitions>
-        <ListBox ItemsSource="{Binding Messages}" BorderThickness="0" IsEnabled="False" Grid.Column="1" Margin="0,25,0,0"  Grid.ColumnSpan="3" ItemTemplate="{DynamicResource Message}"/>
-        <TextBox Background="LightGray"  Grid.Column="1" Grid.Row="2" FontSize="16" AcceptsReturn="True" TextWrapping="Wrap" Text="{Binding MessageContent}"/>
-        <Button Grid.Column="3" Grid.Row="2" Height="50" VerticalAlignment="Top" ToolTip="Send Message" Background="{x:Null}" BorderBrush="{x:Null}">
+        <ListBox HorizontalContentAlignment="Stretch" 
+                 ItemsSource="{Binding Messages}" 
+                 BorderThickness="0" 
+                 IsEnabled="False" 
+                 Grid.Column="0" 
+                 Margin="0,25,0,0"  
+                 Grid.ColumnSpan="5" 
+                 ItemTemplate="{DynamicResource Message}"/>
+        <TextBox Text="{Binding MessageContent, UpdateSourceTrigger=PropertyChanged}" Background="LightGray"  Grid.Column="1" Grid.Row="2" FontSize="16" AcceptsReturn="True" TextWrapping="Wrap"/>
+        <Button Command="{Binding SendMessageCommand}" Grid.Column="3" Grid.Row="2" Height="50" VerticalAlignment="Top" ToolTip="Send Message" Background="{x:Null}" BorderBrush="{x:Null}">
             <StackPanel>
                 <Image Source="/View/Resources/send_message.png"/>
             </StackPanel>

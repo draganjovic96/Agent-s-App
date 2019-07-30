@@ -113,6 +113,7 @@
     <Compile Include="ViewModel\Command\HomePageCommands\UnitsPageCommand.cs" />
     <Compile Include="ViewModel\Command\HomePageCommands\UnitTypesPageCommand.cs" />
     <Compile Include="ViewModel\Command\MessagesPageCommand.cs" />
+    <Compile Include="ViewModel\Command\MessengerPageCommands\SendMessageCommand.cs" />
     <Compile Include="ViewModel\ConversationViewModel.cs" />
     <Compile Include="ViewModel\HomePageViewModel.cs" />
     <Compile Include="ViewModel\HomePageViewModels\AccommodationServicesViewModel.cs" />
