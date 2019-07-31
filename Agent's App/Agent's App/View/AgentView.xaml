@@ -63,7 +63,7 @@
                 Margin="130,10,0,0" 
                 Foreground="White"
                 Focusable="False" Grid.Column="2"
-                Command="{Binding AccommodationProfileCommand}">
+                Command="{Binding AccommodationPageCommand}">
             <StackPanel>
                 <Image Source="{Binding AccommodationProfileButton}" />
             </StackPanel>

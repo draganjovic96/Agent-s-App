@@ -18,5 +18,11 @@ namespace Agent_s_App.Service
 			User user = unitOfWork.Users.Find(x => x.Username == username).First();
 			return user.AgentOfAccommodation;
 		}
+
+		public void AddAccommodation(Accommodation accommodation)
+		{
+			unitOfWork.Accommodations.Add(accommodation);
+			unitOfWork.Complete();
+		}
 	}
 }

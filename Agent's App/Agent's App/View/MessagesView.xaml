@@ -46,7 +46,6 @@
                   ScrollViewer.VerticalScrollBarVisibility="Auto"
                   ScrollViewer.HorizontalScrollBarVisibility="Auto"
                  HorizontalContentAlignment="Stretch"/>
-        <UserControl Grid.Column="1" 
-                     Content="{Binding ConversationPage, UpdateSourceTrigger=PropertyChanged}"/>
+        <UserControl Grid.Column="1" Content="{Binding ConversationPage, UpdateSourceTrigger=PropertyChanged}"/>
     </Grid>
 </UserControl>

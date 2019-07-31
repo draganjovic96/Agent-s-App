@@ -1,0 +1,72 @@
+﻿<UserControl x:Class="Agent_s_App.View.AccommodationPageView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Agent_s_App.View"
+             xmlns:misc="clr-namespace:Agent_s_App.Misc"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Background="White">
+    <UserControl.Resources>
+        <Style x:Key="FormTextBox" TargetType="TextBox">
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="Background" Value="{x:Null}" />
+            <Setter Property="SelectionBrush" Value="#FF0065B4" />
+            <Setter Property="BorderThickness" Value="0,0,0,3" />
+            <Setter Property="TextAlignment" Value="Center" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+        </Style>
+        <Style x:Key="FormLabel" TargetType="Label">
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="Height" Value="30" />
+            <Setter Property="FontSize" Value="16" />
+        </Style>
+        <Style x:Key="FormButton" TargetType="Button">
+            <Setter Property="Background" Value="#ABADB3" />
+            <Setter Property="BorderBrush" Value="{x:Null}" />
+            <Setter Property="FontSize" Value="16" />
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="25"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="75"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="75"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Name" Grid.Row="1" Grid.Column="5" Style="{StaticResource FormLabel}"/>
+        <Label Content="Description" Style="{StaticResource FormLabel}" Grid.Column="5" Grid.Row="7"/>
+        <Label Content="Type" Grid.Column="5" Grid.Row="3" Style="{StaticResource FormLabel}" Grid.ColumnSpan="2" Margin="1,0,24,0"/>
+        <Label Content="Category" Grid.Column="5" Grid.Row="5" Style="{StaticResource FormLabel}" Margin="1,1,2,43" Grid.RowSpan="2"/>
+        <TextBox Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="7" Grid.Row="1" Style="{StaticResource FormTextBox}"/>
+        <ComboBox FontSize="16" Grid.Column="7" Grid.Row="3" ItemsSource="{Binding Types}" SelectedItem="{Binding Type, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox BorderThickness="3" TextWrapping="Wrap" Text="{Binding Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="7" Grid.Row="7" Grid.RowSpan="3" AcceptsReturn="True" FontSize="16"/>
+        <TextBox Text="{Binding Category, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource FormTextBox}" Grid.Row="5" Grid.Column="7"/>
+        <Button Content="{Binding AddOrUpdateButton}" Command="{Binding AddOrUpdateAccommodation}"  Grid.Column="5" Grid.Row="11" Style="{StaticResource FormButton}" Background="#FF13D113"/>
+        <Button Command="{Binding CancelAccommodation}"  Content="Cancel" Grid.Column="7" Grid.Row="11" Style="{StaticResource FormButton}" Background="Red"/>
+        <Image Stretch="UniformToFill" Source="/View/Resources/accommodation.jpg"  Grid.ColumnSpan="3" Grid.Column="1" Grid.Row="1" Grid.RowSpan="7"/>
+        <Label Style="{StaticResource FormLabel}" Content="{Binding AddressString}" Grid.Column="1" Grid.Row="9"></Label>
+        <Button Command="{Binding AddressPageCommand}" Content="Edit Address" Grid.Row="9" Grid.Column="3" Style="{StaticResource FormButton}"/>
+    </Grid>
+</UserControl>

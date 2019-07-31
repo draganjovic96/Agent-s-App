@@ -27,11 +27,14 @@ namespace Agent_s_App.ViewModel
 
 		public HomePageCommand HomePageCommand { get; set; }
 		public MessagesPageCommand MessagesPageCommand { get; set; }
+		public AccommodationPageCommand AccommodationPageCommand { get; set; }
+
 		public AgentViewModel(User user)
 		{
 			LoggedUser = user;
 			HomePageCommand = new HomePageCommand(this);
 			MessagesPageCommand = new MessagesPageCommand(this);
+			AccommodationPageCommand = new AccommodationPageCommand(this);
 
 			Accommodation = accommodationService.GetAccommodationByUsername(LoggedUser.Username);
 			if (accommodation != null)
@@ -39,13 +42,12 @@ namespace Agent_s_App.ViewModel
 				HomePageButton = "Resources/home_page_active.png";
 				ActivePage = new HomePageView(LoggedUser, Accommodation);
 				AccommodationLabel = Accommodation.Name;
-				AddressLabel = Accommodation.Address.Street + " " + Accommodation.Address.Number + ", " + Accommodation.Address.City;
+				setAddressLabel();
 			}
-			//else
-			//{
-			//	AccommodationProfileButton = "Resources/accommodation_active.png";
-			//	ActivePage = new AccommodationProfile(LoggedUser);
-			//}
+			else
+			{
+				setAccommodationProfilePage();
+			}
 		}
 
 		public User LoggedUser
@@ -91,6 +93,7 @@ namespace Agent_s_App.ViewModel
 			{
 				messengerButton = value;
 				homePageButton = "Resources/home_page_deactive.png";
+				accommodationProfileButton = "Resources/accommodation_deactive.png";
 				OnPropertyChanged("HomePageButton");
 				OnPropertyChanged("MessengerButton");
 				OnPropertyChanged("AccommodationProfileButton");
@@ -157,9 +160,9 @@ namespace Agent_s_App.ViewModel
 			}
 		}
 
-		public void setAccommodationProfilePage(UserControl page)
+		public void setAccommodationProfilePage()
 		{
-			ActivePage = page;
+			ActivePage = new AccommodationPageView(this);
 			AccommodationProfileButton = "Resources/accommodation_active.png";
 		}
 
@@ -173,6 +176,12 @@ namespace Agent_s_App.ViewModel
 		{
 			ActivePage = new MessagesView(this);
 			MessengerButton = "Resources/messenger_active.png";
+		}
+
+		public void setAddressLabel()
+		{
+			AddressLabel = Accommodation.Address.Street + " " + Accommodation.Address.Number + ", " + Accommodation.Address.City;
+
 		}
 	}
 }
