@@ -22,10 +22,10 @@ namespace Agent_s_App.View
 	/// </summary>
 	public partial class AgentView : UserControl
 	{
-		public AgentView(User user)
+		public AgentView(User user, MainViewModel mainViewModel)
 		{
 			InitializeComponent();
-			DataContext = new AgentViewModel(user);
+			DataContext = new AgentViewModel(user, mainViewModel);
 		}
 	}
 }

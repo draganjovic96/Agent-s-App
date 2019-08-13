@@ -48,7 +48,7 @@
             <RowDefinition Height="30"/>
             <RowDefinition Height="15*"/>
         </Grid.RowDefinitions>
-        <Label Content="Name" Grid.Column="1"  Grid.Row="1" Style="{StaticResource FormLabel}"/>
+        <Label Content="Name*" Grid.Column="1"  Grid.Row="1" Style="{StaticResource FormLabel}"/>
         <Label Content="Description" Grid.Column="1"  Grid.Row="3" Style="{StaticResource FormLabel}"/>
         <TextBox Text="{Binding Name, Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Grid.Column="3" Grid.Row="1" Style="{StaticResource FormTextBox}"/>
         <TextBox FontSize="16" IsEnabled="True" Text="{Binding Description, Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Grid.Column="3" Grid.Row="3" Grid.RowSpan="2" Background="White" BorderThickness="0" TextWrapping="Wrap" AcceptsReturn="True" />

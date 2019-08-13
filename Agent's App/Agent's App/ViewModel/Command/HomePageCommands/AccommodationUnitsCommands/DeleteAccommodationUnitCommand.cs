@@ -29,7 +29,7 @@ namespace Agent_s_App.ViewModel.Command.HomePageCommands.AccommodationUnitsComma
 
 		public void Execute(object parameter)
 		{
-			unitService.DeleteAccommodationUnit(AccommodationUnit);
+			unitService.DeleteAccommodationUnit(AccommodationUnit.Id);
 			HomePageViewModel.setUnitsPage();
 		}
 	}

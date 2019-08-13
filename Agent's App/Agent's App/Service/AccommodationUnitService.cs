@@ -1,6 +1,9 @@
-﻿using Agent_s_App.Core.Model;
+﻿using Agent_s_App.AccommodationUnitServiceReference;
+using Agent_s_App.Core.Model;
 using Agent_s_App.Persistance;
 using Agent_s_App.Persistance.Repository;
+using Agent_s_App.RequestDTO;
+using Agent_s_App.ResponseDTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,26 +16,64 @@ namespace Agent_s_App.Service
 	{
 		private readonly UnitOfWork unitOfWork = new UnitOfWork(MainWindow.context);
 
+		private AccommodationUnitPortClient accommodationUnitPortClient = new AccommodationUnitPortClient();
+
 		public List<AccommodationUnit> GetAccommodationUnits(long accommodationId)
 		{
-			return unitOfWork.AccommodationUnits.Find(x => x.Accommodation.Id == accommodationId).ToList();
+			try
+			{
+				GetUnitsRequestDTO getUnitsRequestDTO = new GetUnitsRequestDTO(accommodationId);
+				GetUnitsResponseDTO getUnitsResponseDTO = new GetUnitsResponseDTO(accommodationUnitPortClient.getAccommodationUnits(getUnitsRequestDTO.GetAccommodationUnitsRequest));
+				List<AccommodationUnit> units = getUnitsResponseDTO.AccommodationUnits;
+
+				foreach (AccommodationUnit unit in units)
+				{
+					AccommodationUnit unitDB = unitOfWork.AccommodationUnits.SingleOrDefault(au => au.Id == unit.Id);
+					if (unitDB != null)
+					{
+						unitDB.Number = unit.Number;
+						unitDB.NumberOfBeds = unit.NumberOfBeds;
+						unitDB.Floor = unit.Floor;
+						unitDB.DefaultPrice = unit.DefaultPrice;
+						unitDB.AccommodationUnitType = unitOfWork.AccommodationUnitTypes.SingleOrDefault(ut => ut.Id == unit.AccommodationUnitType.Id);
+						
+					}
+					else
+					{
+						unit.Accommodation = unitOfWork.Accommodations.Find(a => a.Id == accommodationId).First();
+						AccommodationUnitType unitType = unitOfWork.AccommodationUnitTypes.SingleOrDefault(ut => ut.Id == unit.AccommodationUnitType.Id);
+						if (unitType != null)
+							unit.AccommodationUnitType = unitType;
+						unitOfWork.AccommodationUnits.Add(unit);
+
+					}
+
+					unitOfWork.Complete();
+				}
+				return units;
+			}
+			catch
+			{
+				return new List<AccommodationUnit>();
+			}
+		}
+		
+		public void AddAccommodationUnit(AccommodationUnit accommodationUnit, long accommodationId)
+		{
+			AddUnitRequestDTO addUnitRequestDTO = new AddUnitRequestDTO(accommodationUnit, accommodationId);
+			accommodationUnitPortClient.addAccommodationUnit(addUnitRequestDTO.AddAccommodationUnitRequest);
 		}
 
-		public AccommodationUnit GetAccommodationUnit(long unitId)
+		public void UpdateAccommodationUnit(AccommodationUnit accommodationUnit)
 		{
-			return unitOfWork.AccommodationUnits.Find(x => x.Id == unitId).First();
+			UpdateUnitRequestDTO updateUnitRequestDTO = new UpdateUnitRequestDTO(accommodationUnit);
+			accommodationUnitPortClient.updateAccommodationUnit(updateUnitRequestDTO.UpdateAccommodationUnitRequest);
 		}
 
-		public void AddAccommodationUnit(AccommodationUnit accommodationUnit)
+		public void DeleteAccommodationUnit(long accommodationUnitId)
 		{
-			unitOfWork.AccommodationUnits.Add(accommodationUnit);
-			unitOfWork.Complete();
-		}
-
-		public void DeleteAccommodationUnit(AccommodationUnit accommodationUnit)
-		{
-			unitOfWork.AccommodationUnits.Remove(accommodationUnit);
-			unitOfWork.Complete();
+			DeleteUnitRequestDTO deleteUnitRequestDTO = new DeleteUnitRequestDTO(accommodationUnitId);
+			accommodationUnitPortClient.removeAccommodationUnit(deleteUnitRequestDTO.RemoveAccommodationUnitRequest);
 		}
 	}
 }

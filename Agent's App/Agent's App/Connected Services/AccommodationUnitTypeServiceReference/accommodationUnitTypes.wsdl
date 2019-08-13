@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch="http://www.projectXml.com/accommodationUnitType" xmlns:tns="http://www.projectXml.com/accommmodationUnitTypes" targetNamespace="http://www.projectXml.com/accommmodationUnitTypes" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema xmlns:tns="http://www.projectXml.com/accommodationUnitType" elementFormDefault="qualified" targetNamespace="http://www.projectXml.com/accommodationUnitType" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="getAccommodationUnitTypesRequest">
+        <xs:complexType />
+      </xs:element>
+      <xs:element name="getAccommodationUnitTypesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="accommodationUnitTypes" type="tns:accommodationUnitTypes" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAccommodationUnitTypeRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="accommodationUnitTypeId" type="xs:long" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAccommodationUnitTypeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="accommodationUnitType" type="tns:accommodationUnitType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="addAccommodationUnitTypeRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="accommodationUnitType" type="tns:accommodationUnitType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="addAccommodationUnitTypeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="accommodationUnitType" type="tns:accommodationUnitType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateAccommodationUnitTypeRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="accommodationUnitType" type="tns:accommodationUnitType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="removeAccommodationUnitTypeRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="accommodationUnitTypeId" type="xs:long" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="accommodationUnitType">
+        <xs:sequence>
+          <xs:element name="Id" type="xs:long" />
+          <xs:element name="Name" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="accommodationUnitTypes">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="AccommodationUnitTypes" type="tns:accommodationUnitType" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getAccommodationUnitTypesRequest">
+    <wsdl:part name="getAccommodationUnitTypesRequest" element="sch:getAccommodationUnitTypesRequest" />
+  </wsdl:message>
+  <wsdl:message name="getAccommodationUnitTypesResponse">
+    <wsdl:part name="getAccommodationUnitTypesResponse" element="sch:getAccommodationUnitTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="addAccommodationUnitTypeResponse">
+    <wsdl:part name="addAccommodationUnitTypeResponse" element="sch:addAccommodationUnitTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="removeAccommodationUnitTypeRequest">
+    <wsdl:part name="removeAccommodationUnitTypeRequest" element="sch:removeAccommodationUnitTypeRequest" />
+  </wsdl:message>
+  <wsdl:message name="getAccommodationUnitTypeRequest">
+    <wsdl:part name="getAccommodationUnitTypeRequest" element="sch:getAccommodationUnitTypeRequest" />
+  </wsdl:message>
+  <wsdl:message name="updateAccommodationUnitTypeRequest">
+    <wsdl:part name="updateAccommodationUnitTypeRequest" element="sch:updateAccommodationUnitTypeRequest" />
+  </wsdl:message>
+  <wsdl:message name="addAccommodationUnitTypeRequest">
+    <wsdl:part name="addAccommodationUnitTypeRequest" element="sch:addAccommodationUnitTypeRequest" />
+  </wsdl:message>
+  <wsdl:message name="getAccommodationUnitTypeResponse">
+    <wsdl:part name="getAccommodationUnitTypeResponse" element="sch:getAccommodationUnitTypeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AccommodationUnitTypePort">
+    <wsdl:operation name="getAccommodationUnitTypes">
+      <wsdl:input name="getAccommodationUnitTypesRequest" message="tns:getAccommodationUnitTypesRequest" />
+      <wsdl:output name="getAccommodationUnitTypesResponse" message="tns:getAccommodationUnitTypesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="addAccommodationUnitType">
+      <wsdl:input name="addAccommodationUnitTypeRequest" message="tns:addAccommodationUnitTypeRequest" />
+      <wsdl:output name="addAccommodationUnitTypeResponse" message="tns:addAccommodationUnitTypeResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="removeAccommodationUnitType">
+      <wsdl:input name="removeAccommodationUnitTypeRequest" message="tns:removeAccommodationUnitTypeRequest" />
+    </wsdl:operation>
+    <wsdl:operation name="getAccommodationUnitType">
+      <wsdl:input name="getAccommodationUnitTypeRequest" message="tns:getAccommodationUnitTypeRequest" />
+      <wsdl:output name="getAccommodationUnitTypeResponse" message="tns:getAccommodationUnitTypeResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="updateAccommodationUnitType">
+      <wsdl:input name="updateAccommodationUnitTypeRequest" message="tns:updateAccommodationUnitTypeRequest" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AccommodationUnitTypePortSoap11" type="tns:AccommodationUnitTypePort">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getAccommodationUnitTypes">
+      <soap:operation soapAction="" />
+      <wsdl:input name="getAccommodationUnitTypesRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getAccommodationUnitTypesResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addAccommodationUnitType">
+      <soap:operation soapAction="" />
+      <wsdl:input name="addAccommodationUnitTypeRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="addAccommodationUnitTypeResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeAccommodationUnitType">
+      <soap:operation soapAction="" />
+      <wsdl:input name="removeAccommodationUnitTypeRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getAccommodationUnitType">
+      <soap:operation soapAction="" />
+      <wsdl:input name="getAccommodationUnitTypeRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getAccommodationUnitTypeResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateAccommodationUnitType">
+      <soap:operation soapAction="" />
+      <wsdl:input name="updateAccommodationUnitTypeRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AccommodationUnitTypePortService">
+    <wsdl:port name="AccommodationUnitTypePortSoap11" binding="tns:AccommodationUnitTypePortSoap11">
+      <soap:address location="http://localhost:9007/ws" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

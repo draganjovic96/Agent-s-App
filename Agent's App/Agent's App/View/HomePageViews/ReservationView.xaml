@@ -144,10 +144,10 @@
             <ColumnDefinition Width="125*"/>
             <ColumnDefinition Width="30*"/>
         </Grid.ColumnDefinitions>
-        <Label Content="Guest" Grid.Column="1"  Grid.Row="1" Style="{StaticResource FormLabel}"/>
-        <Label Content="Unit" Grid.Column="1"  Grid.Row="3" Style="{StaticResource FormLabel}"/>
-        <Label Content="From Date" Grid.Column="1"  Grid.Row="5" Style="{StaticResource FormLabel}"/>
-        <Label Content="To Date" Grid.Column="1"  Grid.Row="7" Style="{StaticResource FormLabel}"/>
+        <Label Content="Guest*" Grid.Column="1"  Grid.Row="1" Style="{StaticResource FormLabel}"/>
+        <Label Content="Unit*" Grid.Column="1"  Grid.Row="3" Style="{StaticResource FormLabel}"/>
+        <Label Content="From Date*" Grid.Column="1"  Grid.Row="5" Style="{StaticResource FormLabel}"/>
+        <Label Content="To Date*" Grid.Column="1"  Grid.Row="7" Style="{StaticResource FormLabel}"/>
         <Label Content="Comment &amp; Rating" Grid.Column="5"  Grid.Row="3" Style="{StaticResource FormLabel}"/>
         <TextBox IsEnabled="False" Grid.Column="3"  Grid.Row="1" Style="{StaticResource FormTextBox}" Text="{Binding Guest.Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         <DatePicker IsEnabled="{Binding EnableEdit, UpdateSourceTrigger=PropertyChanged}" SelectedDate="{Binding FromDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="3" Grid.Row="5" BorderThickness="0,0,0,3"/>

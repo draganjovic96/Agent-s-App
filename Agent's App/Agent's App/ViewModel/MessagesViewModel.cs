@@ -77,7 +77,6 @@ namespace Agent_s_App.ViewModel
 				setConversationPage();
 				if (reservation != null)
 				{ 
-					Console.WriteLine("Caooo-" + reservation.Seen);
 					if (reservation.Seen.Equals("Visible"))
 					{
 						foreach (Message m in reservation.Reservation.Messages)

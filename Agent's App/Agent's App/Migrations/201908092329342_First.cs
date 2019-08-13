@@ -75,11 +75,11 @@ namespace Agent_s_App.Migrations
                         Confirmed = c.Boolean(nullable: false),
                         AgentConfirmed = c.Boolean(nullable: false),
                         AccommodationUnit_Id = c.Long(nullable: false),
-                        Guest_Id = c.Long(),
+                        Guest_Id = c.Long(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.AccommodationUnits", t => t.AccommodationUnit_Id, cascadeDelete: true)
-                .ForeignKey("dbo.Users", t => t.Guest_Id)
+                .ForeignKey("dbo.Users", t => t.Guest_Id, cascadeDelete: true)
                 .Index(t => t.AccommodationUnit_Id)
                 .Index(t => t.Guest_Id);
             
@@ -112,11 +112,11 @@ namespace Agent_s_App.Migrations
                         Deleted = c.Boolean(nullable: false),
                         Role = c.Int(nullable: false),
                         BusinessRegistrationNumber = c.Long(nullable: false),
-                        Address_Id = c.Long(nullable: false),
+                        Address_Id = c.Long(),
                         AgentOfAccommodation_Id = c.Long(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Addresses", t => t.Address_Id, cascadeDelete: true)
+                .ForeignKey("dbo.Addresses", t => t.Address_Id)
                 .ForeignKey("dbo.Accommodations", t => t.AgentOfAccommodation_Id)
                 .Index(t => t.Address_Id)
                 .Index(t => t.AgentOfAccommodation_Id);

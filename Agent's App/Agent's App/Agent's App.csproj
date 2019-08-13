@@ -14,6 +14,8 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -41,11 +43,40 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="GMap.NET.Core">
+      <HintPath>C:\Users\Jovic\Downloads\greatmaps\sourceCode\greatmaps\Build\Release-NETv4.0\GMap.NET.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.WindowsForms">
+      <HintPath>C:\Users\Jovic\Downloads\greatmaps\sourceCode\greatmaps\Build\Release-NETv4.0\GMap.NET.WindowsForms.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.WindowsPresentation">
+      <HintPath>C:\Users\Jovic\Downloads\greatmaps\sourceCode\greatmaps\Build\Release-NETv4.0\GMap.NET.WindowsPresentation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MicrosoftExpressionInteractions.3.0.40218.0\lib\net45\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.111.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.111.0\lib\net46\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.111.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.111.0\lib\net46\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.111.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.111.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -64,11 +95,70 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Migrations\201907261513172_First.cs" />
-    <Compile Include="Migrations\201907261513172_First.Designer.cs">
-      <DependentUpon>201907261513172_First.cs</DependentUpon>
+    <Compile Include="Connected Services\AccommodationServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\AccommodationServiceServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\AccommodationUnitServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\AccommodationUnitTypeServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\AddressServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\MessageServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\PeriodPriceServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ReservationServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\UserServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908092329342_First.cs" />
+    <Compile Include="Migrations\201908092329342_First.Designer.cs">
+      <DependentUpon>201908092329342_First.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Misc\DoubleValidationBehavior.cs" />
+    <Compile Include="Misc\WebBrowserHelper.cs" />
+    <Compile Include="RequestDTO\AddAccommodationRequestDTO.cs" />
+    <Compile Include="RequestDTO\AddUnitRequestDTO.cs" />
+    <Compile Include="RequestDTO\DeleteUnitRequestDTO.cs" />
+    <Compile Include="RequestDTO\GetAccommodationRequestDTO.cs" />
+    <Compile Include="RequestDTO\GetUnitsRequestDTO.cs" />
+    <Compile Include="RequestDTO\LoginRequestDTO.cs" />
+    <Compile Include="RequestDTO\UpdateAccommodationRequestDTO.cs" />
+    <Compile Include="RequestDTO\UpdateUnitRequestDTO.cs" />
+    <Compile Include="ResponseDTO\AddAccommodationResponseDTO.cs" />
+    <Compile Include="ResponseDTO\GetAccommodationResponseDTO.cs" />
+    <Compile Include="ResponseDTO\GetUnitsResponseDTO.cs" />
+    <Compile Include="ResponseDTO\LoginResponseDTO.cs" />
     <Compile Include="Service\AccommodationService.cs" />
     <Compile Include="Service\AccommodationServiceService.cs" />
     <Compile Include="Service\AccommodationUnitService.cs" />
@@ -77,7 +167,15 @@
     <Compile Include="Service\PeriodPriceService.cs" />
     <Compile Include="Service\ReservationService.cs" />
     <Compile Include="Service\UserService.cs" />
+    <Compile Include="ViewModel\AccommodationPageViewModel.cs" />
+    <Compile Include="ViewModel\AccommodationPageViewModels\AddressViewModel.cs" />
+    <Compile Include="ViewModel\Command\AccommodationPageCommands\CancelAccommodationCommand.cs" />
+    <Compile Include="ViewModel\Command\AccommodationPageCommands\CancelAddressCommand.cs" />
+    <Compile Include="ViewModel\Command\AccommodationPageCommands\ConfirmAddOrUpdateAccommodationCommand.cs" />
+    <Compile Include="ViewModel\Command\AccommodationPageCommands\ConfirmAddOrUpdateAddressCommand.cs" />
     <Compile Include="ViewModel\AgentViewModel.cs" />
+    <Compile Include="ViewModel\Command\AccommodationPageCommand.cs" />
+    <Compile Include="ViewModel\Command\AccommodationPageCommands\AddressPageCommand.cs" />
     <Compile Include="ViewModel\Command\HomePageCommand.cs" />
     <Compile Include="ViewModel\Command\HomePageCommands\AccommodationServicesCommand\AddServiceCommand.cs" />
     <Compile Include="ViewModel\Command\HomePageCommands\AccommodationServicesCommand\CancelServiceCommand.cs" />
@@ -112,8 +210,12 @@
     <Compile Include="ViewModel\Command\HomePageCommands\ServicesPageCommand.cs" />
     <Compile Include="ViewModel\Command\HomePageCommands\UnitsPageCommand.cs" />
     <Compile Include="ViewModel\Command\HomePageCommands\UnitTypesPageCommand.cs" />
+    <Compile Include="ViewModel\Command\LogoutCommand.cs" />
     <Compile Include="ViewModel\Command\MessagesPageCommand.cs" />
     <Compile Include="ViewModel\Command\MessengerPageCommands\SendMessageCommand.cs" />
+    <Compile Include="ViewModel\Command\UserPageCommand.cs" />
+    <Compile Include="ViewModel\Command\UserPageCommands\CancelUserCommand.cs" />
+    <Compile Include="ViewModel\Command\UserPageCommands\ConfirmUpdateUserCommand.cs" />
     <Compile Include="ViewModel\ConversationViewModel.cs" />
     <Compile Include="ViewModel\HomePageViewModel.cs" />
     <Compile Include="ViewModel\HomePageViewModels\AccommodationServicesViewModel.cs" />
@@ -129,8 +231,15 @@
     <Compile Include="ViewModel\HomePageViewModels\ReservationsViewModel.cs" />
     <Compile Include="ViewModel\HomePageViewModels\ReservationViewModel.cs" />
     <Compile Include="ViewModel\MessagesViewModel.cs" />
+    <Compile Include="ViewModel\UserViewModel.cs" />
+    <Compile Include="View\AccommodationPageView.xaml.cs">
+      <DependentUpon>AccommodationPageView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AgentView.xaml.cs">
       <DependentUpon>AgentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AccommodationPageViews\AddressView.xaml.cs">
+      <DependentUpon>AddressView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MessagesPageViews\ConversationView.xaml.cs">
       <DependentUpon>ConversationView.xaml</DependentUpon>
@@ -138,7 +247,18 @@
     <Compile Include="View\MessagesView.xaml.cs">
       <DependentUpon>MessagesView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\UserPageView.xaml.cs">
+      <DependentUpon>UserPageView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="View\AccommodationPageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\HomePageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AccommodationPageViews\AddressView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -293,6 +413,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\UserPageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Persistance\AgentsAppContext.cs" />
@@ -321,13 +445,244 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\201907261513172_First.resx">
-      <DependentUpon>201907261513172_First.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201908092329342_First.resx">
+      <DependentUpon>201908092329342_First.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Connected Services\AccommodationServiceReference\accommodations.wsdl" />
+    <None Include="Connected Services\AccommodationServiceReference\Agent_s_App.AccommodationServiceReference.addAccommodationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AccommodationServiceReference\Agent_s_App.AccommodationServiceReference.addAccommodationResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AccommodationServiceReference\Agent_s_App.AccommodationServiceReference.getAccommodationByUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AccommodationServiceReference\Agent_s_App.AccommodationServiceReference.getAccommodationByUserResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AccommodationServiceReference\Agent_s_App.AccommodationServiceReference.getAccommodationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AccommodationServiceReference\Agent_s_App.AccommodationServiceReference.getAccommodationResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AccommodationServiceReference\Agent_s_App.AccommodationServiceReference.getAccommodationsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AccommodationServiceReference\Agent_s_App.AccommodationServiceReference.getAccommodationsResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AccommodationServiceServiceReference\Agent_s_App.AccommodationServiceServiceReference.addAccommodationServiceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AccommodationServiceServiceReference\Agent_s_App.AccommodationServiceServiceReference.addAccommodationServiceResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AccommodationServiceServiceReference\Agent_s_App.AccommodationServiceServiceReference.addServiceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AccommodationServiceServiceReference\Agent_s_App.AccommodationServiceServiceReference.addServiceResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AccommodationServiceServiceReference\Agent_s_App.AccommodationServiceServiceReference.getAccommodationServicesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AccommodationServiceServiceReference\Agent_s_App.AccommodationServiceServiceReference.getAccommodationServicesResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AccommodationServiceServiceReference\Agent_s_App.AccommodationServiceServiceReference.getServiceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AccommodationServiceServiceReference\Agent_s_App.AccommodationServiceServiceReference.getServiceResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AccommodationServiceServiceReference\Agent_s_App.AccommodationServiceServiceReference.getServicesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AccommodationServiceServiceReference\Agent_s_App.AccommodationServiceServiceReference.getServicesResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AccommodationServiceServiceReference\services.wsdl" />
+    <None Include="Connected Services\AccommodationUnitServiceReference\accommodationUnits.wsdl" />
+    <None Include="Connected Services\AccommodationUnitServiceReference\Agent_s_App.AccommodationUnitServiceReference.addAccommodationUnitResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AccommodationUnitServiceReference\Agent_s_App.AccommodationUnitServiceReference.addAccommodationUnitResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AccommodationUnitServiceReference\Agent_s_App.AccommodationUnitServiceReference.getAccommodationUnitResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AccommodationUnitServiceReference\Agent_s_App.AccommodationUnitServiceReference.getAccommodationUnitResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AccommodationUnitServiceReference\Agent_s_App.AccommodationUnitServiceReference.getAccommodationUnitsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AccommodationUnitServiceReference\Agent_s_App.AccommodationUnitServiceReference.getAccommodationUnitsResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AccommodationUnitTypeServiceReference\accommodationUnitTypes.wsdl" />
+    <None Include="Connected Services\AccommodationUnitTypeServiceReference\Agent_s_App.AccommodationUnitTypeServiceReference.addAccommodationUnitTypeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AccommodationUnitTypeServiceReference\Agent_s_App.AccommodationUnitTypeServiceReference.addAccommodationUnitTypeResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AccommodationUnitTypeServiceReference\Agent_s_App.AccommodationUnitTypeServiceReference.getAccommodationUnitTypeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AccommodationUnitTypeServiceReference\Agent_s_App.AccommodationUnitTypeServiceReference.getAccommodationUnitTypeResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AccommodationUnitTypeServiceReference\Agent_s_App.AccommodationUnitTypeServiceReference.getAccommodationUnitTypesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AccommodationUnitTypeServiceReference\Agent_s_App.AccommodationUnitTypeServiceReference.getAccommodationUnitTypesResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AddressServiceReference\addresses.wsdl" />
+    <None Include="Connected Services\AddressServiceReference\Agent_s_App.AddressServiceReference.addAddressResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AddressServiceReference\Agent_s_App.AddressServiceReference.addAddressResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AddressServiceReference\Agent_s_App.AddressServiceReference.getAddressResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AddressServiceReference\Agent_s_App.AddressServiceReference.getAddressResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MessageServiceReference\Agent_s_App.MessageServiceReference.getMessagesByReservationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MessageServiceReference\Agent_s_App.MessageServiceReference.message.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MessageServiceReference\Agent_s_App.MessageServiceReference.respondResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MessageServiceReference\Agent_s_App.MessageServiceReference.respondResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MessageServiceReference\messages.wsdl" />
+    <None Include="Connected Services\PeriodPriceServiceReference\Agent_s_App.PeriodPriceServiceReference.addPeriodPriceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\PeriodPriceServiceReference\Agent_s_App.PeriodPriceServiceReference.addPeriodPriceResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\PeriodPriceServiceReference\Agent_s_App.PeriodPriceServiceReference.getPeriodPriceForMonthResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\PeriodPriceServiceReference\Agent_s_App.PeriodPriceServiceReference.getPeriodPriceForMonthResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\PeriodPriceServiceReference\Agent_s_App.PeriodPriceServiceReference.getPeriodPriceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\PeriodPriceServiceReference\Agent_s_App.PeriodPriceServiceReference.getPeriodPriceResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\PeriodPriceServiceReference\Agent_s_App.PeriodPriceServiceReference.getPeriodPricesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\PeriodPriceServiceReference\Agent_s_App.PeriodPriceServiceReference.getPeriodPricesResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\PeriodPriceServiceReference\periodPrices.wsdl" />
+    <None Include="Connected Services\ReservationServiceReference\Agent_s_App.ReservationServiceReference.confirmCommentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ReservationServiceReference\Agent_s_App.ReservationServiceReference.confirmCommentResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ReservationServiceReference\Agent_s_App.ReservationServiceReference.confirmReservationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ReservationServiceReference\Agent_s_App.ReservationServiceReference.confirmReservationResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ReservationServiceReference\Agent_s_App.ReservationServiceReference.deleteCommentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ReservationServiceReference\Agent_s_App.ReservationServiceReference.deleteCommentResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ReservationServiceReference\Agent_s_App.ReservationServiceReference.getReservationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ReservationServiceReference\Agent_s_App.ReservationServiceReference.getReservationResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ReservationServiceReference\Agent_s_App.ReservationServiceReference.getReservationsByUnitResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ReservationServiceReference\Agent_s_App.ReservationServiceReference.reservation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ReservationServiceReference\reservations.wsdl" />
+    <None Include="Connected Services\UserServiceReference\Agent_s_App.UserServiceReference.activateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\UserServiceReference\Agent_s_App.UserServiceReference.activateResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\UserServiceReference\Agent_s_App.UserServiceReference.addAccommodationToUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\UserServiceReference\Agent_s_App.UserServiceReference.addAccommodationToUserResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\UserServiceReference\Agent_s_App.UserServiceReference.addUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\UserServiceReference\Agent_s_App.UserServiceReference.addUserResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\UserServiceReference\Agent_s_App.UserServiceReference.blockResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\UserServiceReference\Agent_s_App.UserServiceReference.blockResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\UserServiceReference\Agent_s_App.UserServiceReference.comment.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\UserServiceReference\Agent_s_App.UserServiceReference.deleteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\UserServiceReference\Agent_s_App.UserServiceReference.deleteResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\UserServiceReference\Agent_s_App.UserServiceReference.getUserCommentsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\UserServiceReference\Agent_s_App.UserServiceReference.getUsersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\UserServiceReference\Agent_s_App.UserServiceReference.loginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\UserServiceReference\Agent_s_App.UserServiceReference.loginResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\UserServiceReference\Agent_s_App.UserServiceReference.unblockResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\UserServiceReference\Agent_s_App.UserServiceReference.unblockResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\UserServiceReference\Agent_s_App.UserServiceReference.user.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\UserServiceReference\mojusers.wsdl" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -401,5 +756,138 @@
   <ItemGroup>
     <Resource Include="View\Resources\send_message.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Resources\accommodation.jpg" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\AccommodationServiceReference\" />
+    <WCFMetadataStorage Include="Connected Services\AccommodationServiceServiceReference\" />
+    <WCFMetadataStorage Include="Connected Services\AccommodationUnitServiceReference\" />
+    <WCFMetadataStorage Include="Connected Services\AccommodationUnitTypeServiceReference\" />
+    <WCFMetadataStorage Include="Connected Services\AddressServiceReference\" />
+    <WCFMetadataStorage Include="Connected Services\MessageServiceReference\" />
+    <WCFMetadataStorage Include="Connected Services\PeriodPriceServiceReference\" />
+    <WCFMetadataStorage Include="Connected Services\ReservationServiceReference\" />
+    <WCFMetadataStorage Include="Connected Services\UserServiceReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\UserServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\UserServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\UserServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AccommodationServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AccommodationServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AccommodationServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AccommodationUnitServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AccommodationUnitServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AccommodationUnitServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AccommodationUnitTypeServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AccommodationUnitTypeServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AccommodationUnitTypeServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AccommodationServiceServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AccommodationServiceServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AccommodationServiceServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MessageServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MessageServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MessageServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AddressServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AddressServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AddressServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ReservationServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ReservationServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ReservationServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\PeriodPriceServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\PeriodPriceServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\PeriodPriceServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.111.0\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.111.0\build\net46\System.Data.SQLite.Core.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.111.0\build\net46\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.111.0\build\net46\System.Data.SQLite.Core.targets'))" />
+  </Target>
 </Project>

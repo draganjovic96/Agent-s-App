@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch="http://www.projectXml.com/message" xmlns:tns="http://www.projectXml.com/messages" targetNamespace="http://www.projectXml.com/messages" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema xmlns:tns="http://www.projectXml.com/message" elementFormDefault="qualified" targetNamespace="http://www.projectXml.com/message" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="getMessagesByReservationRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="id" type="xs:long" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getMessagesByReservationResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="message" type="tns:message" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="respondRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="respondId" type="xs:long" />
+            <xs:element name="message" type="tns:messageToSend" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="respondResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="success" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="message">
+        <xs:sequence>
+          <xs:element name="messageContent" type="xs:string" />
+          <xs:element name="seen" type="xs:boolean" />
+          <xs:element name="sender" type="tns:user" />
+          <xs:element name="reciever" type="tns:user" />
+          <xs:element name="deleted" type="xs:boolean" />
+          <xs:element name="reservation" type="tns:reservation" />
+          <xs:element name="accommodation" type="tns:accommodation" />
+          <xs:element name="id" type="xs:long" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="messageToSend">
+        <xs:sequence>
+          <xs:element name="messageContent" type="xs:string" />
+          <xs:element name="senderUsername" type="xs:string" />
+          <xs:element name="reservationId" type="xs:long" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="accommodation">
+        <xs:sequence>
+          <xs:element name="Description" type="xs:string" />
+          <xs:element name="Name" type="xs:string" />
+          <xs:element name="Category" type="xs:string" />
+          <xs:element name="Address" type="tns:address" />
+          <xs:element name="AccommodationType" type="tns:accommodationType" />
+          <xs:element name="Id" type="xs:long" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="accommodationType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="HOTEL" />
+          <xs:enumeration value="MOTEL" />
+          <xs:enumeration value="BED_AND_BREAKFAST" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="address">
+        <xs:sequence>
+          <xs:element name="Country" type="xs:string" />
+          <xs:element name="City" type="xs:string" />
+          <xs:element name="Postal_code" type="xs:int" />
+          <xs:element name="Street" type="xs:string" />
+          <xs:element name="Number" type="xs:string" />
+          <xs:element minOccurs="0" name="Apartment_number" type="xs:string" />
+          <xs:element name="Longitude" type="xs:double" />
+          <xs:element name="Latitude" type="xs:double" />
+          <xs:element name="Id" type="xs:long" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="reservation">
+        <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="confirmed" type="xs:boolean" />
+          <xs:element name="deleted" type="xs:boolean" />
+          <xs:element name="userDto" type="tns:user" />
+          <xs:element name="fromDate" type="xs:date" />
+          <xs:element name="toDate" type="xs:date" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="user">
+        <xs:sequence>
+          <xs:element name="Name" type="xs:string" />
+          <xs:element name="Lastname" type="xs:string" />
+          <xs:element name="Email" type="xs:string" />
+          <xs:element name="Username" type="xs:string" />
+          <xs:element name="Password" type="xs:string" />
+          <xs:element name="Id" type="xs:long" />
+          <xs:element name="Enabled" type="xs:boolean" />
+          <xs:element name="Deleted" type="xs:boolean" />
+          <xs:element name="Role" type="xs:string" />
+          <xs:element name="Address" type="tns:address" />
+          <xs:element name="Bussines_registration_number" type="xs:long" />
+          <xs:element name="Blocked" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getMessagesByReservationResponse">
+    <wsdl:part name="getMessagesByReservationResponse" element="sch:getMessagesByReservationResponse" />
+  </wsdl:message>
+  <wsdl:message name="respondResponse">
+    <wsdl:part name="respondResponse" element="sch:respondResponse" />
+  </wsdl:message>
+  <wsdl:message name="getMessagesByReservationRequest">
+    <wsdl:part name="getMessagesByReservationRequest" element="sch:getMessagesByReservationRequest" />
+  </wsdl:message>
+  <wsdl:message name="respondRequest">
+    <wsdl:part name="respondRequest" element="sch:respondRequest" />
+  </wsdl:message>
+  <wsdl:portType name="MessagePort">
+    <wsdl:operation name="getMessagesByReservation">
+      <wsdl:input name="getMessagesByReservationRequest" message="tns:getMessagesByReservationRequest" />
+      <wsdl:output name="getMessagesByReservationResponse" message="tns:getMessagesByReservationResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="respond">
+      <wsdl:input name="respondRequest" message="tns:respondRequest" />
+      <wsdl:output name="respondResponse" message="tns:respondResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MessagePortSoap11" type="tns:MessagePort">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getMessagesByReservation">
+      <soap:operation soapAction="" />
+      <wsdl:input name="getMessagesByReservationRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getMessagesByReservationResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="respond">
+      <soap:operation soapAction="" />
+      <wsdl:input name="respondRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="respondResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MessagePortService">
+    <wsdl:port name="MessagePortSoap11" binding="tns:MessagePortSoap11">
+      <soap:address location="http://localhost:9007/ws" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

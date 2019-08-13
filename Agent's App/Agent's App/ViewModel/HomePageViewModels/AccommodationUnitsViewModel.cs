@@ -45,7 +45,7 @@ namespace Agent_s_App.ViewModel.HomePageViewModels
 			set
 			{
 				selectedUnit = value;
-				if (selectedUnit != null) EnableUpdate = true;
+				if (selectedUnit != null && selectedUnit.Reservations.Count == 0) EnableUpdate = true;
 				else EnableUpdate = false;
 				UpdateAccommodationUnitCommand = new UpdateAccommodationUnitCommand(SelectedUnit, HomePageViewModel);
 				DeleteAccommodationUnitCommand = new DeleteAccommodationUnitCommand(SelectedUnit, HomePageViewModel);
