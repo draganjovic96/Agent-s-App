@@ -21,28 +21,36 @@ namespace Agent_s_App.ViewModel
 		private string homePageButton;
 		private string messengerButton;
 		private string accommodationProfileButton;
-		private string agentProfileButton;
+		private string userProfileButton;
 		private UserControl activePage;
 		private Service.AccommodationService accommodationService = new Service.AccommodationService();
 
+		public MainViewModel MainViewModel { get; set; }
 		public HomePageCommand HomePageCommand { get; set; }
 		public MessagesPageCommand MessagesPageCommand { get; set; }
 		public AccommodationPageCommand AccommodationPageCommand { get; set; }
+		public UserPageCommand UserPageCommand { get; set; }
+		public LogoutCommand LogoutCommand { get; set; }
 
-		public AgentViewModel(User user)
+		public AgentViewModel(User user, MainViewModel mainViewModel)
 		{
+			MainViewModel = mainViewModel;
 			LoggedUser = user;
 			HomePageCommand = new HomePageCommand(this);
 			MessagesPageCommand = new MessagesPageCommand(this);
 			AccommodationPageCommand = new AccommodationPageCommand(this);
+			UserPageCommand = new UserPageCommand(this);
+			LogoutCommand = new LogoutCommand(this);
 
 			Accommodation = accommodationService.GetAccommodationByUsername(LoggedUser.Username);
-			if (accommodation != null)
+			if (Accommodation == null)
 			{
-				HomePageButton = "Resources/home_page_active.png";
-				ActivePage = new HomePageView(LoggedUser, Accommodation);
-				AccommodationLabel = Accommodation.Name;
-				setAddressLabel();
+				Accommodation = new Accommodation();
+				Accommodation.Address = new Address();
+			}
+			if (Accommodation.Id != 0)
+			{
+				HomePageCommand.Execute(null);
 			}
 			else
 			{
@@ -67,6 +75,11 @@ namespace Agent_s_App.ViewModel
 			{
 				accommodation = value;
 				OnPropertyChanged("Accommodation");
+				if (accommodation != null && accommodation.Id != 0)
+				{
+					setAddressLabel();
+					AccommodationLabel = value.Name;
+				}
 			}
 		}
 
@@ -78,11 +91,11 @@ namespace Agent_s_App.ViewModel
 				homePageButton = value;
 				messengerButton = "Resources/messenger_deactive.png";
 				accommodationProfileButton = "Resources/accommodation_deactive.png";
-				agentProfileButton = "Resources/agent_profile_deactive.png";
+				userProfileButton = "Resources/agent_profile_deactive.png";
 				OnPropertyChanged("HomePageButton");
 				OnPropertyChanged("MessengerButton");
 				OnPropertyChanged("AccommodationProfileButton");
-				OnPropertyChanged("AgentProfileButton");
+				OnPropertyChanged("UserProfileButton");
 			}
 		}
 
@@ -94,10 +107,11 @@ namespace Agent_s_App.ViewModel
 				messengerButton = value;
 				homePageButton = "Resources/home_page_deactive.png";
 				accommodationProfileButton = "Resources/accommodation_deactive.png";
+				userProfileButton = "Resources/agent_profile_deactive.png";
 				OnPropertyChanged("HomePageButton");
 				OnPropertyChanged("MessengerButton");
 				OnPropertyChanged("AccommodationProfileButton");
-				OnPropertyChanged("AgentProfileButton");
+				OnPropertyChanged("UserProfileButton");
 			}
 		}
 
@@ -109,24 +123,27 @@ namespace Agent_s_App.ViewModel
 				accommodationProfileButton = value;
 				messengerButton = "Resources/messenger_deactive.png";
 				homePageButton = "Resources/home_page_deactive.png";
-				agentProfileButton = "Resources/agent_profile_deactive.png";
+				userProfileButton = "Resources/agent_profile_deactive.png";
 				OnPropertyChanged("HomePageButton");
 				OnPropertyChanged("MessengerButton");
 				OnPropertyChanged("AccommodationProfileButton");
-				OnPropertyChanged("AgentProfileButton");
+				OnPropertyChanged("UserProfileButton");
 			}
 		}
 
-		public string AgentProfileButton
+		public string UserProfileButton
 		{
-			get => agentProfileButton;
+			get => userProfileButton;
 			set
 			{
-				agentProfileButton = value;
+				userProfileButton = value;
+				accommodationProfileButton = "Resources/accommodation_deactive.png";
+				messengerButton = "Resources/messenger_deactive.png";
+				homePageButton = "Resources/home_page_deactive.png";
 				OnPropertyChanged("HomePageButton");
 				OnPropertyChanged("MessengerButton");
 				OnPropertyChanged("AccommodationProfileButton");
-				OnPropertyChanged("AgentProfileButton");
+				OnPropertyChanged("UserProfileButton");
 			}
 		}
 
@@ -176,6 +193,12 @@ namespace Agent_s_App.ViewModel
 		{
 			ActivePage = new MessagesView(this);
 			MessengerButton = "Resources/messenger_active.png";
+		}
+
+		public void setUserPage()
+		{
+			ActivePage = new UserPageView(this);
+			UserProfileButton = "Resources/agent_profile_active.png";
 		}
 
 		public void setAddressLabel()

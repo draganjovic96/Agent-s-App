@@ -68,7 +68,9 @@
                 <Image Source="{Binding AccommodationProfileButton}" />
             </StackPanel>
         </Button>
-        <Button ToolTip="Agent Profile" 
+        <Button 
+            Command="{Binding UserPageCommand}"
+                ToolTip="Agent Profile" 
                 BorderThickness="0" 
                 Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" 
                 HorizontalAlignment="Stretch" 
@@ -79,7 +81,7 @@
                 Foreground="White"
                 Focusable="False" Grid.Column="2">
             <StackPanel>
-                <Image Source="{Binding AgentProfileButton}" />
+                <Image Source="{Binding UserProfileButton}" />
             </StackPanel>
         </Button>
         <ContentControl Content="{Binding ActivePage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Name="Main" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="7" Background="White">
@@ -100,7 +102,7 @@
             </Grid>
         </StackPanel>
         <StackPanel Grid.Column="2" Height="9" Margin="10,81,10,0" VerticalAlignment="Top" Background="#FFB2A7A7" Grid.ColumnSpan="5"/>
-        <Button ToolTip="Log Out" Background="Transparent" Grid.Column="6" Margin="1,10,12,0" VerticalAlignment="Top" Height="50" Width="50">
+        <Button Command="{Binding LogoutCommand}" ToolTip="Log Out" Background="Transparent" Grid.Column="6" Margin="1,10,12,0" VerticalAlignment="Top" Height="50" Width="50">
             <StackPanel>
                 <Image Source="Resources/log_out.png" />
             </StackPanel>

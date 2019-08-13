@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch="http://www.projectXml.com/mojuser" xmlns:tns="http://www.projectXml.com/mojuser" targetNamespace="http://www.projectXml.com/mojuser" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://www.projectXml.com/mojuser" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="getUsersRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="username" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getUsersResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="user" type="tns:user" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="addUserRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="user" type="tns:user" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="addUserResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="success" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deleteRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="username" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deleteResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="success" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="blockRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="username" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="blockResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="success" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="unblockRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="username" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="unblockResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="success" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="activateRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="id" type="xs:long" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="activateResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="success" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="loginRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="loginDTO" type="tns:LoginDTO" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="loginResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="user" type="tns:user" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getUserCommentsRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="username" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getUserCommentsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="comments" type="tns:comment" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="comment">
+        <xs:sequence>
+          <xs:element name="contentOfComment" type="xs:string" />
+          <xs:element name="approvedComment" type="xs:boolean" />
+          <xs:element name="idReservation" type="xs:long" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="addAccommodationToUserRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="AccommodationId" type="xs:long" />
+            <xs:element name="UserId" type="xs:long" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="addAccommodationToUserResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="User" type="tns:user" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="user">
+        <xs:sequence>
+          <xs:element name="Name" type="xs:string" />
+          <xs:element name="Lastname" type="xs:string" />
+          <xs:element name="Email" type="xs:string" />
+          <xs:element name="Username" type="xs:string" />
+          <xs:element name="Password" type="xs:string" />
+          <xs:element name="Id" type="xs:long" />
+          <xs:element name="Enabled" type="xs:boolean" />
+          <xs:element name="Deleted" type="xs:boolean" />
+          <xs:element name="Role" type="xs:string" />
+          <xs:element name="Address" type="tns:Address" />
+          <xs:element name="Bussines_registration_number" type="xs:long" />
+          <xs:element name="Blocked" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Accommodation" type="tns:accommodation" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="accommodation">
+        <xs:sequence>
+          <xs:element name="Description" type="xs:string" />
+          <xs:element name="Name" type="xs:string" />
+          <xs:element name="Category" type="xs:string" />
+          <xs:element name="Address" type="tns:Address" />
+          <xs:element name="AccommodationType" type="tns:accommodationType" />
+          <xs:element name="Id" type="xs:long" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="accommodationType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="HOTEL" />
+          <xs:enumeration value="MOTEL" />
+          <xs:enumeration value="BED_AND_BREAKFAST" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="Address">
+        <xs:sequence>
+          <xs:element name="Country" type="xs:string" />
+          <xs:element name="City" type="xs:string" />
+          <xs:element name="Postal_code" type="xs:int" />
+          <xs:element name="Street" type="xs:string" />
+          <xs:element name="Number" type="xs:string" />
+          <xs:element minOccurs="0" name="Apartment_number" type="xs:string" />
+          <xs:element name="Longitude" type="xs:double" />
+          <xs:element name="Latitude" type="xs:double" />
+          <xs:element name="Id" type="xs:long" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="LoginDTO">
+        <xs:sequence>
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="role" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="unblockRequest">
+    <wsdl:part name="unblockRequest" element="tns:unblockRequest" />
+  </wsdl:message>
+  <wsdl:message name="loginResponse">
+    <wsdl:part name="loginResponse" element="tns:loginResponse" />
+  </wsdl:message>
+  <wsdl:message name="loginRequest">
+    <wsdl:part name="loginRequest" element="tns:loginRequest" />
+  </wsdl:message>
+  <wsdl:message name="addAccommodationToUserRequest">
+    <wsdl:part name="addAccommodationToUserRequest" element="tns:addAccommodationToUserRequest" />
+  </wsdl:message>
+  <wsdl:message name="activateResponse">
+    <wsdl:part name="activateResponse" element="tns:activateResponse" />
+  </wsdl:message>
+  <wsdl:message name="getUserCommentsResponse">
+    <wsdl:part name="getUserCommentsResponse" element="tns:getUserCommentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="blockRequest">
+    <wsdl:part name="blockRequest" element="tns:blockRequest" />
+  </wsdl:message>
+  <wsdl:message name="addUserRequest">
+    <wsdl:part name="addUserRequest" element="tns:addUserRequest" />
+  </wsdl:message>
+  <wsdl:message name="addAccommodationToUserResponse">
+    <wsdl:part name="addAccommodationToUserResponse" element="tns:addAccommodationToUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteResponse">
+    <wsdl:part name="deleteResponse" element="tns:deleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="getUserCommentsRequest">
+    <wsdl:part name="getUserCommentsRequest" element="tns:getUserCommentsRequest" />
+  </wsdl:message>
+  <wsdl:message name="blockResponse">
+    <wsdl:part name="blockResponse" element="tns:blockResponse" />
+  </wsdl:message>
+  <wsdl:message name="getUsersRequest">
+    <wsdl:part name="getUsersRequest" element="tns:getUsersRequest" />
+  </wsdl:message>
+  <wsdl:message name="addUserResponse">
+    <wsdl:part name="addUserResponse" element="tns:addUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="getUsersResponse">
+    <wsdl:part name="getUsersResponse" element="tns:getUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteRequest">
+    <wsdl:part name="deleteRequest" element="tns:deleteRequest" />
+  </wsdl:message>
+  <wsdl:message name="activateRequest">
+    <wsdl:part name="activateRequest" element="tns:activateRequest" />
+  </wsdl:message>
+  <wsdl:message name="unblockResponse">
+    <wsdl:part name="unblockResponse" element="tns:unblockResponse" />
+  </wsdl:message>
+  <wsdl:portType name="MojuserPort">
+    <wsdl:operation name="unblock">
+      <wsdl:input name="unblockRequest" message="tns:unblockRequest" />
+      <wsdl:output name="unblockResponse" message="tns:unblockResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="login">
+      <wsdl:input name="loginRequest" message="tns:loginRequest" />
+      <wsdl:output name="loginResponse" message="tns:loginResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="addAccommodationToUser">
+      <wsdl:input name="addAccommodationToUserRequest" message="tns:addAccommodationToUserRequest" />
+      <wsdl:output name="addAccommodationToUserResponse" message="tns:addAccommodationToUserResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="activate">
+      <wsdl:input name="activateRequest" message="tns:activateRequest" />
+      <wsdl:output name="activateResponse" message="tns:activateResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserComments">
+      <wsdl:input name="getUserCommentsRequest" message="tns:getUserCommentsRequest" />
+      <wsdl:output name="getUserCommentsResponse" message="tns:getUserCommentsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="block">
+      <wsdl:input name="blockRequest" message="tns:blockRequest" />
+      <wsdl:output name="blockResponse" message="tns:blockResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="addUser">
+      <wsdl:input name="addUserRequest" message="tns:addUserRequest" />
+      <wsdl:output name="addUserResponse" message="tns:addUserResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="delete">
+      <wsdl:input name="deleteRequest" message="tns:deleteRequest" />
+      <wsdl:output name="deleteResponse" message="tns:deleteResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getUsers">
+      <wsdl:input name="getUsersRequest" message="tns:getUsersRequest" />
+      <wsdl:output name="getUsersResponse" message="tns:getUsersResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MojuserPortSoap11" type="tns:MojuserPort">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="unblock">
+      <soap:operation soapAction="" />
+      <wsdl:input name="unblockRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="unblockResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="login">
+      <soap:operation soapAction="" />
+      <wsdl:input name="loginRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="loginResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addAccommodationToUser">
+      <soap:operation soapAction="" />
+      <wsdl:input name="addAccommodationToUserRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="addAccommodationToUserResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="activate">
+      <soap:operation soapAction="" />
+      <wsdl:input name="activateRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="activateResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserComments">
+      <soap:operation soapAction="" />
+      <wsdl:input name="getUserCommentsRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getUserCommentsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="block">
+      <soap:operation soapAction="" />
+      <wsdl:input name="blockRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="blockResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addUser">
+      <soap:operation soapAction="" />
+      <wsdl:input name="addUserRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="addUserResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="delete">
+      <soap:operation soapAction="" />
+      <wsdl:input name="deleteRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="deleteResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUsers">
+      <soap:operation soapAction="" />
+      <wsdl:input name="getUsersRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getUsersResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MojuserPortService">
+    <wsdl:port name="MojuserPortSoap11" binding="tns:MojuserPortSoap11">
+      <soap:address location="http://localhost:9007/ws" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

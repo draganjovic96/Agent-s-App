@@ -42,7 +42,6 @@ namespace Agent_s_App.Core.Model
 		[Required]
 		public UserRole Role { get; set; }
 
-		[Required]
 		public virtual Address Address { get; set; }
 
 		public long BusinessRegistrationNumber { get; set; }

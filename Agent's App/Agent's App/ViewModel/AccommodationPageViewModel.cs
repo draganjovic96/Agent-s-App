@@ -111,9 +111,9 @@ namespace Agent_s_App.ViewModel
 		{
 			CancelAccommodation = new CancelAccommodationCommand(this);
 			AddOrUpdateAccommodation = new ConfirmAddOrUpdateAccommodationCommand(this);
-			AddressPageCommand = new AddressPageCommand(this);
+			AddressPageCommand = new AddressPageCommand(this, null);
 			AgentViewModel = agentViewModel;
-			Accommodation = AgentViewModel.LoggedUser.AgentOfAccommodation;
+			Accommodation = AgentViewModel.Accommodation;
 			Types = (Enum.GetValues(typeof(AccommodationType))).OfType<AccommodationType>().ToList();
 
 			if (Accommodation.Id != 0)
@@ -136,7 +136,12 @@ namespace Agent_s_App.ViewModel
 			}
 			else
 			{
-				Accommodation.Address = new Address();
+				Country = Accommodation.Address.Country;
+				City = Accommodation.Address.City;
+				Street = Accommodation.Address.Street;
+				Number = Accommodation.Address.Number;
+				ApartmentNumber = Accommodation.Address.ApartmentNumber;
+				AddressString = Country + ", " + City + ", " + Street + " " + Number;
 				AddOrUpdateButton = "Add";
 			}
 

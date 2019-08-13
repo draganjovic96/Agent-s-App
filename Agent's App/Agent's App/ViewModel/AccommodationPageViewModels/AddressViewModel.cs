@@ -85,6 +85,7 @@ namespace Agent_s_App.ViewModel.AccommodationPageViewModels
 			Link = "http://maps.google.com/maps?q=" + Street + " " + Number + "," + "+" + City + "," + "+" + Country;
 		}
 		public AccommodationPageViewModel AccommodationPageViewModel { get; set; }
+		public UserViewModel UserViewModel { get; set; }
 		public Address Address { get; set; }
 		public string AddOrUpdateButton
 		{
@@ -99,12 +100,18 @@ namespace Agent_s_App.ViewModel.AccommodationPageViewModels
 		public ConfirmAddOrUpdateAddressCommand AddOrUpdateAddress { get; set; }
 		public CancelAddressCommand CancelAddress { get; set; }
 
-		public AddressViewModel(AccommodationPageViewModel accommodationPageViewModel)
+		public AddressViewModel(AccommodationPageViewModel accommodationPageViewModel, UserViewModel userViewModel)
 		{
 			CancelAddress = new CancelAddressCommand(this);
 			AddOrUpdateAddress = new ConfirmAddOrUpdateAddressCommand(this);
 			AccommodationPageViewModel = accommodationPageViewModel;
-			Address = AccommodationPageViewModel.Accommodation.Address;
+			UserViewModel = userViewModel;
+
+			if (UserViewModel == null)
+				Address = AccommodationPageViewModel.Accommodation.Address;
+			else
+				Address = UserViewModel.AgentViewModel.LoggedUser.Address;
+
 			Country = Address.Country;
 			City = Address.City;
 			Street = Address.Street;

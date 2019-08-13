@@ -33,16 +33,19 @@ namespace Agent_s_App.ViewModel.Command.HomePageCommands.AccommodationUnitsComma
 
 		public void Execute(object parameter)
 		{
-			Random rnd = new Random();
-			if (AccommodationUnit.Id == 0) AccommodationUnit.Id = rnd.Next(234151);
-			AccommodationUnit.Accommodation = HomePageViewModel.Accommodation;
 			AccommodationUnit.Floor = Int32.Parse(AccommodationUnitViewModel.Floor);
 			AccommodationUnit.Number = AccommodationUnitViewModel.Number;
 			AccommodationUnit.NumberOfBeds = Int32.Parse(AccommodationUnitViewModel.NumberOfBeds);
 			AccommodationUnit.DefaultPrice = Double.Parse(AccommodationUnitViewModel.DefaultPrice);
 			AccommodationUnit.AccommodationUnitType = AccommodationUnitViewModel.UnitType;
 
-			unitService.AddAccommodationUnit(AccommodationUnit);
+			if (AccommodationUnitViewModel.AddOrUpdateButton.Equals("Add"))
+				unitService.AddAccommodationUnit(AccommodationUnit, AccommodationUnitViewModel.HomePageViewModel.Accommodation.Id);
+			else
+			{
+				AccommodationUnit.Accommodation = HomePageViewModel.Accommodation;
+				unitService.UpdateAccommodationUnit(AccommodationUnit);
+			}
 
 			HomePageViewModel.setUnitsPage();
 		}

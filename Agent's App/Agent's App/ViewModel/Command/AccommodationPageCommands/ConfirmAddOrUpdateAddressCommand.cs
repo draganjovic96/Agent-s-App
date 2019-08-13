@@ -4,17 +4,20 @@ using Agent_s_App.ViewModel.AccommodationPageViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Xml.Linq;
 
 namespace Agent_s_App.ViewModel.Command.AccommodationPageCommands
 {
 	public class ConfirmAddOrUpdateAddressCommand : ICommand
 	{
 		public AddressViewModel AddressViewModel { get; set; }
-		public AddressService AddressService = new AddressService();
 		public Service.AccommodationService AccommodationService = new Service.AccommodationService();
+		public UserService UserService = new UserService();
+
 		public ConfirmAddOrUpdateAddressCommand(AddressViewModel addressViewModel)
 		{
 			AddressViewModel = addressViewModel;
@@ -29,17 +32,27 @@ namespace Agent_s_App.ViewModel.Command.AccommodationPageCommands
 		public void Execute(object parameter)
 		{
 			Random rnd = new Random();
-			Address address = new Address();
-			if (AddressViewModel.Address.Id == 0) address.Id = rnd.Next(1123213);
-			else address.Id = AddressViewModel.Address.Id;
-			address.Country = AddressViewModel.Country;
-			address.City = AddressViewModel.City;
-			address.Street = AddressViewModel.Street;
-			address.Number = AddressViewModel.Number;
-			address.ApartmentNumber = AddressViewModel.ApartmentNumber;
-			AddressService.AddAddress(address);
-			AddressViewModel.AccommodationPageViewModel.AgentViewModel.Accommodation = AccommodationService.GetAccommodationByUsername(AddressViewModel.AccommodationPageViewModel.AgentViewModel.LoggedUser.Username);
-			AddressViewModel.AccommodationPageViewModel.AgentViewModel.setAccommodationProfilePage();
+			Address address = new Address
+			{
+				Country = AddressViewModel.Country,
+				City = AddressViewModel.City,
+				Street = AddressViewModel.Street,
+				Number = AddressViewModel.Number,
+				ApartmentNumber = AddressViewModel.ApartmentNumber,
+				Latitude = rnd.NextDouble() * (90 - (-90)) + (-90),
+				Longitude = rnd.NextDouble() * (180 - (-180)) + (-180)
+			};
+
+			if (AddressViewModel.UserViewModel == null)
+			{
+				AddressViewModel.AccommodationPageViewModel.AgentViewModel.Accommodation.Address = address;
+				AddressViewModel.AccommodationPageViewModel.AgentViewModel.setAccommodationProfilePage();
+			}
+			else
+			{
+				AddressViewModel.UserViewModel.AgentViewModel.LoggedUser.Address = address;
+				AddressViewModel.UserViewModel.AgentViewModel.setUserPage();
+			}
 		}
 	}
 }

@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch="http://www.projectXml.com/service" xmlns:tns="http://www.projectXml.com/service" targetNamespace="http://www.projectXml.com/service" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://www.projectXml.com/service" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="getAccommodationServicesRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="accommodationId" type="xs:long" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAccommodationServicesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="services" type="tns:services" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="addAccommodationServiceRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="accommodationId" type="xs:long" />
+            <xs:element name="serviceId" type="xs:long" />
+            <xs:element name="service" type="tns:service" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="addAccommodationServiceResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="service" type="tns:service" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="removeAccommodationServiceRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="accommodationId" type="xs:long" />
+            <xs:element name="accommodationServiceId" type="xs:long" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getServicesRequest">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getServicesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="services" type="tns:services" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getServiceRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="serviceId" type="xs:long" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getServiceResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="service" type="tns:service" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="addServiceRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="service" type="tns:service" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="addServiceResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="service" type="tns:service" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateServiceRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="service" type="tns:service" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="removeServiceRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="serviceId" type="xs:long" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="service">
+        <xs:sequence>
+          <xs:element name="Id" type="xs:long" />
+          <xs:element name="Name" type="xs:string" />
+          <xs:element name="Description" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="services">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Services" type="tns:service" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="addAccommodationServiceRequest">
+    <wsdl:part name="addAccommodationServiceRequest" element="tns:addAccommodationServiceRequest" />
+  </wsdl:message>
+  <wsdl:message name="getAccommodationServicesRequest">
+    <wsdl:part name="getAccommodationServicesRequest" element="tns:getAccommodationServicesRequest" />
+  </wsdl:message>
+  <wsdl:message name="removeAccommodationServiceRequest">
+    <wsdl:part name="removeAccommodationServiceRequest" element="tns:removeAccommodationServiceRequest" />
+  </wsdl:message>
+  <wsdl:message name="removeServiceRequest">
+    <wsdl:part name="removeServiceRequest" element="tns:removeServiceRequest" />
+  </wsdl:message>
+  <wsdl:message name="getAccommodationServicesResponse">
+    <wsdl:part name="getAccommodationServicesResponse" element="tns:getAccommodationServicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getServicesRequest">
+    <wsdl:part name="getServicesRequest" element="tns:getServicesRequest" />
+  </wsdl:message>
+  <wsdl:message name="getServiceRequest">
+    <wsdl:part name="getServiceRequest" element="tns:getServiceRequest" />
+  </wsdl:message>
+  <wsdl:message name="addServiceResponse">
+    <wsdl:part name="addServiceResponse" element="tns:addServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="getServiceResponse">
+    <wsdl:part name="getServiceResponse" element="tns:getServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="getServicesResponse">
+    <wsdl:part name="getServicesResponse" element="tns:getServicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="addServiceRequest">
+    <wsdl:part name="addServiceRequest" element="tns:addServiceRequest" />
+  </wsdl:message>
+  <wsdl:message name="updateServiceRequest">
+    <wsdl:part name="updateServiceRequest" element="tns:updateServiceRequest" />
+  </wsdl:message>
+  <wsdl:message name="addAccommodationServiceResponse">
+    <wsdl:part name="addAccommodationServiceResponse" element="tns:addAccommodationServiceResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServicePort">
+    <wsdl:operation name="addAccommodationService">
+      <wsdl:input name="addAccommodationServiceRequest" message="tns:addAccommodationServiceRequest" />
+      <wsdl:output name="addAccommodationServiceResponse" message="tns:addAccommodationServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getAccommodationServices">
+      <wsdl:input name="getAccommodationServicesRequest" message="tns:getAccommodationServicesRequest" />
+      <wsdl:output name="getAccommodationServicesResponse" message="tns:getAccommodationServicesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="removeAccommodationService">
+      <wsdl:input name="removeAccommodationServiceRequest" message="tns:removeAccommodationServiceRequest" />
+    </wsdl:operation>
+    <wsdl:operation name="removeService">
+      <wsdl:input name="removeServiceRequest" message="tns:removeServiceRequest" />
+    </wsdl:operation>
+    <wsdl:operation name="getServices">
+      <wsdl:input name="getServicesRequest" message="tns:getServicesRequest" />
+      <wsdl:output name="getServicesResponse" message="tns:getServicesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getService">
+      <wsdl:input name="getServiceRequest" message="tns:getServiceRequest" />
+      <wsdl:output name="getServiceResponse" message="tns:getServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="addService">
+      <wsdl:input name="addServiceRequest" message="tns:addServiceRequest" />
+      <wsdl:output name="addServiceResponse" message="tns:addServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="updateService">
+      <wsdl:input name="updateServiceRequest" message="tns:updateServiceRequest" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServicePortSoap11" type="tns:ServicePort">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="addAccommodationService">
+      <soap:operation soapAction="" />
+      <wsdl:input name="addAccommodationServiceRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="addAccommodationServiceResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccommodationServices">
+      <soap:operation soapAction="" />
+      <wsdl:input name="getAccommodationServicesRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getAccommodationServicesResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeAccommodationService">
+      <soap:operation soapAction="" />
+      <wsdl:input name="removeAccommodationServiceRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="removeService">
+      <soap:operation soapAction="" />
+      <wsdl:input name="removeServiceRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getServices">
+      <soap:operation soapAction="" />
+      <wsdl:input name="getServicesRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getServicesResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getService">
+      <soap:operation soapAction="" />
+      <wsdl:input name="getServiceRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getServiceResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addService">
+      <soap:operation soapAction="" />
+      <wsdl:input name="addServiceRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="addServiceResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateService">
+      <soap:operation soapAction="" />
+      <wsdl:input name="updateServiceRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicePortService">
+    <wsdl:port name="ServicePortSoap11" binding="tns:ServicePortSoap11">
+      <soap:address location="http://localhost:9007/ws" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

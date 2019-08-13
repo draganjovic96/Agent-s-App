@@ -52,10 +52,10 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <WebBrowser misc:WebBrowserHelper.LinkSource="{Binding Link}" IsEnabled="False" Grid.Column="4" Grid.RowSpan="13"/>
-        <Label Grid.Column="1" Grid.Row="1" Content="Country" Style="{StaticResource FormLabel}" Height="Auto"/>
-        <Label Grid.Column="1" Grid.Row="3" Content="City" Style="{StaticResource FormLabel}" Height="Auto"/>
-        <Label Grid.Column="1" Grid.Row="5" Content="Street" Style="{StaticResource FormLabel}" Height="Auto"/>
-        <Label Grid.Column="1" Grid.Row="7" Content="Number" Style="{StaticResource FormLabel}" Height="Auto"/>
+        <Label Grid.Column="1" Grid.Row="1" Content="Country*" Style="{StaticResource FormLabel}" Height="Auto"/>
+        <Label Grid.Column="1" Grid.Row="3" Content="City*" Style="{StaticResource FormLabel}" Height="Auto"/>
+        <Label Grid.Column="1" Grid.Row="5" Content="Street*" Style="{StaticResource FormLabel}" Height="Auto"/>
+        <Label Grid.Column="1" Grid.Row="7" Content="Number*" Style="{StaticResource FormLabel}" Height="Auto"/>
         <Label Grid.Column="1" Grid.Row="9" Content="Apartment" Style="{StaticResource FormLabel}" Height="Auto"/>
         <TextBox Text="{Binding Country, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="2" Grid.Row="1" Style="{StaticResource FormTextBox}"/>
         <TextBox Text="{Binding City, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="2" Grid.Row="3" Style="{StaticResource FormTextBox}"/>

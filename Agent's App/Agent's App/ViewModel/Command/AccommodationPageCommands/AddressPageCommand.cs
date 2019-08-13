@@ -11,10 +11,12 @@ namespace Agent_s_App.ViewModel.Command.AccommodationPageCommands
 	public class AddressPageCommand : ICommand
 	{
 		public AccommodationPageViewModel AccommodationPageViewModel { get; set; }
+		public UserViewModel UserViewModel { get; set; }
 
-		public AddressPageCommand(AccommodationPageViewModel accommodationPageViewModel)
+		public AddressPageCommand(AccommodationPageViewModel accommodationPageViewModel, UserViewModel userViewModel)
 		{
 			AccommodationPageViewModel = accommodationPageViewModel;
+			UserViewModel = userViewModel;
 		}
 		public event EventHandler CanExecuteChanged;
 
@@ -25,7 +27,10 @@ namespace Agent_s_App.ViewModel.Command.AccommodationPageCommands
 
 		public void Execute(object parameter)
 		{
-			AccommodationPageViewModel.AgentViewModel.ActivePage = new AddressView(AccommodationPageViewModel);
+			if (UserViewModel == null)
+				AccommodationPageViewModel.AgentViewModel.ActivePage = new AddressView(AccommodationPageViewModel, null);
+			else
+				UserViewModel.AgentViewModel.ActivePage = new AddressView(null, UserViewModel);
 		}
 	}
 }

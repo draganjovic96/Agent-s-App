@@ -44,7 +44,7 @@
             <RowDefinition Height="30"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Label Content="Name" Grid.Column="1"  Grid.Row="1" Style="{StaticResource FormLabel}" />
+        <Label Content="Name*" Grid.Column="1"  Grid.Row="1" Style="{StaticResource FormLabel}" />
         <TextBox Text="{Binding Name, Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Grid.Column="3" Grid.Row="1" Style="{StaticResource FormTextBox}"/>
         <Button Command="{Binding ConfirmAddOrUpdateUnitTypeCommand}"  Content="{Binding AddOrSaveButton}" Grid.Column="5" Grid.Row="1" Style="{StaticResource FormButton}" Background="#FF13D113"/>
         <Button Command="{Binding CancelAccommodationUnitTypeCommand}" Content="Cancel" Grid.Column="7" Grid.Row="1" Style="{StaticResource FormButton}" Background="Red"/>

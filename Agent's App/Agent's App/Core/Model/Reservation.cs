@@ -34,6 +34,7 @@ namespace Agent_s_App.Core.Model
 
 		public virtual ICollection<Message> Messages { get; set; }
 
+		[Required]
 		public virtual User Guest { get; set; }
 	}
 }

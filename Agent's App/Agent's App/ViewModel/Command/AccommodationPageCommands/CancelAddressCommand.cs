@@ -26,7 +26,10 @@ namespace Agent_s_App.ViewModel.Command.AccommodationPageCommands
 
 		public void Execute(object parameter)
 		{
-			AddressViewModel.AccommodationPageViewModel.AgentViewModel.setAccommodationProfilePage();
+			if (AddressViewModel.UserViewModel == null)
+				AddressViewModel.AccommodationPageViewModel.AgentViewModel.setAccommodationProfilePage();
+			else
+				AddressViewModel.UserViewModel.AgentViewModel.setUserPage();
 		}
 	}
 }

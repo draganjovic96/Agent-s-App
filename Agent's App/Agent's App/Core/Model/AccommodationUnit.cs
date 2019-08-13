@@ -18,13 +18,16 @@ namespace Agent_s_App.Core.Model
 		[Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
 		public long Id { get; set; }
 
+		[Required]
 		public int Floor { get; set; }
 
 		[Required]
 		public string Number { get; set; }
 
+		[Required]
 		public int NumberOfBeds { get; set; }
 
+		[Required]
 		public double DefaultPrice { get; set; }
 
 		public bool Deleted;

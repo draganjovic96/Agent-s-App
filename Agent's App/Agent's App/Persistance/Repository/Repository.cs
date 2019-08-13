@@ -54,7 +54,7 @@ namespace Agent_s_App.Persistance.Repository
 
 		public void Add(TEntity entity)
 		{
-			Context.Set<TEntity>().AddOrUpdate(entity);
+			Context.Set<TEntity>().Add(entity);
 		}
 
 		public void AddRange(IEnumerable<TEntity> entities)

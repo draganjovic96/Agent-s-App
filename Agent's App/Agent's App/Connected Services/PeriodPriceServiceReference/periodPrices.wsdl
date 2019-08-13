@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch="http://www.projectXml.com/periodPrice" xmlns:tns="http://www.projectXml.com/periodPrices" targetNamespace="http://www.projectXml.com/periodPrices" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema xmlns:tns="http://www.projectXml.com/periodPrice" elementFormDefault="qualified" targetNamespace="http://www.projectXml.com/periodPrice" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="getPeriodPricesRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="accommodationUnitId" type="xs:long" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getPeriodPricesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="periodPrices" type="tns:periodPrices" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="addPeriodPriceRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="accommodationUnitId" type="xs:long" />
+            <xs:element name="periodPrice" type="tns:periodPrice" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="addPeriodPriceResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="periodPrice" type="tns:periodPrice" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="removePeriodPriceRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="periodPriceId" type="xs:long" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getPeriodPriceRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="periodPriceId" type="xs:long" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getPeriodPriceResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="periodPrice" type="tns:periodPrice" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updatePeriodPriceRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="periodPrice" type="tns:periodPrice" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getPeriodPriceForMonthRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="accommodationUnitId" type="xs:long" />
+            <xs:element name="periodPriceDates" type="tns:periodPriceDates" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getPeriodPriceForMonthResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="periodPrice" type="tns:periodPrice" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="periodPrice">
+        <xs:sequence>
+          <xs:element name="Id" type="xs:long" />
+          <xs:element name="Price" type="xs:double" />
+          <xs:element name="AccommodationUnit" type="tns:accommodationUnit" />
+          <xs:element name="FromDate" type="xs:date" />
+          <xs:element name="ToDate" type="xs:date" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="periodPriceDates">
+        <xs:sequence>
+          <xs:element name="FromDate" type="xs:date" />
+          <xs:element name="ToDate" type="xs:date" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="accommodationUnit">
+        <xs:sequence>
+          <xs:element name="Floor" type="xs:int" />
+          <xs:element name="Number" type="xs:string" />
+          <xs:element name="NumberOfBeds" type="xs:int" />
+          <xs:element name="DefaultPrice" type="xs:double" />
+          <xs:element name="AccommodationUnitType" type="tns:accommodationUnitType" />
+          <xs:element name="Id" type="xs:long" />
+          <xs:element name="Accommodation" type="tns:accommodation" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="accommodation">
+        <xs:sequence>
+          <xs:element name="Description" type="xs:string" />
+          <xs:element name="Name" type="xs:string" />
+          <xs:element name="Category" type="xs:string" />
+          <xs:element name="Address" type="tns:Address" />
+          <xs:element name="AccommodationType" type="tns:accommodationType" />
+          <xs:element name="Id" type="xs:long" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="accommodationType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="HOTEL" />
+          <xs:enumeration value="MOTEL" />
+          <xs:enumeration value="BED_AND_BREAKFAST" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="Address">
+        <xs:sequence>
+          <xs:element name="Country" type="xs:string" />
+          <xs:element name="City" type="xs:string" />
+          <xs:element name="Postal_code" type="xs:int" />
+          <xs:element name="Street" type="xs:string" />
+          <xs:element name="Number" type="xs:string" />
+          <xs:element minOccurs="0" name="Apartment_number" type="xs:string" />
+          <xs:element name="Longitude" type="xs:double" />
+          <xs:element name="Latitude" type="xs:double" />
+          <xs:element name="Id" type="xs:long" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="accommodationUnitType">
+        <xs:sequence>
+          <xs:element name="Id" type="xs:long" />
+          <xs:element name="Name" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="periodPrices">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="PeriodPrice" type="tns:periodPrice" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="removePeriodPriceRequest">
+    <wsdl:part name="removePeriodPriceRequest" element="sch:removePeriodPriceRequest" />
+  </wsdl:message>
+  <wsdl:message name="getPeriodPriceForMonthResponse">
+    <wsdl:part name="getPeriodPriceForMonthResponse" element="sch:getPeriodPriceForMonthResponse" />
+  </wsdl:message>
+  <wsdl:message name="updatePeriodPriceRequest">
+    <wsdl:part name="updatePeriodPriceRequest" element="sch:updatePeriodPriceRequest" />
+  </wsdl:message>
+  <wsdl:message name="getPeriodPriceRequest">
+    <wsdl:part name="getPeriodPriceRequest" element="sch:getPeriodPriceRequest" />
+  </wsdl:message>
+  <wsdl:message name="getPeriodPriceForMonthRequest">
+    <wsdl:part name="getPeriodPriceForMonthRequest" element="sch:getPeriodPriceForMonthRequest" />
+  </wsdl:message>
+  <wsdl:message name="getPeriodPricesRequest">
+    <wsdl:part name="getPeriodPricesRequest" element="sch:getPeriodPricesRequest" />
+  </wsdl:message>
+  <wsdl:message name="addPeriodPriceResponse">
+    <wsdl:part name="addPeriodPriceResponse" element="sch:addPeriodPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPeriodPriceResponse">
+    <wsdl:part name="getPeriodPriceResponse" element="sch:getPeriodPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPeriodPricesResponse">
+    <wsdl:part name="getPeriodPricesResponse" element="sch:getPeriodPricesResponse" />
+  </wsdl:message>
+  <wsdl:message name="addPeriodPriceRequest">
+    <wsdl:part name="addPeriodPriceRequest" element="sch:addPeriodPriceRequest" />
+  </wsdl:message>
+  <wsdl:portType name="PeriodPricePort">
+    <wsdl:operation name="removePeriodPrice">
+      <wsdl:input name="removePeriodPriceRequest" message="tns:removePeriodPriceRequest" />
+    </wsdl:operation>
+    <wsdl:operation name="getPeriodPriceForMonth">
+      <wsdl:input name="getPeriodPriceForMonthRequest" message="tns:getPeriodPriceForMonthRequest" />
+      <wsdl:output name="getPeriodPriceForMonthResponse" message="tns:getPeriodPriceForMonthResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="updatePeriodPrice">
+      <wsdl:input name="updatePeriodPriceRequest" message="tns:updatePeriodPriceRequest" />
+    </wsdl:operation>
+    <wsdl:operation name="getPeriodPrice">
+      <wsdl:input name="getPeriodPriceRequest" message="tns:getPeriodPriceRequest" />
+      <wsdl:output name="getPeriodPriceResponse" message="tns:getPeriodPriceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getPeriodPrices">
+      <wsdl:input name="getPeriodPricesRequest" message="tns:getPeriodPricesRequest" />
+      <wsdl:output name="getPeriodPricesResponse" message="tns:getPeriodPricesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="addPeriodPrice">
+      <wsdl:input name="addPeriodPriceRequest" message="tns:addPeriodPriceRequest" />
+      <wsdl:output name="addPeriodPriceResponse" message="tns:addPeriodPriceResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PeriodPricePortSoap11" type="tns:PeriodPricePort">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="removePeriodPrice">
+      <soap:operation soapAction="" />
+      <wsdl:input name="removePeriodPriceRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getPeriodPriceForMonth">
+      <soap:operation soapAction="" />
+      <wsdl:input name="getPeriodPriceForMonthRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getPeriodPriceForMonthResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatePeriodPrice">
+      <soap:operation soapAction="" />
+      <wsdl:input name="updatePeriodPriceRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getPeriodPrice">
+      <soap:operation soapAction="" />
+      <wsdl:input name="getPeriodPriceRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getPeriodPriceResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPeriodPrices">
+      <soap:operation soapAction="" />
+      <wsdl:input name="getPeriodPricesRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getPeriodPricesResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addPeriodPrice">
+      <soap:operation soapAction="" />
+      <wsdl:input name="addPeriodPriceRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="addPeriodPriceResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PeriodPricePortService">
+    <wsdl:port name="PeriodPricePortSoap11" binding="tns:PeriodPricePortSoap11">
+      <soap:address location="http://localhost:9007/ws" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

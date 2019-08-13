@@ -22,10 +22,10 @@ namespace Agent_s_App.View.AccommodationPageViews
 	/// </summary>
 	public partial class AddressView : UserControl
 	{
-		public AddressView(AccommodationPageViewModel accommodationPageViewModel)
+		public AddressView(AccommodationPageViewModel accommodationPageViewModel, UserViewModel userViewModel)
 		{
 			InitializeComponent();
-			DataContext = new AddressViewModel(accommodationPageViewModel);
+			DataContext = new AddressViewModel(accommodationPageViewModel, userViewModel);
 		}
 	}
 }

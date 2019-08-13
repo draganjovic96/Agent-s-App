@@ -55,10 +55,10 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="75"/>
         </Grid.ColumnDefinitions>
-        <Label Content="Name" Grid.Row="1" Grid.Column="5" Style="{StaticResource FormLabel}"/>
-        <Label Content="Description" Style="{StaticResource FormLabel}" Grid.Column="5" Grid.Row="7"/>
-        <Label Content="Type" Grid.Column="5" Grid.Row="3" Style="{StaticResource FormLabel}" Grid.ColumnSpan="2" Margin="1,0,24,0"/>
-        <Label Content="Category" Grid.Column="5" Grid.Row="5" Style="{StaticResource FormLabel}" Margin="1,1,2,43" Grid.RowSpan="2"/>
+        <Label Content="Name*" Grid.Row="1" Grid.Column="5" Style="{StaticResource FormLabel}"/>
+        <Label Content="Description*" Style="{StaticResource FormLabel}" Grid.Column="5" Grid.Row="7"/>
+        <Label Content="Type*" Grid.Column="5" Grid.Row="3" Style="{StaticResource FormLabel}" Grid.ColumnSpan="2" Margin="1,0,24,0"/>
+        <Label Content="Category*" Grid.Column="5" Grid.Row="5" Style="{StaticResource FormLabel}"/>
         <TextBox Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="7" Grid.Row="1" Style="{StaticResource FormTextBox}"/>
         <ComboBox FontSize="16" Grid.Column="7" Grid.Row="3" ItemsSource="{Binding Types}" SelectedItem="{Binding Type, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBox BorderThickness="3" TextWrapping="Wrap" Text="{Binding Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="7" Grid.Row="7" Grid.RowSpan="3" AcceptsReturn="True" FontSize="16"/>

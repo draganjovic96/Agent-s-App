@@ -314,8 +314,7 @@ namespace Agent_s_App
 			unitOfWork.Messages.Add(message2);
 			unitOfWork.Messages.Add(message3);
 			
-			unitOfWork.Complete();*/
-
+			unitOfWork.Complete();*/			
 			InitializeComponent();
 			DataContext = new MainViewModel();
 

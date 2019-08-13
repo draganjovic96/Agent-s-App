@@ -26,17 +26,22 @@ namespace Agent_s_App.ViewModel.Command.AccommodationPageCommands
 
 		public void Execute(object parameter)
 		{
-			Random rnd = new Random();
 			Accommodation accommodation = new Accommodation();
-			accommodation = AccommodationPageViewModel.Accommodation;
-			if (AccommodationPageViewModel.Accommodation.Id == 0) accommodation.Id = rnd.Next(1241321);
+			accommodation = AccommodationPageViewModel.AgentViewModel.Accommodation;
 			accommodation.Name = AccommodationPageViewModel.Name;
 			accommodation.AccommodationType = AccommodationPageViewModel.Type;
 			accommodation.Category = AccommodationPageViewModel.Category;
 			accommodation.Description = AccommodationPageViewModel.Description;
-			AccommodationService.AddAccommodation(accommodation);
+
+			if (AccommodationPageViewModel.AddOrUpdateButton.Equals("Add"))
+			{
+				AccommodationService.AddAccommodation(accommodation, AccommodationPageViewModel.AgentViewModel.LoggedUser);
+			}
+			else
+			{
+				AccommodationService.UpdateAccommodation(accommodation);
+			}
 			AccommodationPageViewModel.AgentViewModel.Accommodation = AccommodationService.GetAccommodationByUsername(AccommodationPageViewModel.AgentViewModel.LoggedUser.Username);
-			AccommodationPageViewModel.AgentViewModel.setAddressLabel();
 			AccommodationPageViewModel.AgentViewModel.AccommodationLabel = AccommodationPageViewModel.AgentViewModel.Accommodation.Name;
 			AccommodationPageViewModel.AgentViewModel.setAccommodationProfilePage();
 		}

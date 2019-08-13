@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch="http://www.projectXml.com/reservation" xmlns:tns="http://www.projectXml.com/reservation" targetNamespace="http://www.projectXml.com/reservation" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://www.projectXml.com/reservation" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="getReservationsByUnitRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="unitId" type="xs:long" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getReservationsByUnitResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="reservation" type="tns:reservation" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getReservationRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="id" type="xs:long" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getReservationResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="reservation" type="tns:reservation" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="confirmReservationRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="id_reservation" type="xs:long" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="confirmReservationResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="success" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deleteCommentRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="id_reservation" type="xs:long" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deleteCommentResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="success" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="confirmCommentRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="id_reservation" type="xs:long" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="confirmCommentResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="success" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="reservation">
+        <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="confirmed" type="xs:boolean" />
+          <xs:element name="agentConfirmed" type="xs:boolean" />
+          <xs:element name="guest" type="tns:user" />
+          <xs:element name="fromDateTime" type="xs:date" />
+          <xs:element name="toDateTime" type="xs:date" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="user">
+        <xs:sequence>
+          <xs:element name="Name" type="xs:string" />
+          <xs:element name="Lastname" type="xs:string" />
+          <xs:element name="Email" type="xs:string" />
+          <xs:element name="Username" type="xs:string" />
+          <xs:element name="Password" type="xs:string" />
+          <xs:element name="Id" type="xs:long" />
+          <xs:element name="Enabled" type="xs:boolean" />
+          <xs:element name="Deleted" type="xs:boolean" />
+          <xs:element name="Role" type="xs:string" />
+          <xs:element name="Address" type="tns:address" />
+          <xs:element name="Bussines_registration_number" type="xs:long" />
+          <xs:element name="Blocked" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="address">
+        <xs:sequence>
+          <xs:element name="Country" type="xs:string" />
+          <xs:element name="City" type="xs:string" />
+          <xs:element name="Postal_code" type="xs:int" />
+          <xs:element name="Street" type="xs:string" />
+          <xs:element name="Number" type="xs:string" />
+          <xs:element minOccurs="0" name="Apartment_number" type="xs:string" />
+          <xs:element name="Longitude" type="xs:double" />
+          <xs:element name="Latitude" type="xs:double" />
+          <xs:element name="Id" type="xs:long" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="deleteCommentRequest">
+    <wsdl:part name="deleteCommentRequest" element="tns:deleteCommentRequest" />
+  </wsdl:message>
+  <wsdl:message name="confirmReservationRequest">
+    <wsdl:part name="confirmReservationRequest" element="tns:confirmReservationRequest" />
+  </wsdl:message>
+  <wsdl:message name="getReservationsByUnitRequest">
+    <wsdl:part name="getReservationsByUnitRequest" element="tns:getReservationsByUnitRequest" />
+  </wsdl:message>
+  <wsdl:message name="getReservationRequest">
+    <wsdl:part name="getReservationRequest" element="tns:getReservationRequest" />
+  </wsdl:message>
+  <wsdl:message name="confirmReservationResponse">
+    <wsdl:part name="confirmReservationResponse" element="tns:confirmReservationResponse" />
+  </wsdl:message>
+  <wsdl:message name="confirmCommentRequest">
+    <wsdl:part name="confirmCommentRequest" element="tns:confirmCommentRequest" />
+  </wsdl:message>
+  <wsdl:message name="getReservationResponse">
+    <wsdl:part name="getReservationResponse" element="tns:getReservationResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteCommentResponse">
+    <wsdl:part name="deleteCommentResponse" element="tns:deleteCommentResponse" />
+  </wsdl:message>
+  <wsdl:message name="getReservationsByUnitResponse">
+    <wsdl:part name="getReservationsByUnitResponse" element="tns:getReservationsByUnitResponse" />
+  </wsdl:message>
+  <wsdl:message name="confirmCommentResponse">
+    <wsdl:part name="confirmCommentResponse" element="tns:confirmCommentResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ReservationPort">
+    <wsdl:operation name="deleteComment">
+      <wsdl:input name="deleteCommentRequest" message="tns:deleteCommentRequest" />
+      <wsdl:output name="deleteCommentResponse" message="tns:deleteCommentResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="confirmReservation">
+      <wsdl:input name="confirmReservationRequest" message="tns:confirmReservationRequest" />
+      <wsdl:output name="confirmReservationResponse" message="tns:confirmReservationResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getReservationsByUnit">
+      <wsdl:input name="getReservationsByUnitRequest" message="tns:getReservationsByUnitRequest" />
+      <wsdl:output name="getReservationsByUnitResponse" message="tns:getReservationsByUnitResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getReservation">
+      <wsdl:input name="getReservationRequest" message="tns:getReservationRequest" />
+      <wsdl:output name="getReservationResponse" message="tns:getReservationResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="confirmComment">
+      <wsdl:input name="confirmCommentRequest" message="tns:confirmCommentRequest" />
+      <wsdl:output name="confirmCommentResponse" message="tns:confirmCommentResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ReservationPortSoap11" type="tns:ReservationPort">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="deleteComment">
+      <soap:operation soapAction="" />
+      <wsdl:input name="deleteCommentRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="deleteCommentResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="confirmReservation">
+      <soap:operation soapAction="" />
+      <wsdl:input name="confirmReservationRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="confirmReservationResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getReservationsByUnit">
+      <soap:operation soapAction="" />
+      <wsdl:input name="getReservationsByUnitRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getReservationsByUnitResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getReservation">
+      <soap:operation soapAction="" />
+      <wsdl:input name="getReservationRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getReservationResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="confirmComment">
+      <soap:operation soapAction="" />
+      <wsdl:input name="confirmCommentRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="confirmCommentResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ReservationPortService">
+    <wsdl:port name="ReservationPortSoap11" binding="tns:ReservationPortSoap11">
+      <soap:address location="http://localhost:9007/ws" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
