@@ -43,7 +43,6 @@ namespace Agent_s_App.ViewModel.Command.HomePageCommands.AccommodationUnitsComma
 				unitService.AddAccommodationUnit(AccommodationUnit, AccommodationUnitViewModel.HomePageViewModel.Accommodation.Id);
 			else
 			{
-				AccommodationUnit.Accommodation = HomePageViewModel.Accommodation;
 				unitService.UpdateAccommodationUnit(AccommodationUnit);
 			}
 

@@ -148,21 +148,24 @@
         <Label Content="Unit*" Grid.Column="1"  Grid.Row="3" Style="{StaticResource FormLabel}"/>
         <Label Content="From Date*" Grid.Column="1"  Grid.Row="5" Style="{StaticResource FormLabel}"/>
         <Label Content="To Date*" Grid.Column="1"  Grid.Row="7" Style="{StaticResource FormLabel}"/>
-        <Label Content="Comment &amp; Rating" Grid.Column="5"  Grid.Row="3" Style="{StaticResource FormLabel}"/>
+        <Label Content="Price" Grid.Column="5"  Grid.Row="3" Style="{StaticResource FormLabel}"/>
+        <Label Content="Comment &amp; Rating" Grid.Column="5"  Grid.Row="5" Style="{StaticResource FormLabel}"/>
         <TextBox IsEnabled="False" Grid.Column="3"  Grid.Row="1" Style="{StaticResource FormTextBox}" Text="{Binding Guest.Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         <DatePicker IsEnabled="{Binding EnableEdit, UpdateSourceTrigger=PropertyChanged}" SelectedDate="{Binding FromDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="3" Grid.Row="5" BorderThickness="0,0,0,3"/>
         <DatePicker IsEnabled="{Binding EnableEdit, UpdateSourceTrigger=PropertyChanged}" SelectedDate="{Binding ToDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="3" Grid.Row="7" BorderThickness="0,0,0,3"/>
         <CheckBox IsChecked="{Binding UserConfirmed}" IsEnabled="False" Content="Confirmed" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Row="9" FontSize="16" Style="{DynamicResource CheckBoxStyle1}"/>
         <CheckBox IsChecked="{Binding AgentConfirmed, UpdateSourceTrigger=PropertyChanged}" Content="Agent confirmed" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Row="11" FontSize="16" Style="{DynamicResource CheckBoxStyle1}"/>
         <ComboBox Grid.Column="3" Grid.Row="3" 
-                  IsEnabled="{Binding EnableUnit}"
+                  IsEnabled="{Binding EnableUnit, UpdateSourceTrigger=PropertyChanged}"
                   ItemsSource="{Binding Units}" 
                   SelectedItem="{Binding Unit, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                   IsSynchronizedWithCurrentItem="True"
                   DisplayMemberPath="Number"
                   FontSize="16"/>
-        <Button IsEnabled="{Binding EnableMessages, UpdateSourceTrigger=PropertyChanged}" Command="{Binding AddOrUpdatePeriodPriceCommand}"  Content="Messages" Grid.Column="7" Grid.Row="1" Style="{StaticResource FormButton}"/>
-        <ContentControl Content="{Binding CommentRatePage}" IsEnabled="False" Grid.Column="5" Grid.Row="4" Grid.ColumnSpan="3" Grid.RowSpan="8"/>
+        <TextBox Text="{Binding Price, Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" Grid.Column="7" Grid.Row="3" Style="{StaticResource FormTextBox}" IsEnabled="False"/>
+        <Label Content="€" Grid.Column="8" HorizontalAlignment="Left" Grid.Row="3" FontSize="16"/>
+        <Button IsEnabled="{Binding EnableMessages, UpdateSourceTrigger=PropertyChanged}" Command="{Binding GetMessagesByReservationCommand}"  Content="Messages" Grid.Column="7" Grid.Row="1" Style="{StaticResource FormButton}"/>
+        <ContentControl Content="{Binding CommentRatePage}" IsEnabled="False" Grid.Column="5" Grid.Row="6" Grid.ColumnSpan="3" Grid.RowSpan="6"/>
         <Button Command="{Binding ConfirmAddOrUpdateReservationCommand}"  Content="{Binding AddOrSaveButton}" Grid.Column="5" Grid.Row="13" Style="{StaticResource FormButton}" Background="#FF13D113"/>
         <Button Command="{Binding CancelAddOrUpdateReservationCommand}"  Content="Cancel" Grid.Column="7" Grid.Row="13" Style="{StaticResource FormButton}" Background="Red"/>
     </Grid>

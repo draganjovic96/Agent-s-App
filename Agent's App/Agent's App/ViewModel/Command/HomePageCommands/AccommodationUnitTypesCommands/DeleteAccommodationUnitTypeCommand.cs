@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Agent_s_App.ViewModel.Command.HomePageCommands.AccommodationUnitTypesCommands
@@ -31,7 +32,8 @@ namespace Agent_s_App.ViewModel.Command.HomePageCommands.AccommodationUnitTypesC
 
 		public void Execute(object parameter)
 		{
-			accommodationUnitTypeService.DeleteAccommodationUnitType(AccommodationUnitTypesViewModel.UnitType);
+			if(!accommodationUnitTypeService.DeleteAccommodationUnitType(AccommodationUnitTypesViewModel.UnitType.Id))
+				MessageBox.Show("Can't delete unit type");
 			HomePageViewModel.setUnitTypesPage();
 		}
 	}

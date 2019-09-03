@@ -15,14 +15,6 @@ namespace Agent_s_App.ReservationServiceReference {
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.projectXml.com/reservation", ConfigurationName="ReservationServiceReference.ReservationPort")]
     public interface ReservationPort {
         
-        // CODEGEN: Generating message contract since the operation deleteComment is neither RPC nor document wrapped.
-        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Agent_s_App.ReservationServiceReference.deleteCommentResponse1 deleteComment(Agent_s_App.ReservationServiceReference.deleteCommentRequest1 request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<Agent_s_App.ReservationServiceReference.deleteCommentResponse1> deleteCommentAsync(Agent_s_App.ReservationServiceReference.deleteCommentRequest1 request);
-        
         // CODEGEN: Generating message contract since the operation confirmReservation is neither RPC nor document wrapped.
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -34,10 +26,18 @@ namespace Agent_s_App.ReservationServiceReference {
         // CODEGEN: Generating message contract since the operation getReservationsByUnit is neither RPC nor document wrapped.
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Agent_s_App.ReservationServiceReference.getReservationsByUnitResponse getReservationsByUnit(Agent_s_App.ReservationServiceReference.getReservationsByUnitRequest1 request);
+        Agent_s_App.ReservationServiceReference.getReservationsByUnitResponse1 getReservationsByUnit(Agent_s_App.ReservationServiceReference.getReservationsByUnitRequest1 request);
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<Agent_s_App.ReservationServiceReference.getReservationsByUnitResponse> getReservationsByUnitAsync(Agent_s_App.ReservationServiceReference.getReservationsByUnitRequest1 request);
+        System.Threading.Tasks.Task<Agent_s_App.ReservationServiceReference.getReservationsByUnitResponse1> getReservationsByUnitAsync(Agent_s_App.ReservationServiceReference.getReservationsByUnitRequest1 request);
+        
+        // CODEGEN: Generating message contract since the operation confirmComment is neither RPC nor document wrapped.
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        Agent_s_App.ReservationServiceReference.confirmCommentResponse1 confirmComment(Agent_s_App.ReservationServiceReference.confirmCommentRequest1 request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        System.Threading.Tasks.Task<Agent_s_App.ReservationServiceReference.confirmCommentResponse1> confirmCommentAsync(Agent_s_App.ReservationServiceReference.confirmCommentRequest1 request);
         
         // CODEGEN: Generating message contract since the operation getReservation is neither RPC nor document wrapped.
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
@@ -47,13 +47,37 @@ namespace Agent_s_App.ReservationServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         System.Threading.Tasks.Task<Agent_s_App.ReservationServiceReference.getReservationResponse1> getReservationAsync(Agent_s_App.ReservationServiceReference.getReservationRequest1 request);
         
-        // CODEGEN: Generating message contract since the operation confirmComment is neither RPC nor document wrapped.
+        // CODEGEN: Generating message contract since the operation addReservation is neither RPC nor document wrapped.
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Agent_s_App.ReservationServiceReference.confirmCommentResponse1 confirmComment(Agent_s_App.ReservationServiceReference.confirmCommentRequest1 request);
+        Agent_s_App.ReservationServiceReference.addReservationResponse1 addReservation(Agent_s_App.ReservationServiceReference.addReservationRequest1 request);
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<Agent_s_App.ReservationServiceReference.confirmCommentResponse1> confirmCommentAsync(Agent_s_App.ReservationServiceReference.confirmCommentRequest1 request);
+        System.Threading.Tasks.Task<Agent_s_App.ReservationServiceReference.addReservationResponse1> addReservationAsync(Agent_s_App.ReservationServiceReference.addReservationRequest1 request);
+        
+        // CODEGEN: Generating message contract since the operation deleteComment is neither RPC nor document wrapped.
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        Agent_s_App.ReservationServiceReference.deleteCommentResponse1 deleteComment(Agent_s_App.ReservationServiceReference.deleteCommentRequest1 request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        System.Threading.Tasks.Task<Agent_s_App.ReservationServiceReference.deleteCommentResponse1> deleteCommentAsync(Agent_s_App.ReservationServiceReference.deleteCommentRequest1 request);
+        
+        // CODEGEN: Generating message contract since the operation updateReservation is neither RPC nor document wrapped.
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        Agent_s_App.ReservationServiceReference.updateReservationResponse1 updateReservation(Agent_s_App.ReservationServiceReference.updateReservationRequest1 request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        System.Threading.Tasks.Task<Agent_s_App.ReservationServiceReference.updateReservationResponse1> updateReservationAsync(Agent_s_App.ReservationServiceReference.updateReservationRequest1 request);
+        
+        // CODEGEN: Generating message contract since the operation deleteReservation is neither RPC nor document wrapped.
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        Agent_s_App.ReservationServiceReference.deleteReservationResponse1 deleteReservation(Agent_s_App.ReservationServiceReference.deleteReservationRequest1 request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        System.Threading.Tasks.Task<Agent_s_App.ReservationServiceReference.deleteReservationResponse1> deleteReservationAsync(Agent_s_App.ReservationServiceReference.deleteReservationRequest1 request);
     }
     
     /// <remarks/>
@@ -62,7 +86,7 @@ namespace Agent_s_App.ReservationServiceReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.projectXml.com/reservation")]
-    public partial class deleteCommentRequest : object, System.ComponentModel.INotifyPropertyChanged {
+    public partial class confirmReservationRequest : object, System.ComponentModel.INotifyPropertyChanged {
         
         private long id_reservationField;
         
@@ -75,6 +99,196 @@ namespace Agent_s_App.ReservationServiceReference {
             set {
                 this.id_reservationField = value;
                 this.RaisePropertyChanged("id_reservation");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.projectXml.com/reservation")]
+    public partial class commentRate : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private long idField;
+        
+        private bool approvedCommentField;
+        
+        private string contentOfCommentField;
+        
+        private System.DateTime commentDateField;
+        
+        private int ocenaField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public long id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+                this.RaisePropertyChanged("id");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public bool approvedComment {
+            get {
+                return this.approvedCommentField;
+            }
+            set {
+                this.approvedCommentField = value;
+                this.RaisePropertyChanged("approvedComment");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string contentOfComment {
+            get {
+                return this.contentOfCommentField;
+            }
+            set {
+                this.contentOfCommentField = value;
+                this.RaisePropertyChanged("contentOfComment");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public System.DateTime commentDate {
+            get {
+                return this.commentDateField;
+            }
+            set {
+                this.commentDateField = value;
+                this.RaisePropertyChanged("commentDate");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public int ocena {
+            get {
+                return this.ocenaField;
+            }
+            set {
+                this.ocenaField = value;
+                this.RaisePropertyChanged("ocena");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.projectXml.com/reservation")]
+    public partial class accommodation : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string descriptionField;
+        
+        private string nameField;
+        
+        private string categoryField;
+        
+        private address addressField;
+        
+        private accommodationType accommodationTypeField;
+        
+        private long idField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string Description {
+            get {
+                return this.descriptionField;
+            }
+            set {
+                this.descriptionField = value;
+                this.RaisePropertyChanged("Description");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string Name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+                this.RaisePropertyChanged("Name");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string Category {
+            get {
+                return this.categoryField;
+            }
+            set {
+                this.categoryField = value;
+                this.RaisePropertyChanged("Category");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public address Address {
+            get {
+                return this.addressField;
+            }
+            set {
+                this.addressField = value;
+                this.RaisePropertyChanged("Address");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public accommodationType AccommodationType {
+            get {
+                return this.accommodationTypeField;
+            }
+            set {
+                this.accommodationTypeField = value;
+                this.RaisePropertyChanged("AccommodationType");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public long Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+                this.RaisePropertyChanged("Id");
             }
         }
         
@@ -219,6 +433,184 @@ namespace Agent_s_App.ReservationServiceReference {
             set {
                 this.idField = value;
                 this.RaisePropertyChanged("Id");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.projectXml.com/reservation")]
+    public enum accommodationType {
+        
+        /// <remarks/>
+        HOTEL,
+        
+        /// <remarks/>
+        MOTEL,
+        
+        /// <remarks/>
+        BED_AND_BREAKFAST,
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.projectXml.com/reservation")]
+    public partial class accommodationUnitType : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private long idField;
+        
+        private string nameField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public long Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+                this.RaisePropertyChanged("Id");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string Name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+                this.RaisePropertyChanged("Name");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.projectXml.com/reservation")]
+    public partial class accommodationUnit : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private int floorField;
+        
+        private string numberField;
+        
+        private int numberOfBedsField;
+        
+        private double defaultPriceField;
+        
+        private accommodationUnitType accommodationUnitTypeField;
+        
+        private long idField;
+        
+        private accommodation accommodationField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public int Floor {
+            get {
+                return this.floorField;
+            }
+            set {
+                this.floorField = value;
+                this.RaisePropertyChanged("Floor");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string Number {
+            get {
+                return this.numberField;
+            }
+            set {
+                this.numberField = value;
+                this.RaisePropertyChanged("Number");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public int NumberOfBeds {
+            get {
+                return this.numberOfBedsField;
+            }
+            set {
+                this.numberOfBedsField = value;
+                this.RaisePropertyChanged("NumberOfBeds");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public double DefaultPrice {
+            get {
+                return this.defaultPriceField;
+            }
+            set {
+                this.defaultPriceField = value;
+                this.RaisePropertyChanged("DefaultPrice");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public accommodationUnitType AccommodationUnitType {
+            get {
+                return this.accommodationUnitTypeField;
+            }
+            set {
+                this.accommodationUnitTypeField = value;
+                this.RaisePropertyChanged("AccommodationUnitType");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public long Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+                this.RaisePropertyChanged("Id");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+        public accommodation Accommodation {
+            get {
+                return this.accommodationField;
+            }
+            set {
+                this.accommodationField = value;
+                this.RaisePropertyChanged("Accommodation");
             }
         }
         
@@ -434,9 +826,15 @@ namespace Agent_s_App.ReservationServiceReference {
         
         private user guestField;
         
-        private System.DateTime fromDateTimeField;
+        private System.DateTime fromDateField;
         
-        private System.DateTime toDateTimeField;
+        private System.DateTime toDateField;
+        
+        private accommodationUnit accommodationUnitField;
+        
+        private commentRate commentRateField;
+        
+        private double priceField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=0)]
@@ -487,124 +885,62 @@ namespace Agent_s_App.ReservationServiceReference {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="date", Order=4)]
-        public System.DateTime fromDateTime {
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public System.DateTime fromDate {
             get {
-                return this.fromDateTimeField;
+                return this.fromDateField;
             }
             set {
-                this.fromDateTimeField = value;
-                this.RaisePropertyChanged("fromDateTime");
+                this.fromDateField = value;
+                this.RaisePropertyChanged("fromDate");
             }
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="date", Order=5)]
-        public System.DateTime toDateTime {
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public System.DateTime toDate {
             get {
-                return this.toDateTimeField;
+                return this.toDateField;
             }
             set {
-                this.toDateTimeField = value;
-                this.RaisePropertyChanged("toDateTime");
+                this.toDateField = value;
+                this.RaisePropertyChanged("toDate");
             }
         }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.projectXml.com/reservation")]
-    public partial class deleteCommentResponse : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private bool successField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public bool success {
+        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+        public accommodationUnit accommodationUnit {
             get {
-                return this.successField;
+                return this.accommodationUnitField;
             }
             set {
-                this.successField = value;
-                this.RaisePropertyChanged("success");
+                this.accommodationUnitField = value;
+                this.RaisePropertyChanged("accommodationUnit");
             }
         }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class deleteCommentRequest1 {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.projectXml.com/reservation", Order=0)]
-        public Agent_s_App.ReservationServiceReference.deleteCommentRequest deleteCommentRequest;
-        
-        public deleteCommentRequest1() {
-        }
-        
-        public deleteCommentRequest1(Agent_s_App.ReservationServiceReference.deleteCommentRequest deleteCommentRequest) {
-            this.deleteCommentRequest = deleteCommentRequest;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class deleteCommentResponse1 {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.projectXml.com/reservation", Order=0)]
-        public Agent_s_App.ReservationServiceReference.deleteCommentResponse deleteCommentResponse;
-        
-        public deleteCommentResponse1() {
-        }
-        
-        public deleteCommentResponse1(Agent_s_App.ReservationServiceReference.deleteCommentResponse deleteCommentResponse) {
-            this.deleteCommentResponse = deleteCommentResponse;
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.projectXml.com/reservation")]
-    public partial class confirmReservationRequest : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private long id_reservationField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public long id_reservation {
+        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
+        public commentRate commentRate {
             get {
-                return this.id_reservationField;
+                return this.commentRateField;
             }
             set {
-                this.id_reservationField = value;
-                this.RaisePropertyChanged("id_reservation");
+                this.commentRateField = value;
+                this.RaisePropertyChanged("commentRate");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=8)]
+        public double price {
+            get {
+                return this.priceField;
+            }
+            set {
+                this.priceField = value;
+                this.RaisePropertyChanged("price");
             }
         }
         
@@ -716,6 +1052,52 @@ namespace Agent_s_App.ReservationServiceReference {
         }
     }
     
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.projectXml.com/reservation")]
+    public partial class getReservationsByUnitResponse : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private long unitIdField;
+        
+        private reservation[] reservationsField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public long unitId {
+            get {
+                return this.unitIdField;
+            }
+            set {
+                this.unitIdField = value;
+                this.RaisePropertyChanged("unitId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("reservations", Order=1)]
+        public reservation[] reservations {
+            get {
+                return this.reservationsField;
+            }
+            set {
+                this.reservationsField = value;
+                this.RaisePropertyChanged("reservations");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -737,17 +1119,114 @@ namespace Agent_s_App.ReservationServiceReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class getReservationsByUnitResponse {
+    public partial class getReservationsByUnitResponse1 {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="getReservationsByUnitResponse", Namespace="http://www.projectXml.com/reservation", Order=0)]
-        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
-        public Agent_s_App.ReservationServiceReference.reservation[] getReservationsByUnitResponse1;
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.projectXml.com/reservation", Order=0)]
+        public Agent_s_App.ReservationServiceReference.getReservationsByUnitResponse getReservationsByUnitResponse;
         
-        public getReservationsByUnitResponse() {
+        public getReservationsByUnitResponse1() {
         }
         
-        public getReservationsByUnitResponse(Agent_s_App.ReservationServiceReference.reservation[] getReservationsByUnitResponse1) {
-            this.getReservationsByUnitResponse1 = getReservationsByUnitResponse1;
+        public getReservationsByUnitResponse1(Agent_s_App.ReservationServiceReference.getReservationsByUnitResponse getReservationsByUnitResponse) {
+            this.getReservationsByUnitResponse = getReservationsByUnitResponse;
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.projectXml.com/reservation")]
+    public partial class confirmCommentRequest : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private long id_reservationField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public long id_reservation {
+            get {
+                return this.id_reservationField;
+            }
+            set {
+                this.id_reservationField = value;
+                this.RaisePropertyChanged("id_reservation");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.projectXml.com/reservation")]
+    public partial class confirmCommentResponse : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private bool successField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public bool success {
+            get {
+                return this.successField;
+            }
+            set {
+                this.successField = value;
+                this.RaisePropertyChanged("success");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class confirmCommentRequest1 {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.projectXml.com/reservation", Order=0)]
+        public Agent_s_App.ReservationServiceReference.confirmCommentRequest confirmCommentRequest;
+        
+        public confirmCommentRequest1() {
+        }
+        
+        public confirmCommentRequest1(Agent_s_App.ReservationServiceReference.confirmCommentRequest confirmCommentRequest) {
+            this.confirmCommentRequest = confirmCommentRequest;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class confirmCommentResponse1 {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.projectXml.com/reservation", Order=0)]
+        public Agent_s_App.ReservationServiceReference.confirmCommentResponse confirmCommentResponse;
+        
+        public confirmCommentResponse1() {
+        }
+        
+        public confirmCommentResponse1(Agent_s_App.ReservationServiceReference.confirmCommentResponse confirmCommentResponse) {
+            this.confirmCommentResponse = confirmCommentResponse;
         }
     }
     
@@ -855,7 +1334,105 @@ namespace Agent_s_App.ReservationServiceReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.projectXml.com/reservation")]
-    public partial class confirmCommentRequest : object, System.ComponentModel.INotifyPropertyChanged {
+    public partial class addReservationRequest : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private reservation reservationField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public reservation reservation {
+            get {
+                return this.reservationField;
+            }
+            set {
+                this.reservationField = value;
+                this.RaisePropertyChanged("reservation");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.projectXml.com/reservation")]
+    public partial class addReservationResponse : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private bool successField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public bool success {
+            get {
+                return this.successField;
+            }
+            set {
+                this.successField = value;
+                this.RaisePropertyChanged("success");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class addReservationRequest1 {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.projectXml.com/reservation", Order=0)]
+        public Agent_s_App.ReservationServiceReference.addReservationRequest addReservationRequest;
+        
+        public addReservationRequest1() {
+        }
+        
+        public addReservationRequest1(Agent_s_App.ReservationServiceReference.addReservationRequest addReservationRequest) {
+            this.addReservationRequest = addReservationRequest;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class addReservationResponse1 {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.projectXml.com/reservation", Order=0)]
+        public Agent_s_App.ReservationServiceReference.addReservationResponse addReservationResponse;
+        
+        public addReservationResponse1() {
+        }
+        
+        public addReservationResponse1(Agent_s_App.ReservationServiceReference.addReservationResponse addReservationResponse) {
+            this.addReservationResponse = addReservationResponse;
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.projectXml.com/reservation")]
+    public partial class deleteCommentRequest : object, System.ComponentModel.INotifyPropertyChanged {
         
         private long id_reservationField;
         
@@ -887,7 +1464,7 @@ namespace Agent_s_App.ReservationServiceReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.projectXml.com/reservation")]
-    public partial class confirmCommentResponse : object, System.ComponentModel.INotifyPropertyChanged {
+    public partial class deleteCommentResponse : object, System.ComponentModel.INotifyPropertyChanged {
         
         private bool successField;
         
@@ -917,16 +1494,16 @@ namespace Agent_s_App.ReservationServiceReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class confirmCommentRequest1 {
+    public partial class deleteCommentRequest1 {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.projectXml.com/reservation", Order=0)]
-        public Agent_s_App.ReservationServiceReference.confirmCommentRequest confirmCommentRequest;
+        public Agent_s_App.ReservationServiceReference.deleteCommentRequest deleteCommentRequest;
         
-        public confirmCommentRequest1() {
+        public deleteCommentRequest1() {
         }
         
-        public confirmCommentRequest1(Agent_s_App.ReservationServiceReference.confirmCommentRequest confirmCommentRequest) {
-            this.confirmCommentRequest = confirmCommentRequest;
+        public deleteCommentRequest1(Agent_s_App.ReservationServiceReference.deleteCommentRequest deleteCommentRequest) {
+            this.deleteCommentRequest = deleteCommentRequest;
         }
     }
     
@@ -934,16 +1511,212 @@ namespace Agent_s_App.ReservationServiceReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class confirmCommentResponse1 {
+    public partial class deleteCommentResponse1 {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.projectXml.com/reservation", Order=0)]
-        public Agent_s_App.ReservationServiceReference.confirmCommentResponse confirmCommentResponse;
+        public Agent_s_App.ReservationServiceReference.deleteCommentResponse deleteCommentResponse;
         
-        public confirmCommentResponse1() {
+        public deleteCommentResponse1() {
         }
         
-        public confirmCommentResponse1(Agent_s_App.ReservationServiceReference.confirmCommentResponse confirmCommentResponse) {
-            this.confirmCommentResponse = confirmCommentResponse;
+        public deleteCommentResponse1(Agent_s_App.ReservationServiceReference.deleteCommentResponse deleteCommentResponse) {
+            this.deleteCommentResponse = deleteCommentResponse;
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.projectXml.com/reservation")]
+    public partial class updateReservationRequest : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private reservation reservationField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public reservation reservation {
+            get {
+                return this.reservationField;
+            }
+            set {
+                this.reservationField = value;
+                this.RaisePropertyChanged("reservation");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.projectXml.com/reservation")]
+    public partial class updateReservationResponse : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private bool successField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public bool success {
+            get {
+                return this.successField;
+            }
+            set {
+                this.successField = value;
+                this.RaisePropertyChanged("success");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class updateReservationRequest1 {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.projectXml.com/reservation", Order=0)]
+        public Agent_s_App.ReservationServiceReference.updateReservationRequest updateReservationRequest;
+        
+        public updateReservationRequest1() {
+        }
+        
+        public updateReservationRequest1(Agent_s_App.ReservationServiceReference.updateReservationRequest updateReservationRequest) {
+            this.updateReservationRequest = updateReservationRequest;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class updateReservationResponse1 {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.projectXml.com/reservation", Order=0)]
+        public Agent_s_App.ReservationServiceReference.updateReservationResponse updateReservationResponse;
+        
+        public updateReservationResponse1() {
+        }
+        
+        public updateReservationResponse1(Agent_s_App.ReservationServiceReference.updateReservationResponse updateReservationResponse) {
+            this.updateReservationResponse = updateReservationResponse;
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.projectXml.com/reservation")]
+    public partial class deleteReservationRequest : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private long reservation_idField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public long reservation_id {
+            get {
+                return this.reservation_idField;
+            }
+            set {
+                this.reservation_idField = value;
+                this.RaisePropertyChanged("reservation_id");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.projectXml.com/reservation")]
+    public partial class deleteReservationResponse : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private bool successField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public bool success {
+            get {
+                return this.successField;
+            }
+            set {
+                this.successField = value;
+                this.RaisePropertyChanged("success");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class deleteReservationRequest1 {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.projectXml.com/reservation", Order=0)]
+        public Agent_s_App.ReservationServiceReference.deleteReservationRequest deleteReservationRequest;
+        
+        public deleteReservationRequest1() {
+        }
+        
+        public deleteReservationRequest1(Agent_s_App.ReservationServiceReference.deleteReservationRequest deleteReservationRequest) {
+            this.deleteReservationRequest = deleteReservationRequest;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class deleteReservationResponse1 {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.projectXml.com/reservation", Order=0)]
+        public Agent_s_App.ReservationServiceReference.deleteReservationResponse deleteReservationResponse;
+        
+        public deleteReservationResponse1() {
+        }
+        
+        public deleteReservationResponse1(Agent_s_App.ReservationServiceReference.deleteReservationResponse deleteReservationResponse) {
+            this.deleteReservationResponse = deleteReservationResponse;
         }
     }
     
@@ -975,29 +1748,6 @@ namespace Agent_s_App.ReservationServiceReference {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Agent_s_App.ReservationServiceReference.deleteCommentResponse1 Agent_s_App.ReservationServiceReference.ReservationPort.deleteComment(Agent_s_App.ReservationServiceReference.deleteCommentRequest1 request) {
-            return base.Channel.deleteComment(request);
-        }
-        
-        public Agent_s_App.ReservationServiceReference.deleteCommentResponse deleteComment(Agent_s_App.ReservationServiceReference.deleteCommentRequest deleteCommentRequest) {
-            Agent_s_App.ReservationServiceReference.deleteCommentRequest1 inValue = new Agent_s_App.ReservationServiceReference.deleteCommentRequest1();
-            inValue.deleteCommentRequest = deleteCommentRequest;
-            Agent_s_App.ReservationServiceReference.deleteCommentResponse1 retVal = ((Agent_s_App.ReservationServiceReference.ReservationPort)(this)).deleteComment(inValue);
-            return retVal.deleteCommentResponse;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Agent_s_App.ReservationServiceReference.deleteCommentResponse1> Agent_s_App.ReservationServiceReference.ReservationPort.deleteCommentAsync(Agent_s_App.ReservationServiceReference.deleteCommentRequest1 request) {
-            return base.Channel.deleteCommentAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Agent_s_App.ReservationServiceReference.deleteCommentResponse1> deleteCommentAsync(Agent_s_App.ReservationServiceReference.deleteCommentRequest deleteCommentRequest) {
-            Agent_s_App.ReservationServiceReference.deleteCommentRequest1 inValue = new Agent_s_App.ReservationServiceReference.deleteCommentRequest1();
-            inValue.deleteCommentRequest = deleteCommentRequest;
-            return ((Agent_s_App.ReservationServiceReference.ReservationPort)(this)).deleteCommentAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         Agent_s_App.ReservationServiceReference.confirmReservationResponse1 Agent_s_App.ReservationServiceReference.ReservationPort.confirmReservation(Agent_s_App.ReservationServiceReference.confirmReservationRequest1 request) {
             return base.Channel.confirmReservation(request);
         }
@@ -1021,26 +1771,49 @@ namespace Agent_s_App.ReservationServiceReference {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Agent_s_App.ReservationServiceReference.getReservationsByUnitResponse Agent_s_App.ReservationServiceReference.ReservationPort.getReservationsByUnit(Agent_s_App.ReservationServiceReference.getReservationsByUnitRequest1 request) {
+        Agent_s_App.ReservationServiceReference.getReservationsByUnitResponse1 Agent_s_App.ReservationServiceReference.ReservationPort.getReservationsByUnit(Agent_s_App.ReservationServiceReference.getReservationsByUnitRequest1 request) {
             return base.Channel.getReservationsByUnit(request);
         }
         
-        public Agent_s_App.ReservationServiceReference.reservation[] getReservationsByUnit(Agent_s_App.ReservationServiceReference.getReservationsByUnitRequest getReservationsByUnitRequest) {
+        public Agent_s_App.ReservationServiceReference.getReservationsByUnitResponse getReservationsByUnit(Agent_s_App.ReservationServiceReference.getReservationsByUnitRequest getReservationsByUnitRequest) {
             Agent_s_App.ReservationServiceReference.getReservationsByUnitRequest1 inValue = new Agent_s_App.ReservationServiceReference.getReservationsByUnitRequest1();
             inValue.getReservationsByUnitRequest = getReservationsByUnitRequest;
-            Agent_s_App.ReservationServiceReference.getReservationsByUnitResponse retVal = ((Agent_s_App.ReservationServiceReference.ReservationPort)(this)).getReservationsByUnit(inValue);
-            return retVal.getReservationsByUnitResponse1;
+            Agent_s_App.ReservationServiceReference.getReservationsByUnitResponse1 retVal = ((Agent_s_App.ReservationServiceReference.ReservationPort)(this)).getReservationsByUnit(inValue);
+            return retVal.getReservationsByUnitResponse;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Agent_s_App.ReservationServiceReference.getReservationsByUnitResponse> Agent_s_App.ReservationServiceReference.ReservationPort.getReservationsByUnitAsync(Agent_s_App.ReservationServiceReference.getReservationsByUnitRequest1 request) {
+        System.Threading.Tasks.Task<Agent_s_App.ReservationServiceReference.getReservationsByUnitResponse1> Agent_s_App.ReservationServiceReference.ReservationPort.getReservationsByUnitAsync(Agent_s_App.ReservationServiceReference.getReservationsByUnitRequest1 request) {
             return base.Channel.getReservationsByUnitAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Agent_s_App.ReservationServiceReference.getReservationsByUnitResponse> getReservationsByUnitAsync(Agent_s_App.ReservationServiceReference.getReservationsByUnitRequest getReservationsByUnitRequest) {
+        public System.Threading.Tasks.Task<Agent_s_App.ReservationServiceReference.getReservationsByUnitResponse1> getReservationsByUnitAsync(Agent_s_App.ReservationServiceReference.getReservationsByUnitRequest getReservationsByUnitRequest) {
             Agent_s_App.ReservationServiceReference.getReservationsByUnitRequest1 inValue = new Agent_s_App.ReservationServiceReference.getReservationsByUnitRequest1();
             inValue.getReservationsByUnitRequest = getReservationsByUnitRequest;
             return ((Agent_s_App.ReservationServiceReference.ReservationPort)(this)).getReservationsByUnitAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Agent_s_App.ReservationServiceReference.confirmCommentResponse1 Agent_s_App.ReservationServiceReference.ReservationPort.confirmComment(Agent_s_App.ReservationServiceReference.confirmCommentRequest1 request) {
+            return base.Channel.confirmComment(request);
+        }
+        
+        public Agent_s_App.ReservationServiceReference.confirmCommentResponse confirmComment(Agent_s_App.ReservationServiceReference.confirmCommentRequest confirmCommentRequest) {
+            Agent_s_App.ReservationServiceReference.confirmCommentRequest1 inValue = new Agent_s_App.ReservationServiceReference.confirmCommentRequest1();
+            inValue.confirmCommentRequest = confirmCommentRequest;
+            Agent_s_App.ReservationServiceReference.confirmCommentResponse1 retVal = ((Agent_s_App.ReservationServiceReference.ReservationPort)(this)).confirmComment(inValue);
+            return retVal.confirmCommentResponse;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Agent_s_App.ReservationServiceReference.confirmCommentResponse1> Agent_s_App.ReservationServiceReference.ReservationPort.confirmCommentAsync(Agent_s_App.ReservationServiceReference.confirmCommentRequest1 request) {
+            return base.Channel.confirmCommentAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Agent_s_App.ReservationServiceReference.confirmCommentResponse1> confirmCommentAsync(Agent_s_App.ReservationServiceReference.confirmCommentRequest confirmCommentRequest) {
+            Agent_s_App.ReservationServiceReference.confirmCommentRequest1 inValue = new Agent_s_App.ReservationServiceReference.confirmCommentRequest1();
+            inValue.confirmCommentRequest = confirmCommentRequest;
+            return ((Agent_s_App.ReservationServiceReference.ReservationPort)(this)).confirmCommentAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -1067,26 +1840,95 @@ namespace Agent_s_App.ReservationServiceReference {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Agent_s_App.ReservationServiceReference.confirmCommentResponse1 Agent_s_App.ReservationServiceReference.ReservationPort.confirmComment(Agent_s_App.ReservationServiceReference.confirmCommentRequest1 request) {
-            return base.Channel.confirmComment(request);
+        Agent_s_App.ReservationServiceReference.addReservationResponse1 Agent_s_App.ReservationServiceReference.ReservationPort.addReservation(Agent_s_App.ReservationServiceReference.addReservationRequest1 request) {
+            return base.Channel.addReservation(request);
         }
         
-        public Agent_s_App.ReservationServiceReference.confirmCommentResponse confirmComment(Agent_s_App.ReservationServiceReference.confirmCommentRequest confirmCommentRequest) {
-            Agent_s_App.ReservationServiceReference.confirmCommentRequest1 inValue = new Agent_s_App.ReservationServiceReference.confirmCommentRequest1();
-            inValue.confirmCommentRequest = confirmCommentRequest;
-            Agent_s_App.ReservationServiceReference.confirmCommentResponse1 retVal = ((Agent_s_App.ReservationServiceReference.ReservationPort)(this)).confirmComment(inValue);
-            return retVal.confirmCommentResponse;
+        public Agent_s_App.ReservationServiceReference.addReservationResponse addReservation(Agent_s_App.ReservationServiceReference.addReservationRequest addReservationRequest) {
+            Agent_s_App.ReservationServiceReference.addReservationRequest1 inValue = new Agent_s_App.ReservationServiceReference.addReservationRequest1();
+            inValue.addReservationRequest = addReservationRequest;
+            Agent_s_App.ReservationServiceReference.addReservationResponse1 retVal = ((Agent_s_App.ReservationServiceReference.ReservationPort)(this)).addReservation(inValue);
+            return retVal.addReservationResponse;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Agent_s_App.ReservationServiceReference.confirmCommentResponse1> Agent_s_App.ReservationServiceReference.ReservationPort.confirmCommentAsync(Agent_s_App.ReservationServiceReference.confirmCommentRequest1 request) {
-            return base.Channel.confirmCommentAsync(request);
+        System.Threading.Tasks.Task<Agent_s_App.ReservationServiceReference.addReservationResponse1> Agent_s_App.ReservationServiceReference.ReservationPort.addReservationAsync(Agent_s_App.ReservationServiceReference.addReservationRequest1 request) {
+            return base.Channel.addReservationAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Agent_s_App.ReservationServiceReference.confirmCommentResponse1> confirmCommentAsync(Agent_s_App.ReservationServiceReference.confirmCommentRequest confirmCommentRequest) {
-            Agent_s_App.ReservationServiceReference.confirmCommentRequest1 inValue = new Agent_s_App.ReservationServiceReference.confirmCommentRequest1();
-            inValue.confirmCommentRequest = confirmCommentRequest;
-            return ((Agent_s_App.ReservationServiceReference.ReservationPort)(this)).confirmCommentAsync(inValue);
+        public System.Threading.Tasks.Task<Agent_s_App.ReservationServiceReference.addReservationResponse1> addReservationAsync(Agent_s_App.ReservationServiceReference.addReservationRequest addReservationRequest) {
+            Agent_s_App.ReservationServiceReference.addReservationRequest1 inValue = new Agent_s_App.ReservationServiceReference.addReservationRequest1();
+            inValue.addReservationRequest = addReservationRequest;
+            return ((Agent_s_App.ReservationServiceReference.ReservationPort)(this)).addReservationAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Agent_s_App.ReservationServiceReference.deleteCommentResponse1 Agent_s_App.ReservationServiceReference.ReservationPort.deleteComment(Agent_s_App.ReservationServiceReference.deleteCommentRequest1 request) {
+            return base.Channel.deleteComment(request);
+        }
+        
+        public Agent_s_App.ReservationServiceReference.deleteCommentResponse deleteComment(Agent_s_App.ReservationServiceReference.deleteCommentRequest deleteCommentRequest) {
+            Agent_s_App.ReservationServiceReference.deleteCommentRequest1 inValue = new Agent_s_App.ReservationServiceReference.deleteCommentRequest1();
+            inValue.deleteCommentRequest = deleteCommentRequest;
+            Agent_s_App.ReservationServiceReference.deleteCommentResponse1 retVal = ((Agent_s_App.ReservationServiceReference.ReservationPort)(this)).deleteComment(inValue);
+            return retVal.deleteCommentResponse;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Agent_s_App.ReservationServiceReference.deleteCommentResponse1> Agent_s_App.ReservationServiceReference.ReservationPort.deleteCommentAsync(Agent_s_App.ReservationServiceReference.deleteCommentRequest1 request) {
+            return base.Channel.deleteCommentAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Agent_s_App.ReservationServiceReference.deleteCommentResponse1> deleteCommentAsync(Agent_s_App.ReservationServiceReference.deleteCommentRequest deleteCommentRequest) {
+            Agent_s_App.ReservationServiceReference.deleteCommentRequest1 inValue = new Agent_s_App.ReservationServiceReference.deleteCommentRequest1();
+            inValue.deleteCommentRequest = deleteCommentRequest;
+            return ((Agent_s_App.ReservationServiceReference.ReservationPort)(this)).deleteCommentAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Agent_s_App.ReservationServiceReference.updateReservationResponse1 Agent_s_App.ReservationServiceReference.ReservationPort.updateReservation(Agent_s_App.ReservationServiceReference.updateReservationRequest1 request) {
+            return base.Channel.updateReservation(request);
+        }
+        
+        public Agent_s_App.ReservationServiceReference.updateReservationResponse updateReservation(Agent_s_App.ReservationServiceReference.updateReservationRequest updateReservationRequest) {
+            Agent_s_App.ReservationServiceReference.updateReservationRequest1 inValue = new Agent_s_App.ReservationServiceReference.updateReservationRequest1();
+            inValue.updateReservationRequest = updateReservationRequest;
+            Agent_s_App.ReservationServiceReference.updateReservationResponse1 retVal = ((Agent_s_App.ReservationServiceReference.ReservationPort)(this)).updateReservation(inValue);
+            return retVal.updateReservationResponse;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Agent_s_App.ReservationServiceReference.updateReservationResponse1> Agent_s_App.ReservationServiceReference.ReservationPort.updateReservationAsync(Agent_s_App.ReservationServiceReference.updateReservationRequest1 request) {
+            return base.Channel.updateReservationAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Agent_s_App.ReservationServiceReference.updateReservationResponse1> updateReservationAsync(Agent_s_App.ReservationServiceReference.updateReservationRequest updateReservationRequest) {
+            Agent_s_App.ReservationServiceReference.updateReservationRequest1 inValue = new Agent_s_App.ReservationServiceReference.updateReservationRequest1();
+            inValue.updateReservationRequest = updateReservationRequest;
+            return ((Agent_s_App.ReservationServiceReference.ReservationPort)(this)).updateReservationAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Agent_s_App.ReservationServiceReference.deleteReservationResponse1 Agent_s_App.ReservationServiceReference.ReservationPort.deleteReservation(Agent_s_App.ReservationServiceReference.deleteReservationRequest1 request) {
+            return base.Channel.deleteReservation(request);
+        }
+        
+        public Agent_s_App.ReservationServiceReference.deleteReservationResponse deleteReservation(Agent_s_App.ReservationServiceReference.deleteReservationRequest deleteReservationRequest) {
+            Agent_s_App.ReservationServiceReference.deleteReservationRequest1 inValue = new Agent_s_App.ReservationServiceReference.deleteReservationRequest1();
+            inValue.deleteReservationRequest = deleteReservationRequest;
+            Agent_s_App.ReservationServiceReference.deleteReservationResponse1 retVal = ((Agent_s_App.ReservationServiceReference.ReservationPort)(this)).deleteReservation(inValue);
+            return retVal.deleteReservationResponse;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Agent_s_App.ReservationServiceReference.deleteReservationResponse1> Agent_s_App.ReservationServiceReference.ReservationPort.deleteReservationAsync(Agent_s_App.ReservationServiceReference.deleteReservationRequest1 request) {
+            return base.Channel.deleteReservationAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Agent_s_App.ReservationServiceReference.deleteReservationResponse1> deleteReservationAsync(Agent_s_App.ReservationServiceReference.deleteReservationRequest deleteReservationRequest) {
+            Agent_s_App.ReservationServiceReference.deleteReservationRequest1 inValue = new Agent_s_App.ReservationServiceReference.deleteReservationRequest1();
+            inValue.deleteReservationRequest = deleteReservationRequest;
+            return ((Agent_s_App.ReservationServiceReference.ReservationPort)(this)).deleteReservationAsync(inValue);
         }
     }
 }

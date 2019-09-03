@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Agent_s_App.ViewModel.Command.HomePageCommands.AccommodationServicesCommand
@@ -26,7 +27,11 @@ namespace Agent_s_App.ViewModel.Command.HomePageCommands.AccommodationServicesCo
 
 		public void Execute(object parameter)
 		{
-			AccommodationServicesViewModel.AccommodationServiceService.DeleteService(AccommodationServicesViewModel.ServiceWithAffiliation.Service);
+			if(AccommodationServicesViewModel.AccommodationServiceService.DeleteService(AccommodationServicesViewModel.ServiceWithAffiliation.Service.Id))
+				MessageBox.Show("Service, with " + AccommodationServicesViewModel.ServiceWithAffiliation.Service.Id + " ID, deleted.");
+			else
+				MessageBox.Show("Can't delete service with " + AccommodationServicesViewModel.ServiceWithAffiliation.Service.Id + " ID.");
+
 			AccommodationServicesViewModel.HomePageViewModel.ActivePage = new ServicesView(AccommodationServicesViewModel.HomePageViewModel);
 		}
 	}

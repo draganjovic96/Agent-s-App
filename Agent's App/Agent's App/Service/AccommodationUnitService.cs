@@ -18,8 +18,14 @@ namespace Agent_s_App.Service
 
 		private AccommodationUnitPortClient accommodationUnitPortClient = new AccommodationUnitPortClient();
 
+		private PeriodPriceService periodPriceService = new PeriodPriceService();
+
+		private AccommodationUnitTypeService unitTypeService = new AccommodationUnitTypeService();
+
 		public List<AccommodationUnit> GetAccommodationUnits(long accommodationId)
 		{
+			unitTypeService.GetAccommodationUnitTypes();
+
 			try
 			{
 				GetUnitsRequestDTO getUnitsRequestDTO = new GetUnitsRequestDTO(accommodationId);
@@ -36,27 +42,41 @@ namespace Agent_s_App.Service
 						unitDB.Floor = unit.Floor;
 						unitDB.DefaultPrice = unit.DefaultPrice;
 						unitDB.AccommodationUnitType = unitOfWork.AccommodationUnitTypes.SingleOrDefault(ut => ut.Id == unit.AccommodationUnitType.Id);
-						
+						unitDB.Deleted = false;
 					}
 					else
 					{
 						unit.Accommodation = unitOfWork.Accommodations.Find(a => a.Id == accommodationId).First();
-						AccommodationUnitType unitType = unitOfWork.AccommodationUnitTypes.SingleOrDefault(ut => ut.Id == unit.AccommodationUnitType.Id);
-						if (unitType != null)
-							unit.AccommodationUnitType = unitType;
+						unit.AccommodationUnitType = unitOfWork.AccommodationUnitTypes.SingleOrDefault(ut => ut.Id == unit.AccommodationUnitType.Id);
 						unitOfWork.AccommodationUnits.Add(unit);
-
 					}
 
 					unitOfWork.Complete();
+					periodPriceService.GetPeriodPrices(unit.Id);
 				}
-				return units;
+
+				//set deleted units in localDB
+				List<AccommodationUnit> unitsDB = unitOfWork.AccommodationUnits.Find(au => au.Accommodation.Id == accommodationId).ToList();
+				foreach (AccommodationUnit unitDB in unitsDB)
+				{
+					int flag = 0;
+					foreach (AccommodationUnit unit in units)
+					{
+						if (unit.Id == unitDB.Id)
+							flag += 1;
+					}
+					if (flag == 0)
+					{
+						unitDB.Deleted = true;
+						unitOfWork.Complete();
+					}
+				}
 			}
 			catch
 			{
-				return new List<AccommodationUnit>();
 			}
-		}
+			return unitOfWork.AccommodationUnits.Find(au => au.Accommodation.Id == accommodationId && !au.Deleted).ToList();
+;		}
 		
 		public void AddAccommodationUnit(AccommodationUnit accommodationUnit, long accommodationId)
 		{

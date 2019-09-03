@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Agent_s_App.ViewModel.Command.HomePageCommands.AccommodationUnitsCommands
@@ -32,7 +33,9 @@ namespace Agent_s_App.ViewModel.Command.HomePageCommands.AccommodationUnitsComma
 
 		public void Execute(object parameter)
 		{
-			periodPriceService.DeletePeriodPrice(PeriodPricesViewModel.PeriodPrice);
+			if (periodPriceService.DeletePeriodPrice(PeriodPricesViewModel.PeriodPrice.Id)) MessageBox.Show("Period price, with " + PeriodPricesViewModel.PeriodPrice.Id + " ID, deleted.");
+			else MessageBox.Show("Can't delete eriod price with " + PeriodPricesViewModel.PeriodPrice.Id + " ID.");
+
 			HomePageViewModel.ActivePage = new PeriodPricesView(HomePageViewModel, PeriodPricesViewModel.AccommodationUnit);
 		}
 	}

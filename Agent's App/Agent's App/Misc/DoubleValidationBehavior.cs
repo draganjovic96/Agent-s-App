@@ -153,7 +153,6 @@ namespace Agent_s_App.Misc
 				default: throw new ArgumentException("Unknown TextBoxInputMode");
 
 			}
-			return true;
 		}
 
 		private bool CheckIsDigit(string wert)

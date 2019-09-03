@@ -14,7 +14,7 @@ namespace Agent_s_App.Service
 
 		public List<CommentRate> GetCommentRates(Accommodation accommodation)
 		{
-			return unitOfWork.CommentRates.Find(c => c.Reservation.AccommodationUnit.Accommodation.Id == accommodation.Id).ToList();
+			return unitOfWork.CommentRates.Find(c => c.Reservation.AccommodationUnit.Accommodation.Id == accommodation.Id && c.Reservation.Deleted == false).ToList();
 		}
 	}
 }

@@ -19,7 +19,7 @@ namespace Agent_s_App.ViewModel
 			Seen = "Hidden";
 			foreach (Message m in reservation.Messages)
 			{
-				if (m.Seen == false && m.Sender.Id != agentViewModel.LoggedUser.Id)
+				if (m.Seen == false && m.Sender.Id != agentViewModel.LoggedUser.Id && m.Sender.Role != UserRole.AGENT)
 					Seen = "Visible";
 			}
 		}
@@ -60,7 +60,8 @@ namespace Agent_s_App.ViewModel
 
 		public AgentViewModel AgentViewModel { get; set; }
 		public ReservationService ReservationService = new ReservationService();
-		
+		public MessageService MessageService = new MessageService();
+
 		public MessagesViewModel(AgentViewModel agentViewModel)
 		{
 			AgentViewModel = agentViewModel;
@@ -84,11 +85,12 @@ namespace Agent_s_App.ViewModel
 							if (m.Seen == false)
 							{
 								m.Seen = true;
+								MessageService.SetMessagesSeen(reservation.Reservation.Id, AgentViewModel.LoggedUser.Username);
 								reservation.Seen = "Hidden";
 							}
 						}
 					}
-					ReservationService.AddReservation(reservation.Reservation);
+					ReservationService.UpdateReservation(reservation.Reservation);
 				}
 			}
 		}
@@ -123,6 +125,7 @@ namespace Agent_s_App.ViewModel
 			Reservations = new List<ReservationWithSeen>();
 			foreach (Reservation reservation in ReservationService.GetReservations(0, AgentViewModel.Accommodation.Id))
 			{
+				MessageService.getMessagesByReservation(reservation.Id);
 				if (reservation.Guest.Id != AgentViewModel.LoggedUser.Id && reservation.Messages.Count > 0)
 				{
 					List<Message> messages = reservation.Messages.ToList();

@@ -27,5 +27,10 @@ namespace Agent_s_App.View.HomePageViews
 			InitializeComponent();
 			DataContext = new ReservationViewModel(reservation, reservationsViewModel);
 		}
+
+		private void Button_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
 	}
 }

@@ -31,6 +31,7 @@ namespace Agent_s_App.Migrations
                         Number = c.String(nullable: false),
                         NumberOfBeds = c.Int(nullable: false),
                         DefaultPrice = c.Double(nullable: false),
+                        Deleted = c.Boolean(nullable: false),
                         Accommodation_Id = c.Long(nullable: false),
                         AccommodationUnitType_Id = c.Long(nullable: false),
                     })
@@ -74,6 +75,8 @@ namespace Agent_s_App.Migrations
                         ToDate = c.DateTime(nullable: false),
                         Confirmed = c.Boolean(nullable: false),
                         AgentConfirmed = c.Boolean(nullable: false),
+                        Deleted = c.Boolean(nullable: false),
+                        Price = c.Double(nullable: false),
                         AccommodationUnit_Id = c.Long(nullable: false),
                         Guest_Id = c.Long(nullable: false),
                     })

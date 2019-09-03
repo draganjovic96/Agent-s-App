@@ -35,7 +35,7 @@ namespace Agent_s_App.ViewModel.HomePageViewModels
 		public AccommodationUnitViewModel(AccommodationUnit unit, HomePageViewModel homePageViewModel)
 		{
 			HomePageViewModel = homePageViewModel;
-			UnitTypes = unitTypeService.GetAccommodationUnitTypes(HomePageViewModel.Accommodation.Id);
+			UnitTypes = unitTypeService.GetAccommodationUnitTypes();
 			if (unit != null)
 			{
 				AddOrUpdateButton = "Save";
@@ -44,10 +44,10 @@ namespace Agent_s_App.ViewModel.HomePageViewModels
 				NumberOfBeds = unit.NumberOfBeds.ToString();
 				Number = unit.Number;
 				DefaultPrice = unit.DefaultPrice.ToString();
-				UnitType = unit.AccommodationUnitType;
 				EnableButton = false;
 				PeriodPriceCommand = new PeriodPriceCommand(this, HomePageViewModel);
 				ReservationsPageCommand = new ReservationsPageCommand(Unit, HomePageViewModel);
+				UnitType = unit.AccommodationUnitType;
 			}
 			else
 			{
@@ -115,8 +115,8 @@ namespace Agent_s_App.ViewModel.HomePageViewModels
 			set
 			{
 				unitType = value;
-				OnPropertyChanged("UnitType");
 				EnableButton = true;
+				OnPropertyChanged("UnitType");
 			}
 		}
 

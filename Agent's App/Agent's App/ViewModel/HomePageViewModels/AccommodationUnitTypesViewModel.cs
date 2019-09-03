@@ -28,7 +28,7 @@ namespace Agent_s_App.ViewModel.HomePageViewModels
 		{
 			Accommodation = accommodation;
 			HomePageViewModel = homePageViewModel;
-			UnitTypes = accommodationUnitService.GetAccommodationUnitTypes(Accommodation.Id);
+			UnitTypes = accommodationUnitService.GetAccommodationUnitTypes();
 			AddUnitTypeCommand = new AddUnitTypeCommand(this, HomePageViewModel);
 			EnableUpdate = false;
 		}

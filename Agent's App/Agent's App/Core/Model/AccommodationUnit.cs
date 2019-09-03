@@ -30,7 +30,7 @@ namespace Agent_s_App.Core.Model
 		[Required]
 		public double DefaultPrice { get; set; }
 
-		public bool Deleted;
+		public bool Deleted { get; set; }
 
 		public virtual ICollection<PeriodPrice> PeriodPrices { get; set; }
 

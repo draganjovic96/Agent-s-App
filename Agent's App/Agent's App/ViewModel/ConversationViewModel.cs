@@ -17,7 +17,7 @@ namespace Agent_s_App.ViewModel
 			Width = message.MessageContent.Length * 10;
 			else
 				Width = 700;
-			if (Message.Sender.Id == messagesViewModel.AgentViewModel.LoggedUser.Id)
+			if (Message.Sender.Id == messagesViewModel.AgentViewModel.LoggedUser.Id || Message.Sender.Role == UserRole.AGENT)
 			{
 				Alignment = "Left";
 				Position = 0;

@@ -25,9 +25,11 @@ namespace Agent_s_App.ViewModel
 		public ReservationsPageCommand ReservationsPageCommand { get; set; }
 		public CommentsPageCommand CommentsPageCommand { get; set; }
 		public ServicesPageCommand ServicesPageCommand { get; set; }
+		public AgentViewModel AgentViewModel { get; set; }
+
 		private UserControl activePage;
 
-		public HomePageViewModel(User loggedUser, Accommodation accommodation)
+		public HomePageViewModel(User loggedUser, Accommodation accommodation, AgentViewModel agentViewModel)
 		{
 			if (accommodation != null)
 			{
@@ -45,6 +47,7 @@ namespace Agent_s_App.ViewModel
 			ReservationsPageCommand = new ReservationsPageCommand(null, this);
 			CommentsPageCommand = new CommentsPageCommand(this);
 			ServicesPageCommand = new ServicesPageCommand(this);
+			AgentViewModel = agentViewModel;
 		}
 
 		public string UnitsButtonColor

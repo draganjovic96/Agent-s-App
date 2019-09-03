@@ -28,5 +28,10 @@ namespace Agent_s_App.View.HomePageViews
 			InitializeComponent();
 			DataContext = new AccommodationUnitViewModel(accommodationUnit, homePageViewModel);
 		}
+
+		private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		{
+
+		}
 	}
 }

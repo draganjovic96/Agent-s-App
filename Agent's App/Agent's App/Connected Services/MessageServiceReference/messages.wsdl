@@ -16,6 +16,21 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+      <xs:element name="setMessagesSeenRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="reservationId" type="xs:long" />
+            <xs:element name="reciever" type="tns:user" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="setMessagesSeenResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="success" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element name="respondRequest">
         <xs:complexType>
           <xs:sequence>
@@ -39,7 +54,6 @@
           <xs:element name="reciever" type="tns:user" />
           <xs:element name="deleted" type="xs:boolean" />
           <xs:element name="reservation" type="tns:reservation" />
-          <xs:element name="accommodation" type="tns:accommodation" />
           <xs:element name="id" type="xs:long" />
         </xs:sequence>
       </xs:complexType>
@@ -111,6 +125,12 @@
   <wsdl:message name="getMessagesByReservationResponse">
     <wsdl:part name="getMessagesByReservationResponse" element="sch:getMessagesByReservationResponse" />
   </wsdl:message>
+  <wsdl:message name="setMessagesSeenRequest">
+    <wsdl:part name="setMessagesSeenRequest" element="sch:setMessagesSeenRequest" />
+  </wsdl:message>
+  <wsdl:message name="setMessagesSeenResponse">
+    <wsdl:part name="setMessagesSeenResponse" element="sch:setMessagesSeenResponse" />
+  </wsdl:message>
   <wsdl:message name="respondResponse">
     <wsdl:part name="respondResponse" element="sch:respondResponse" />
   </wsdl:message>
@@ -125,6 +145,10 @@
       <wsdl:input name="getMessagesByReservationRequest" message="tns:getMessagesByReservationRequest" />
       <wsdl:output name="getMessagesByReservationResponse" message="tns:getMessagesByReservationResponse" />
     </wsdl:operation>
+    <wsdl:operation name="setMessagesSeen">
+      <wsdl:input name="setMessagesSeenRequest" message="tns:setMessagesSeenRequest" />
+      <wsdl:output name="setMessagesSeenResponse" message="tns:setMessagesSeenResponse" />
+    </wsdl:operation>
     <wsdl:operation name="respond">
       <wsdl:input name="respondRequest" message="tns:respondRequest" />
       <wsdl:output name="respondResponse" message="tns:respondResponse" />
@@ -138,6 +162,15 @@
         <soap:body use="literal" />
       </wsdl:input>
       <wsdl:output name="getMessagesByReservationResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setMessagesSeen">
+      <soap:operation soapAction="" />
+      <wsdl:input name="setMessagesSeenRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="setMessagesSeenResponse">
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>

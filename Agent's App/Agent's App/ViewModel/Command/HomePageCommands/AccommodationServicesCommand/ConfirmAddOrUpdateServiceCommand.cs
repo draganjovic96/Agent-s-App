@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Agent_s_App.ViewModel.Command.HomePageCommands.AccommodationServicesCommand
@@ -29,13 +30,23 @@ namespace Agent_s_App.ViewModel.Command.HomePageCommands.AccommodationServicesCo
 
 		public void Execute(object parameter)
 		{
-			Random rnd = new Random();
 			Core.Model.AccommodationService service = new Core.Model.AccommodationService();
-			if(Service == null) service.Id = rnd.Next(456727);
-			else service.Id = Service.Id;
 			service.Name = AccommodationServiceViewModel.Name;
 			service.Description = AccommodationServiceViewModel.Description;
-			AccommodationServiceViewModel.AccommodationServicesViewModel.AccommodationServiceService.AddService(service);
+			if (AccommodationServiceViewModel.AddOrSaveButton.Equals("Add"))
+				if (AccommodationServiceViewModel.AccommodationServicesViewModel.AccommodationServiceService.AddService(service))
+					MessageBox.Show("Service added.");
+				else
+					MessageBox.Show("Can't add service.");
+			else
+			{
+				service.Id = Service.Id;
+				if(AccommodationServiceViewModel.AccommodationServicesViewModel.AccommodationServiceService.UpdateService(service))
+					MessageBox.Show("Service, with " + Service.Id + " ID, updated."); 
+				else
+					MessageBox.Show("Can't update service with" + Service.Id + " ID.");
+
+			}
 			AccommodationServiceViewModel.AccommodationServicesViewModel.HomePageViewModel.ActivePage = new ServicesView(AccommodationServiceViewModel.AccommodationServicesViewModel.HomePageViewModel);
 		}
 	}

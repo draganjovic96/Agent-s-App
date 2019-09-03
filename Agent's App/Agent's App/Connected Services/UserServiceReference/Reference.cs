@@ -79,6 +79,14 @@ namespace Agent_s_App.UserServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         System.Threading.Tasks.Task<Agent_s_App.UserServiceReference.deleteResponse1> deleteAsync(Agent_s_App.UserServiceReference.deleteRequest1 request);
         
+        // CODEGEN: Generating message contract since the operation updateUser is neither RPC nor document wrapped.
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        Agent_s_App.UserServiceReference.updateUserResponse1 updateUser(Agent_s_App.UserServiceReference.updateUserRequest1 request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        System.Threading.Tasks.Task<Agent_s_App.UserServiceReference.updateUserResponse1> updateUserAsync(Agent_s_App.UserServiceReference.updateUserRequest1 request);
+        
         // CODEGEN: Generating message contract since the operation getUsers is neither RPC nor document wrapped.
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -132,7 +140,7 @@ namespace Agent_s_App.UserServiceReference {
         
         private bool approvedCommentField;
         
-        private long idReservationField;
+        private long idField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=0)]
@@ -160,13 +168,13 @@ namespace Agent_s_App.UserServiceReference {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public long idReservation {
+        public long id {
             get {
-                return this.idReservationField;
+                return this.idField;
             }
             set {
-                this.idReservationField = value;
-                this.RaisePropertyChanged("idReservation");
+                this.idField = value;
+                this.RaisePropertyChanged("id");
             }
         }
         
@@ -1443,6 +1451,104 @@ namespace Agent_s_App.UserServiceReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.projectXml.com/mojuser")]
+    public partial class updateUserRequest : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private user userField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public user user {
+            get {
+                return this.userField;
+            }
+            set {
+                this.userField = value;
+                this.RaisePropertyChanged("user");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.projectXml.com/mojuser")]
+    public partial class updateUserResponse : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private bool successField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public bool success {
+            get {
+                return this.successField;
+            }
+            set {
+                this.successField = value;
+                this.RaisePropertyChanged("success");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class updateUserRequest1 {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.projectXml.com/mojuser", Order=0)]
+        public Agent_s_App.UserServiceReference.updateUserRequest updateUserRequest;
+        
+        public updateUserRequest1() {
+        }
+        
+        public updateUserRequest1(Agent_s_App.UserServiceReference.updateUserRequest updateUserRequest) {
+            this.updateUserRequest = updateUserRequest;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class updateUserResponse1 {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.projectXml.com/mojuser", Order=0)]
+        public Agent_s_App.UserServiceReference.updateUserResponse updateUserResponse;
+        
+        public updateUserResponse1() {
+        }
+        
+        public updateUserResponse1(Agent_s_App.UserServiceReference.updateUserResponse updateUserResponse) {
+            this.updateUserResponse = updateUserResponse;
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.projectXml.com/mojuser")]
     public partial class getUsersRequest : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string usernameField;
@@ -1713,6 +1819,29 @@ namespace Agent_s_App.UserServiceReference {
             Agent_s_App.UserServiceReference.deleteRequest1 inValue = new Agent_s_App.UserServiceReference.deleteRequest1();
             inValue.deleteRequest = deleteRequest;
             return ((Agent_s_App.UserServiceReference.MojuserPort)(this)).deleteAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Agent_s_App.UserServiceReference.updateUserResponse1 Agent_s_App.UserServiceReference.MojuserPort.updateUser(Agent_s_App.UserServiceReference.updateUserRequest1 request) {
+            return base.Channel.updateUser(request);
+        }
+        
+        public Agent_s_App.UserServiceReference.updateUserResponse updateUser(Agent_s_App.UserServiceReference.updateUserRequest updateUserRequest) {
+            Agent_s_App.UserServiceReference.updateUserRequest1 inValue = new Agent_s_App.UserServiceReference.updateUserRequest1();
+            inValue.updateUserRequest = updateUserRequest;
+            Agent_s_App.UserServiceReference.updateUserResponse1 retVal = ((Agent_s_App.UserServiceReference.MojuserPort)(this)).updateUser(inValue);
+            return retVal.updateUserResponse;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Agent_s_App.UserServiceReference.updateUserResponse1> Agent_s_App.UserServiceReference.MojuserPort.updateUserAsync(Agent_s_App.UserServiceReference.updateUserRequest1 request) {
+            return base.Channel.updateUserAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Agent_s_App.UserServiceReference.updateUserResponse1> updateUserAsync(Agent_s_App.UserServiceReference.updateUserRequest updateUserRequest) {
+            Agent_s_App.UserServiceReference.updateUserRequest1 inValue = new Agent_s_App.UserServiceReference.updateUserRequest1();
+            inValue.updateUserRequest = updateUserRequest;
+            return ((Agent_s_App.UserServiceReference.MojuserPort)(this)).updateUserAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

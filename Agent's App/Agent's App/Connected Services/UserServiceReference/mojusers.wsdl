@@ -30,6 +30,20 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+      <xs:element name="updateUserRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="user" type="tns:user" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateUserResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="success" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element name="deleteRequest">
         <xs:complexType>
           <xs:sequence>
@@ -118,7 +132,7 @@
         <xs:sequence>
           <xs:element name="contentOfComment" type="xs:string" />
           <xs:element name="approvedComment" type="xs:boolean" />
-          <xs:element name="idReservation" type="xs:long" />
+          <xs:element name="id" type="xs:long" />
         </xs:sequence>
       </xs:complexType>
       <xs:element name="addAccommodationToUserRequest">
@@ -228,11 +242,17 @@
   <wsdl:message name="blockResponse">
     <wsdl:part name="blockResponse" element="tns:blockResponse" />
   </wsdl:message>
+  <wsdl:message name="updateUserRequest">
+    <wsdl:part name="updateUserRequest" element="tns:updateUserRequest" />
+  </wsdl:message>
   <wsdl:message name="getUsersRequest">
     <wsdl:part name="getUsersRequest" element="tns:getUsersRequest" />
   </wsdl:message>
   <wsdl:message name="addUserResponse">
     <wsdl:part name="addUserResponse" element="tns:addUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateUserResponse">
+    <wsdl:part name="updateUserResponse" element="tns:updateUserResponse" />
   </wsdl:message>
   <wsdl:message name="getUsersResponse">
     <wsdl:part name="getUsersResponse" element="tns:getUsersResponse" />
@@ -278,6 +298,10 @@
     <wsdl:operation name="delete">
       <wsdl:input name="deleteRequest" message="tns:deleteRequest" />
       <wsdl:output name="deleteResponse" message="tns:deleteResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="updateUser">
+      <wsdl:input name="updateUserRequest" message="tns:updateUserRequest" />
+      <wsdl:output name="updateUserResponse" message="tns:updateUserResponse" />
     </wsdl:operation>
     <wsdl:operation name="getUsers">
       <wsdl:input name="getUsersRequest" message="tns:getUsersRequest" />
@@ -355,6 +379,15 @@
         <soap:body use="literal" />
       </wsdl:input>
       <wsdl:output name="deleteResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateUser">
+      <soap:operation soapAction="" />
+      <wsdl:input name="updateUserRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updateUserResponse">
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>

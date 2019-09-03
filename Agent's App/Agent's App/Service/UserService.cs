@@ -49,8 +49,9 @@ namespace Agent_s_App.Service
 
 		public void UpdateUser(User user)
 		{
-			unitOfWork.Users.Add(user);
-			unitOfWork.Complete();
+			UpdateUserRequestDTO updateUserRequestDTO = new UpdateUserRequestDTO(user);
+			updateUserResponse respone = MojUserPortClient.updateUser(updateUserRequestDTO.UpdateUserRequest);
+			LogIn(user.Username, user.Password);
 		}
 	}
 }
