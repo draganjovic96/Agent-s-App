@@ -575,7 +575,7 @@ namespace Agent_s_App.PeriodPriceServiceReference {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="date", Order=3)]
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
         public System.DateTime FromDate {
             get {
                 return this.fromDateField;
@@ -587,7 +587,7 @@ namespace Agent_s_App.PeriodPriceServiceReference {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="date", Order=4)]
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
         public System.DateTime ToDate {
             get {
                 return this.toDateField;
@@ -621,7 +621,7 @@ namespace Agent_s_App.PeriodPriceServiceReference {
         private System.DateTime toDateField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="date", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
         public System.DateTime FromDate {
             get {
                 return this.fromDateField;
@@ -633,7 +633,7 @@ namespace Agent_s_App.PeriodPriceServiceReference {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="date", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
         public System.DateTime ToDate {
             get {
                 return this.toDateField;

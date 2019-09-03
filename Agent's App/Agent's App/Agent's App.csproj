@@ -140,30 +140,63 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201908092329342_First.cs" />
-    <Compile Include="Migrations\201908092329342_First.Designer.cs">
-      <DependentUpon>201908092329342_First.cs</DependentUpon>
+    <Compile Include="Migrations\201908261320341_First.cs" />
+    <Compile Include="Migrations\201908261320341_First.Designer.cs">
+      <DependentUpon>201908261320341_First.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Misc\DoubleValidationBehavior.cs" />
     <Compile Include="Misc\WebBrowserHelper.cs" />
     <Compile Include="RequestDTO\AddAccommodationRequestDTO.cs" />
+    <Compile Include="RequestDTO\AddPeriodPriceRequestDTO.cs" />
+    <Compile Include="RequestDTO\AddReservationRequestDTO.cs" />
+    <Compile Include="RequestDTO\AddServiceRequestDTO.cs" />
+    <Compile Include="RequestDTO\AddServiceToAccommodationRequestDTO.cs" />
     <Compile Include="RequestDTO\AddUnitRequestDTO.cs" />
+    <Compile Include="RequestDTO\AddUnitTypeRequestDTO.cs" />
+    <Compile Include="RequestDTO\DeletePeriodPriceRequestDTO.cs" />
+    <Compile Include="RequestDTO\DeleteServiceRequestDTO.cs" />
     <Compile Include="RequestDTO\DeleteUnitRequestDTO.cs" />
+    <Compile Include="RequestDTO\DeleteUnitTypeRequestDTO.cs" />
     <Compile Include="RequestDTO\GetAccommodationRequestDTO.cs" />
+    <Compile Include="RequestDTO\GetAccommodationServicesRequestDTO.cs" />
+    <Compile Include="RequestDTO\GetPeriodPricesRequestDTO.cs" />
+    <Compile Include="RequestDTO\GetServicesRequestDTO.cs" />
+    <Compile Include="RequestDTO\GetUnitReservationsRequestDTO.cs" />
     <Compile Include="RequestDTO\GetUnitsRequestDTO.cs" />
+    <Compile Include="RequestDTO\GetUnitTypesRequestDTO.cs" />
+    <Compile Include="RequestDTO\GetUserRequestDTO.cs" />
     <Compile Include="RequestDTO\LoginRequestDTO.cs" />
+    <Compile Include="RequestDTO\RemoveServiceFromAccommodationRequestDTO.cs" />
+    <Compile Include="RequestDTO\SendMessageRequestDTO.cs" />
+    <Compile Include="RequestDTO\SetMessagesSeenRequestDTO.cs" />
     <Compile Include="RequestDTO\UpdateAccommodationRequestDTO.cs" />
+    <Compile Include="RequestDTO\UpdatePeriodPriceRequestDTO.cs" />
+    <Compile Include="RequestDTO\UpdateReservationRequestDTO.cs" />
+    <Compile Include="RequestDTO\UpdateServiceRequestDTO.cs" />
     <Compile Include="RequestDTO\UpdateUnitRequestDTO.cs" />
+    <Compile Include="RequestDTO\UpdateUnitTypeRequestDTO.cs" />
+    <Compile Include="RequestDTO\UpdateUserRequestDTO.cs" />
     <Compile Include="ResponseDTO\AddAccommodationResponseDTO.cs" />
+    <Compile Include="ResponseDTO\AddServiceResponseDTO.cs" />
+    <Compile Include="ResponseDTO\AddServiceToAccommodationResponseDTO.cs" />
     <Compile Include="ResponseDTO\GetAccommodationResponseDTO.cs" />
+    <Compile Include="ResponseDTO\GetAccommodationServicesResponseDTO.cs" />
+    <Compile Include="ResponseDTO\GetMessagesByReservationResponseDTO.cs" />
+    <Compile Include="ResponseDTO\GetPeriodPricesResponseDTO.cs" />
+    <Compile Include="ResponseDTO\GetServicesResponseDTO.cs" />
+    <Compile Include="ResponseDTO\GetUnitReservationsResponseDTO.cs" />
     <Compile Include="ResponseDTO\GetUnitsResponseDTO.cs" />
+    <Compile Include="ResponseDTO\GetUnitTypesResponseDTO.cs" />
+    <Compile Include="ResponseDTO\GetUserResponseDTO.cs" />
     <Compile Include="ResponseDTO\LoginResponseDTO.cs" />
     <Compile Include="Service\AccommodationService.cs" />
     <Compile Include="Service\AccommodationServiceService.cs" />
     <Compile Include="Service\AccommodationUnitService.cs" />
     <Compile Include="Service\AccommodationUnitTypeService.cs" />
+    <Compile Include="Service\AddressService.cs" />
     <Compile Include="Service\CommentRateService.cs" />
+    <Compile Include="Service\MessageService.cs" />
     <Compile Include="Service\PeriodPriceService.cs" />
     <Compile Include="Service\ReservationService.cs" />
     <Compile Include="Service\UserService.cs" />
@@ -205,6 +238,7 @@
     <Compile Include="ViewModel\Command\HomePageCommands\ReservationCommands\CancelAddOrUpdateReservationCommand.cs" />
     <Compile Include="ViewModel\Command\HomePageCommands\ReservationCommands\ConfirmAddOrUpdateReservationCommand.cs" />
     <Compile Include="ViewModel\Command\HomePageCommands\ReservationCommands\DeleteReservationCommand.cs" />
+    <Compile Include="ViewModel\Command\HomePageCommands\ReservationCommands\GetMessagesByReservationCommand.cs" />
     <Compile Include="ViewModel\Command\HomePageCommands\ReservationCommands\UpdateReservationCommand.cs" />
     <Compile Include="ViewModel\Command\HomePageCommands\ReservationsPageCommand.cs" />
     <Compile Include="ViewModel\Command\HomePageCommands\ServicesPageCommand.cs" />
@@ -445,8 +479,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\201908092329342_First.resx">
-      <DependentUpon>201908092329342_First.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201908261320341_First.resx">
+      <DependentUpon>201908261320341_First.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -571,6 +605,12 @@
     <None Include="Connected Services\MessageServiceReference\Agent_s_App.MessageServiceReference.respondResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\MessageServiceReference\Agent_s_App.MessageServiceReference.setMessagesSeenResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MessageServiceReference\Agent_s_App.MessageServiceReference.setMessagesSeenResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\MessageServiceReference\messages.wsdl" />
     <None Include="Connected Services\PeriodPriceServiceReference\Agent_s_App.PeriodPriceServiceReference.addPeriodPriceResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -597,6 +637,12 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\PeriodPriceServiceReference\periodPrices.wsdl" />
+    <None Include="Connected Services\ReservationServiceReference\Agent_s_App.ReservationServiceReference.addReservationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ReservationServiceReference\Agent_s_App.ReservationServiceReference.addReservationResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ReservationServiceReference\Agent_s_App.ReservationServiceReference.confirmCommentResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -615,6 +661,12 @@
     <None Include="Connected Services\ReservationServiceReference\Agent_s_App.ReservationServiceReference.deleteCommentResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\ReservationServiceReference\Agent_s_App.ReservationServiceReference.deleteReservationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ReservationServiceReference\Agent_s_App.ReservationServiceReference.deleteReservationResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ReservationServiceReference\Agent_s_App.ReservationServiceReference.getReservationResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -624,7 +676,13 @@
     <None Include="Connected Services\ReservationServiceReference\Agent_s_App.ReservationServiceReference.getReservationsByUnitResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\ReservationServiceReference\Agent_s_App.ReservationServiceReference.reservation.datasource">
+    <None Include="Connected Services\ReservationServiceReference\Agent_s_App.ReservationServiceReference.getReservationsByUnitResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ReservationServiceReference\Agent_s_App.ReservationServiceReference.updateReservationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ReservationServiceReference\Agent_s_App.ReservationServiceReference.updateReservationResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ReservationServiceReference\reservations.wsdl" />
@@ -677,6 +735,12 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\UserServiceReference\Agent_s_App.UserServiceReference.unblockResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\UserServiceReference\Agent_s_App.UserServiceReference.updateUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\UserServiceReference\Agent_s_App.UserServiceReference.updateUserResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\UserServiceReference\Agent_s_App.UserServiceReference.user.datasource">
@@ -759,7 +823,9 @@
   <ItemGroup>
     <Resource Include="View\Resources\accommodation.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Connected Services\PeriodPriceServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
@@ -835,18 +901,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\MessageServiceReference\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\MessageServiceReference\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\MessageServiceReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Connected Services\AddressServiceReference\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
@@ -859,6 +913,27 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\PeriodPriceServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\PeriodPriceServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MessageServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MessageServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MessageServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Connected Services\ReservationServiceReference\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
@@ -866,18 +941,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\ReservationServiceReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\PeriodPriceServiceReference\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\PeriodPriceServiceReference\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\PeriodPriceServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

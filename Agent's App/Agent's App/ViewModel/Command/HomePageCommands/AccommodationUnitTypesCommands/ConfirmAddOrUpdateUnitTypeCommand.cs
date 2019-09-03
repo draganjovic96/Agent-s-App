@@ -36,10 +36,13 @@ namespace Agent_s_App.ViewModel.Command.HomePageCommands.AccommodationUnitTypesC
 
 		public void Execute(object parameter)
 		{
-			Random rnd = new Random();
-			if (AccommodationUnitType.Id == 0) AccommodationUnitType.Id = rnd.Next(100000);
 			AccommodationUnitType.Name = AccommodationUnitTypeViewModel.Name;
-			accommodationUnitTypeService.AddAccommodationUnitType(AccommodationUnitType);
+			if (AccommodationUnitTypeViewModel.AddOrSaveButton.Equals("Add"))
+				accommodationUnitTypeService.AddAccommodationUnitType(AccommodationUnitType);
+			else
+			{
+				accommodationUnitTypeService.UpdateAccommodationUnitType(AccommodationUnitType);
+			}
 			HomePageViewModel.setUnitTypesPage();
 		}
 	}

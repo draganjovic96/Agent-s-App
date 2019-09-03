@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Agent_s_App.ViewModel.Command.HomePageCommands.ReservationCommands
@@ -34,15 +35,27 @@ namespace Agent_s_App.ViewModel.Command.HomePageCommands.ReservationCommands
 
 		public void Execute(object parameter)
 		{
-			Random rnd = new Random();
 			Reservation reservation = ReservationViewModel.Reservation;
-			if (reservation.Id == 0) reservation.Id = rnd.Next(13456);
 			reservation.Guest = ReservationViewModel.Guest;
 			reservation.FromDate = ReservationViewModel.FromDate;
 			reservation.ToDate = ReservationViewModel.ToDate;
-			reservation.AgentConfirmed = ReservationViewModel.AgentConfirmed;
 			reservation.AccommodationUnit = ReservationViewModel.Unit;
-			ReservationsViewModel.ReservationService.AddReservation(reservation);
+			reservation.Price = ReservationViewModel.Price;
+			if (ReservationViewModel.AddOrSaveButton.Equals("Add"))
+			{
+				if (ReservationsViewModel.ReservationService.AddReservation(reservation))
+					MessageBox.Show("Reservation added.");
+				else
+					MessageBox.Show("Can't add reservation");
+			}
+			else
+			{
+				reservation.AgentConfirmed = ReservationViewModel.AgentConfirmed;
+				if (ReservationsViewModel.ReservationService.UpdateReservation(reservation))
+					MessageBox.Show("Reservation updated.");
+				else
+					MessageBox.Show("Can't update reservation.");
+			}
 			HomePageViewModel.setReservationsPage(Unit);
 		}
 	}

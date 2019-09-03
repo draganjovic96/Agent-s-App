@@ -27,13 +27,11 @@
             <RowDefinition Height="30"/>
             <RowDefinition Height="25*"/>
             <RowDefinition Height="30"/>
-            <RowDefinition Height="25*"/>
-            <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
         <Label Content="Comment"  Grid.Row="1" Style="{StaticResource FormLabel}"/>
         <Label Content="Rating"  Grid.Row="5" Style="{StaticResource FormLabel}"/>
         <Label Content="{Binding Time}"  Grid.Row="3" Grid.Column="2" Style="{StaticResource FormLabel}" FontSize="12"/>
-        <TextBlock Grid.Column="2" TextWrapping="Wrap" Text="{Binding Comment}" Grid.Row="1" Background="#FFDED9D9" Grid.RowSpan="2" />
+        <TextBlock Grid.Column="2" TextWrapping="Wrap" Text="{Binding Comment}" Grid.Row="1" Background="#FFDED9D9" Grid.RowSpan="3" />
         <Image Grid.Column="2" HorizontalAlignment="Left" Grid.Row="5" Source="{Binding RatingImage}"/>
     </Grid>
 </UserControl>

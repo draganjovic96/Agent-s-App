@@ -15,7 +15,7 @@ namespace Agent_s_App.ResponseDTO
 		public GetUnitsResponseDTO(getAccommodationUnitsResponse getAccommodationUnitResponse)
 		{
 			AccommodationUnits = new List<AccommodationUnit>();
-			foreach(accommodationUnit unitResponse in getAccommodationUnitResponse.accommodationUnits.ToList())
+			foreach (accommodationUnit unitResponse in getAccommodationUnitResponse.accommodationUnits.ToList())
 			{
 				AccommodationUnit unit = new AccommodationUnit()
 				{
@@ -26,8 +26,7 @@ namespace Agent_s_App.ResponseDTO
 					NumberOfBeds = unitResponse.NumberOfBeds,
 					AccommodationUnitType = new AccommodationUnitType()
 					{
-						Id = unitResponse.AccommodationUnitType.Id,
-						Name = unitResponse.AccommodationUnitType.Name
+						Id = unitResponse.AccommodationUnitType.Id
 					}
 				};
 				AccommodationUnits.Add(unit);

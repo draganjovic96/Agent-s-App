@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="327140cf-e419-4a46-96c2-a4d76ac33076" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="faab2b78-7fa2-4130-808f-f5fe1416df34" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,7 +22,7 @@
     <MetadataSource Address="http://localhost:9007/ws/reservations.wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="reservations.wsdl" MetadataType="Wsdl" ID="b3e1e4a9-c76e-4502-a6b7-3c2f7f761501" SourceId="1" SourceUrl="http://localhost:9007/ws/reservations.wsdl" />
+    <MetadataFile FileName="reservations.wsdl" MetadataType="Wsdl" ID="696013a9-4b65-4074-a42e-4246817dbf80" SourceId="1" SourceUrl="http://localhost:9007/ws/reservations.wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

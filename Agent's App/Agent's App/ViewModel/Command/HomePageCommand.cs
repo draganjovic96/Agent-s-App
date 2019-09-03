@@ -28,7 +28,7 @@ namespace Agent_s_App.ViewModel.Command
 
 		public void Execute(object parameter)
 		{
-			AgentViewModel.setHomePage(new HomePageView(AgentViewModel.LoggedUser, AgentViewModel.Accommodation));
+			AgentViewModel.setHomePage(new HomePageView(AgentViewModel.LoggedUser, AgentViewModel.Accommodation, AgentViewModel));
 			AgentViewModel.Accommodation.AccommodationUnits.ToList().AddRange(accommodationUnitService.GetAccommodationUnits(AgentViewModel.Accommodation.Id));
 		}
 	}

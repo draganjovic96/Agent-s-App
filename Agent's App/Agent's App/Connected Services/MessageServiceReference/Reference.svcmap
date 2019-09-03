@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2659bba2-633f-4e32-9332-b724a27e572a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="6bf1cb5a-830f-46e0-aea1-79af75dae351" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,7 +22,7 @@
     <MetadataSource Address="http://localhost:9007/ws/messages.wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="messages.wsdl" MetadataType="Wsdl" ID="b9584334-8a24-431e-a956-492d1f887f09" SourceId="1" SourceUrl="http://localhost:9007/ws/messages.wsdl" />
+    <MetadataFile FileName="messages.wsdl" MetadataType="Wsdl" ID="04444f2b-115a-4b1f-9211-47a6f2780a70" SourceId="1" SourceUrl="http://localhost:9007/ws/messages.wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

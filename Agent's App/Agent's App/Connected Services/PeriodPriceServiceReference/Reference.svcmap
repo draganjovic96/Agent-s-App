@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b24b463e-1d48-4457-9641-defd23d5ea36" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="083fb221-f128-4378-9d41-34d727fdafbd" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,7 +22,7 @@
     <MetadataSource Address="http://localhost:9007/ws/periodPrices.wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="periodPrices.wsdl" MetadataType="Wsdl" ID="ae273822-2f65-41d6-87fc-6d91b4718b72" SourceId="1" SourceUrl="http://localhost:9007/ws/periodPrices.wsdl" />
+    <MetadataFile FileName="periodPrices.wsdl" MetadataType="Wsdl" ID="1290d458-0204-4369-b45c-99b4dc89e364" SourceId="1" SourceUrl="http://localhost:9007/ws/periodPrices.wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

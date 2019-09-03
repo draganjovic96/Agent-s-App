@@ -20,6 +20,7 @@ namespace Agent_s_App.ViewModel.HomePageViewModels
 		private bool enableEdit;
 		private bool enableMessages;
 		private bool enableUnit;
+		private double price;
 
 		public AccommodationUnitService accommodationUnitService = new AccommodationUnitService();
 		public HomePageViewModel HomePageViewModel { get; set; }
@@ -32,6 +33,8 @@ namespace Agent_s_App.ViewModel.HomePageViewModels
 		public ConfirmAddOrUpdateReservationCommand ConfirmAddOrUpdateReservationCommand { get; set; }
 		public CancelAddOrUpdateReservationCommand CancelAddOrUpdateReservationCommand { get; set; }
 		public string AddOrSaveButton { get; set; }
+		public ReservationService ReservationService = new ReservationService();
+		public GetMessagesByReservationCommand GetMessagesByReservationCommand { get; set; }
 
 		public ReservationViewModel(Reservation reservation, ReservationsViewModel reservationsViewModel)
 		{
@@ -57,13 +60,15 @@ namespace Agent_s_App.ViewModel.HomePageViewModels
 				ToDate = reservation.ToDate;
 				UserConfirmed = reservation.Confirmed;
 				AgentConfirmed = reservation.AgentConfirmed;
+				Price = reservation.Price;
 				if (Guest.Id != HomePageViewModel.LoggedUser.Id)
 				{
 					EnableEdit = false;
-					EnableUnit = false;
 					CommentRatePage = new CommentRateView(reservationsViewModel);
 				}
+				EnableUnit = false;
 				Unit = reservation.AccommodationUnit;
+				GetMessagesByReservationCommand = new GetMessagesByReservationCommand(Reservation.Id, this);
 			}
 			else
 			{
@@ -83,6 +88,13 @@ namespace Agent_s_App.ViewModel.HomePageViewModels
 			set
 			{
 				unit = value;
+				if (Unit != null && FromDate != null && ToDate != null)
+				{
+					Reservation.AccommodationUnit = Unit;
+					Reservation.FromDate = FromDate;
+					Reservation.ToDate = ToDate;
+					Price = ReservationService.setPrice(Reservation);
+				}
 				OnPropertyChanged("Unit");
 			}
 		}
@@ -93,6 +105,13 @@ namespace Agent_s_App.ViewModel.HomePageViewModels
 			set
 			{
 				fromDate = value;
+				if (Unit != null && FromDate != null && ToDate != null)
+				{
+					Reservation.AccommodationUnit = Unit;
+					Reservation.FromDate = FromDate;
+					Reservation.ToDate = ToDate;
+					Price = ReservationService.setPrice(Reservation);
+				}
 				OnPropertyChanged("FromDate");
 			}
 		}
@@ -103,6 +122,13 @@ namespace Agent_s_App.ViewModel.HomePageViewModels
 			set
 			{
 				toDate = value;
+				if (Unit != null && FromDate != null && ToDate != null)
+				{
+					Reservation.AccommodationUnit = Unit;
+					Reservation.FromDate = FromDate;
+					Reservation.ToDate = ToDate;
+					Price = ReservationService.setPrice(Reservation);
+				}
 				OnPropertyChanged("ToDate");
 			}
 		}
@@ -145,6 +171,16 @@ namespace Agent_s_App.ViewModel.HomePageViewModels
 			{
 				enableUnit = value;
 				OnPropertyChanged("EnableUnit");
+			}
+		}
+
+		public double Price
+		{
+			get => price;
+			set
+			{
+				price = value;
+				OnPropertyChanged("Price");
 			}
 		}
 	}

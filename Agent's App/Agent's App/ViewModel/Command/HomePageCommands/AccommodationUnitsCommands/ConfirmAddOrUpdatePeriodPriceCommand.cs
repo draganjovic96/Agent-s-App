@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Agent_s_App.ViewModel.Command.HomePageCommands.AccommodationUnitsCommands
@@ -36,14 +37,17 @@ namespace Agent_s_App.ViewModel.Command.HomePageCommands.AccommodationUnitsComma
 
 		public void Execute(object parameter)
 		{
-			Random rnd = new Random();
-			if(PeriodPrice.Id == 0) PeriodPrice.Id = rnd.Next(1323124);
-			PeriodPrice.AccommodationUnit = PeriodPricesViewModel.AccommodationUnit;
 			PeriodPrice.FromDate = PeriodPriceViewModel.FromDate;
-			Console.WriteLine("----------------------------" + PeriodPriceViewModel.FromDate);
 			PeriodPrice.ToDate = PeriodPriceViewModel.ToDate;
 			PeriodPrice.Price = double.Parse(PeriodPriceViewModel.Price);
-			periodPriceService.AddPeriodPrice(PeriodPrice);
+			if (PeriodPriceViewModel.AddOrSaveButton.Equals("Add"))
+				periodPriceService.AddPeriodPrice(PeriodPrice, PeriodPricesViewModel.AccommodationUnit.Id);
+			else
+			{
+				PeriodPrice.AccommodationUnit.Id = PeriodPriceViewModel.PeriodPricesViewModel.AccommodationUnit.Id; 
+				if(periodPriceService.UpdatePeriodPrice(PeriodPrice)) MessageBox.Show("Period price, with " + PeriodPrice.Id + " ID, updated.");
+				else MessageBox.Show("Can't update period price.");
+			}
 			HomePageViewModel.ActivePage = new PeriodPricesView(HomePageViewModel, PeriodPricesViewModel.AccommodationUnit);
 		}
 	}

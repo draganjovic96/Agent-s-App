@@ -23,6 +23,14 @@ namespace Agent_s_App.MessageServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         System.Threading.Tasks.Task<Agent_s_App.MessageServiceReference.getMessagesByReservationResponse> getMessagesByReservationAsync(Agent_s_App.MessageServiceReference.getMessagesByReservationRequest1 request);
         
+        // CODEGEN: Generating message contract since the operation setMessagesSeen is neither RPC nor document wrapped.
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        Agent_s_App.MessageServiceReference.setMessagesSeenResponse1 setMessagesSeen(Agent_s_App.MessageServiceReference.setMessagesSeenRequest1 request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        System.Threading.Tasks.Task<Agent_s_App.MessageServiceReference.setMessagesSeenResponse1> setMessagesSeenAsync(Agent_s_App.MessageServiceReference.setMessagesSeenRequest1 request);
+        
         // CODEGEN: Generating message contract since the operation respond is neither RPC nor document wrapped.
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -122,268 +130,6 @@ namespace Agent_s_App.MessageServiceReference {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.projectXml.com/message")]
-    public partial class accommodation : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string descriptionField;
-        
-        private string nameField;
-        
-        private string categoryField;
-        
-        private address addressField;
-        
-        private accommodationType accommodationTypeField;
-        
-        private long idField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string Description {
-            get {
-                return this.descriptionField;
-            }
-            set {
-                this.descriptionField = value;
-                this.RaisePropertyChanged("Description");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string Name {
-            get {
-                return this.nameField;
-            }
-            set {
-                this.nameField = value;
-                this.RaisePropertyChanged("Name");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string Category {
-            get {
-                return this.categoryField;
-            }
-            set {
-                this.categoryField = value;
-                this.RaisePropertyChanged("Category");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public address Address {
-            get {
-                return this.addressField;
-            }
-            set {
-                this.addressField = value;
-                this.RaisePropertyChanged("Address");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-        public accommodationType AccommodationType {
-            get {
-                return this.accommodationTypeField;
-            }
-            set {
-                this.accommodationTypeField = value;
-                this.RaisePropertyChanged("AccommodationType");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-        public long Id {
-            get {
-                return this.idField;
-            }
-            set {
-                this.idField = value;
-                this.RaisePropertyChanged("Id");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.projectXml.com/message")]
-    public partial class address : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string countryField;
-        
-        private string cityField;
-        
-        private int postal_codeField;
-        
-        private string streetField;
-        
-        private string numberField;
-        
-        private string apartment_numberField;
-        
-        private double longitudeField;
-        
-        private double latitudeField;
-        
-        private long idField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string Country {
-            get {
-                return this.countryField;
-            }
-            set {
-                this.countryField = value;
-                this.RaisePropertyChanged("Country");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string City {
-            get {
-                return this.cityField;
-            }
-            set {
-                this.cityField = value;
-                this.RaisePropertyChanged("City");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public int Postal_code {
-            get {
-                return this.postal_codeField;
-            }
-            set {
-                this.postal_codeField = value;
-                this.RaisePropertyChanged("Postal_code");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public string Street {
-            get {
-                return this.streetField;
-            }
-            set {
-                this.streetField = value;
-                this.RaisePropertyChanged("Street");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-        public string Number {
-            get {
-                return this.numberField;
-            }
-            set {
-                this.numberField = value;
-                this.RaisePropertyChanged("Number");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-        public string Apartment_number {
-            get {
-                return this.apartment_numberField;
-            }
-            set {
-                this.apartment_numberField = value;
-                this.RaisePropertyChanged("Apartment_number");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
-        public double Longitude {
-            get {
-                return this.longitudeField;
-            }
-            set {
-                this.longitudeField = value;
-                this.RaisePropertyChanged("Longitude");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
-        public double Latitude {
-            get {
-                return this.latitudeField;
-            }
-            set {
-                this.latitudeField = value;
-                this.RaisePropertyChanged("Latitude");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=8)]
-        public long Id {
-            get {
-                return this.idField;
-            }
-            set {
-                this.idField = value;
-                this.RaisePropertyChanged("Id");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.projectXml.com/message")]
-    public enum accommodationType {
-        
-        /// <remarks/>
-        HOTEL,
-        
-        /// <remarks/>
-        MOTEL,
-        
-        /// <remarks/>
-        BED_AND_BREAKFAST,
     }
     
     /// <remarks/>
@@ -680,6 +426,150 @@ namespace Agent_s_App.MessageServiceReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.projectXml.com/message")]
+    public partial class address : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string countryField;
+        
+        private string cityField;
+        
+        private int postal_codeField;
+        
+        private string streetField;
+        
+        private string numberField;
+        
+        private string apartment_numberField;
+        
+        private double longitudeField;
+        
+        private double latitudeField;
+        
+        private long idField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string Country {
+            get {
+                return this.countryField;
+            }
+            set {
+                this.countryField = value;
+                this.RaisePropertyChanged("Country");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string City {
+            get {
+                return this.cityField;
+            }
+            set {
+                this.cityField = value;
+                this.RaisePropertyChanged("City");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public int Postal_code {
+            get {
+                return this.postal_codeField;
+            }
+            set {
+                this.postal_codeField = value;
+                this.RaisePropertyChanged("Postal_code");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public string Street {
+            get {
+                return this.streetField;
+            }
+            set {
+                this.streetField = value;
+                this.RaisePropertyChanged("Street");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public string Number {
+            get {
+                return this.numberField;
+            }
+            set {
+                this.numberField = value;
+                this.RaisePropertyChanged("Number");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public string Apartment_number {
+            get {
+                return this.apartment_numberField;
+            }
+            set {
+                this.apartment_numberField = value;
+                this.RaisePropertyChanged("Apartment_number");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+        public double Longitude {
+            get {
+                return this.longitudeField;
+            }
+            set {
+                this.longitudeField = value;
+                this.RaisePropertyChanged("Longitude");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
+        public double Latitude {
+            get {
+                return this.latitudeField;
+            }
+            set {
+                this.latitudeField = value;
+                this.RaisePropertyChanged("Latitude");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=8)]
+        public long Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+                this.RaisePropertyChanged("Id");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.projectXml.com/message")]
     public partial class message : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string messageContentField;
@@ -693,8 +583,6 @@ namespace Agent_s_App.MessageServiceReference {
         private bool deletedField;
         
         private reservation reservationField;
-        
-        private accommodation accommodationField;
         
         private long idField;
         
@@ -772,18 +660,6 @@ namespace Agent_s_App.MessageServiceReference {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=6)]
-        public accommodation accommodation {
-            get {
-                return this.accommodationField;
-            }
-            set {
-                this.accommodationField = value;
-                this.RaisePropertyChanged("accommodation");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
         public long id {
             get {
                 return this.idField;
@@ -836,6 +712,118 @@ namespace Agent_s_App.MessageServiceReference {
         
         public getMessagesByReservationResponse(Agent_s_App.MessageServiceReference.message[] getMessagesByReservationResponse1) {
             this.getMessagesByReservationResponse1 = getMessagesByReservationResponse1;
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.projectXml.com/message")]
+    public partial class setMessagesSeenRequest : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private long reservationIdField;
+        
+        private user recieverField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public long reservationId {
+            get {
+                return this.reservationIdField;
+            }
+            set {
+                this.reservationIdField = value;
+                this.RaisePropertyChanged("reservationId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public user reciever {
+            get {
+                return this.recieverField;
+            }
+            set {
+                this.recieverField = value;
+                this.RaisePropertyChanged("reciever");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.projectXml.com/message")]
+    public partial class setMessagesSeenResponse : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private bool successField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public bool success {
+            get {
+                return this.successField;
+            }
+            set {
+                this.successField = value;
+                this.RaisePropertyChanged("success");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class setMessagesSeenRequest1 {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.projectXml.com/message", Order=0)]
+        public Agent_s_App.MessageServiceReference.setMessagesSeenRequest setMessagesSeenRequest;
+        
+        public setMessagesSeenRequest1() {
+        }
+        
+        public setMessagesSeenRequest1(Agent_s_App.MessageServiceReference.setMessagesSeenRequest setMessagesSeenRequest) {
+            this.setMessagesSeenRequest = setMessagesSeenRequest;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class setMessagesSeenResponse1 {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.projectXml.com/message", Order=0)]
+        public Agent_s_App.MessageServiceReference.setMessagesSeenResponse setMessagesSeenResponse;
+        
+        public setMessagesSeenResponse1() {
+        }
+        
+        public setMessagesSeenResponse1(Agent_s_App.MessageServiceReference.setMessagesSeenResponse setMessagesSeenResponse) {
+            this.setMessagesSeenResponse = setMessagesSeenResponse;
         }
     }
     
@@ -999,6 +987,29 @@ namespace Agent_s_App.MessageServiceReference {
             Agent_s_App.MessageServiceReference.getMessagesByReservationRequest1 inValue = new Agent_s_App.MessageServiceReference.getMessagesByReservationRequest1();
             inValue.getMessagesByReservationRequest = getMessagesByReservationRequest;
             return ((Agent_s_App.MessageServiceReference.MessagePort)(this)).getMessagesByReservationAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Agent_s_App.MessageServiceReference.setMessagesSeenResponse1 Agent_s_App.MessageServiceReference.MessagePort.setMessagesSeen(Agent_s_App.MessageServiceReference.setMessagesSeenRequest1 request) {
+            return base.Channel.setMessagesSeen(request);
+        }
+        
+        public Agent_s_App.MessageServiceReference.setMessagesSeenResponse setMessagesSeen(Agent_s_App.MessageServiceReference.setMessagesSeenRequest setMessagesSeenRequest) {
+            Agent_s_App.MessageServiceReference.setMessagesSeenRequest1 inValue = new Agent_s_App.MessageServiceReference.setMessagesSeenRequest1();
+            inValue.setMessagesSeenRequest = setMessagesSeenRequest;
+            Agent_s_App.MessageServiceReference.setMessagesSeenResponse1 retVal = ((Agent_s_App.MessageServiceReference.MessagePort)(this)).setMessagesSeen(inValue);
+            return retVal.setMessagesSeenResponse;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Agent_s_App.MessageServiceReference.setMessagesSeenResponse1> Agent_s_App.MessageServiceReference.MessagePort.setMessagesSeenAsync(Agent_s_App.MessageServiceReference.setMessagesSeenRequest1 request) {
+            return base.Channel.setMessagesSeenAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Agent_s_App.MessageServiceReference.setMessagesSeenResponse1> setMessagesSeenAsync(Agent_s_App.MessageServiceReference.setMessagesSeenRequest setMessagesSeenRequest) {
+            Agent_s_App.MessageServiceReference.setMessagesSeenRequest1 inValue = new Agent_s_App.MessageServiceReference.setMessagesSeenRequest1();
+            inValue.setMessagesSeenRequest = setMessagesSeenRequest;
+            return ((Agent_s_App.MessageServiceReference.MessagePort)(this)).setMessagesSeenAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

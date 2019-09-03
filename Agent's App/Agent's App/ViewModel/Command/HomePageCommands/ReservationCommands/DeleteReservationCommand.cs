@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Agent_s_App.ViewModel.Command.HomePageCommands.ReservationCommands
@@ -26,7 +27,10 @@ namespace Agent_s_App.ViewModel.Command.HomePageCommands.ReservationCommands
 
 		public void Execute(object parameter)
 		{
-			ReservationsViewModel.ReservationService.DeleteReservation(ReservationsViewModel.Reservation);
+			if (ReservationsViewModel.ReservationService.DeleteReservation(ReservationsViewModel.Reservation.Id))
+				MessageBox.Show("Reservation with " + ReservationsViewModel.Reservation.Id + " ID deleted.");
+			else
+				MessageBox.Show("Can'd delete reservation with " + +ReservationsViewModel.Reservation.Id + " ID.");
 			ReservationsViewModel.HomePageViewModel.ActivePage = new ReservationsView(ReservationsViewModel.Unit, ReservationsViewModel.HomePageViewModel);
 		}
 	}

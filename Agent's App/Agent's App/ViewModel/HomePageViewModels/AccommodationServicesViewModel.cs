@@ -14,8 +14,6 @@ namespace Agent_s_App.ViewModel.HomePageViewModels
 	{
 		private Core.Model.AccommodationService service;
 
-		private bool affiliation;
-
 		public Accommodation Accommodation { get; set; }
 
 		public Core.Model.AccommodationService Service
@@ -67,7 +65,7 @@ namespace Agent_s_App.ViewModel.HomePageViewModels
 		{
 			HomePageViewModel = homePageViewModel;
 			List<ServiceWithAffiliation> services = new List<ServiceWithAffiliation>();
-			foreach(Core.Model.AccommodationService s in AccommodationServiceService.GetAllAccommodationServices())
+			foreach(Core.Model.AccommodationService s in AccommodationServiceService.GetAllAccommodationServices(HomePageViewModel.Accommodation.Id))
 			{
 				services.Add(new ServiceWithAffiliation(HomePageViewModel.Accommodation, s, this));
 			}

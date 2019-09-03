@@ -36,5 +36,9 @@ namespace Agent_s_App.Core.Model
 
 		[Required]
 		public virtual User Guest { get; set; }
+
+		public bool Deleted { get; set; }
+
+		public double Price { get; set; }
 	}
 }

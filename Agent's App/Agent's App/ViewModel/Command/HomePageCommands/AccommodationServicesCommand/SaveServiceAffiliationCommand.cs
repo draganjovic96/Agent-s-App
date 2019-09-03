@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Agent_s_App.ViewModel.Command.HomePageCommands.AccommodationServicesCommand
@@ -29,7 +30,17 @@ namespace Agent_s_App.ViewModel.Command.HomePageCommands.AccommodationServicesCo
 
 		public void Execute(object parameter)
 		{
-			AccommodationServiceService.SaveAffiliation(AccommodationServicesViewModel.HomePageViewModel.Accommodation, ((ServiceWithAffiliation)parameter).Affiliation, ((ServiceWithAffiliation)parameter).Service.Id);
+			if (AccommodationServiceService.SaveAffiliation(AccommodationServicesViewModel.HomePageViewModel.Accommodation.Id, ((ServiceWithAffiliation)parameter).Affiliation, ((ServiceWithAffiliation)parameter).Service.Id))
+				if (((ServiceWithAffiliation)parameter).Affiliation)
+					MessageBox.Show("Service added to accommodation.");
+				else
+					MessageBox.Show("Service removed from accommodation.");
+			else
+				if (((ServiceWithAffiliation)parameter).Affiliation)
+					MessageBox.Show("Can't add service to accommodation.");
+				else
+					MessageBox.Show("Can't remove service from accommodation.");
+
 			AccommodationServicesViewModel.HomePageViewModel.ActivePage = new ServicesView(AccommodationServicesViewModel.HomePageViewModel);
 		}
 	}
